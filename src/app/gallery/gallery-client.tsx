@@ -112,6 +112,11 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                             <p className="card-description">{item.description}</p>
                                         </div>
                                     </div>
+                                    {index === cardStack.length - 1 && (
+                                       <div className="absolute bottom-4 right-4 text-xs text-gray-400">
+                                         Faites glisser pour voir plus d&apos;images
+                                       </div>
+                                    )}
                                 </motion.div>
                             );
                         })}
