@@ -19,7 +19,7 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 py-12 sm:py-16 md:py-24">
         <div className="text-center mb-12 md:mb-16">
           <h1 className={`${lusitana.className} text-4xl sm:text-5xl font-bold text-stone-900`}>Notre Histoire</h1>
-          <p className="mt-4 text-base sm:text-lg text-stone-600 max-w-3xl mx-auto">La passion du goût, la tradition de l'excellence.</p>
+          <p className="mt-4 text-base sm:text-lg text-stone-600 max-w-3xl mx-auto">La passion du goût, la tradition de l&apos;excellence.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -33,12 +33,12 @@ export default function AboutPage() {
             />
           </div>
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <h2 className={`${lusitana.className} text-3xl font-semibold text-stone-800 mb-4`}>De la tradition à l'innovation</h2>
+            <h2 className={`${lusitana.className} text-3xl font-semibold text-stone-800 mb-4`}>De la tradition à l&apos;innovation</h2>
             <p className="mb-4 text-stone-700 leading-relaxed">
-              Fondée au cœur de Bruxelles, notre pâtisserie-boulangerie est le fruit d’une passion familiale transmise à travers les générations. Nous croyons en l'authenticité des ingrédients et au savoir-faire artisanal. Chaque jour, nous pétrissons, façonnons et cuisons avec amour pour vous offrir des produits d'exception.
+              Fondée au cœur de Bruxelles, notre pâtisserie-boulangerie est le fruit d’une passion familiale transmise à travers les générations. Nous croyons en l&apos;authenticité des ingrédients et au savoir-faire artisanal. Chaque jour, nous pétrissons, façonnons et cuisons avec amour pour vous offrir des produits d&apos;exception.
             </p>
             <p className="text-stone-700 leading-relaxed">
-              Notre spécialité, le trompe-l’œil, est l'expression de notre créativité. Nous aimons surprendre et émerveiller vos papilles en transformant des pâtisseries classiques en véritables œuvres d'art.
+              Notre spécialité, le trompe-l’œil, est l&apos;expression de notre créativité. Nous aimons surprendre et émerveiller vos papilles en transformant des pâtisseries classiques en véritables œuvres d&apos;art.
             </p>
           </div>
         </div>
