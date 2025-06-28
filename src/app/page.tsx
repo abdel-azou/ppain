@@ -159,7 +159,7 @@ export default function Home() {
 								viewport={{ once: true }}
 								transition={{ duration: 0.6, delay: 0.3 }}
 							>
-								Du spectaculaire gâteau trompe l'œil à la pièce montée raffinée, nous accompagnons vos moments les plus précieux avec des créations sur mesure.
+								Du spectaculaire gâteau trompe l&apos;œil à la pièce montée raffinée, nous accompagnons vos moments les plus précieux avec des créations sur mesure.
 							</motion.p>
 
 							<ul className="events-feature-list">
@@ -170,7 +170,7 @@ export default function Home() {
 									transition={{ duration: 0.5, delay: 0.4 }}
 								>
 									<CheckCircle2 className="feature-icon" />
-									<span>Gâteaux trompe l'œil et pièces montées</span>
+									<span>Gâteaux trompe l&apos;œil et pièces montées</span>
 								</motion.li>
 								<motion.li
 									initial={{ opacity: 0, x: 20 }}

@@ -55,7 +55,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
             <div className="gallery-container">
                 <div className="gallery-header">
                     <h1 className="gallery-title">Nos Créations</h1>
-                    <p className="gallery-subtitle">Glissez pour découvrir un univers de saveurs et d'artisanat.</p>
+                    <p className="gallery-subtitle">Glissez pour découvrir un univers de saveurs et d&apos;artisanat.</p>
                 </div>
 
                 <div className="filter-bar">
