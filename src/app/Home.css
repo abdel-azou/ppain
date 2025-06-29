@@ -440,7 +440,7 @@
     font-weight: 600;
     border: none;
     border-radius: 50px;
-    background-color: #7a6652;
+    background-color: #e84e1a9c; /* Couleur ambre/caramel chaleureuse */
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -450,7 +450,7 @@
 
 .events-cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(122, 102, 82, 0.3);
+    box-shadow: 0 6px 20px rgba(180, 83, 9, 0.35); /* Ombre assortie */
 }
 
 @media (min-width: 992px) {

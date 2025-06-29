@@ -58,16 +58,27 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/80 backdrop-blur-xl border-t border-stone-200"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="mobile-menu-container"
           >
-            <nav className="flex flex-col items-center space-y-4 py-6">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} onClick={toggleMenu} className={`text-xl font-medium ${pathname === link.href ? 'text-amber-800' : 'text-amber-600'}`}>
-                  {link.label}
-                </Link>
+            <nav className="mobile-menu-nav">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut', delay: index * 0.05 }}
+                >
+                  <Link 
+                    href={link.href} 
+                    onClick={toggleMenu} 
+                    className={`mobile-menu-link ${pathname === link.href ? 'active' : ''}`}>
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

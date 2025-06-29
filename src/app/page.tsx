@@ -96,8 +96,10 @@ export default function Home() {
 						viewport={{ once: true }}
 						transition={{ duration: 0.8, ease: 'easeOut' }}
 					>
-						<h2>Passion, fraîcheur et créativité</h2>
-						<p className="lead">
+						<h2 className="text-3xl font-bold text-stone-800 mb-4 text-center">
+							L&apos;Artisanat au Cœur de Nos Pâtisseries
+						</h2>
+						<p className="lead text-center max-w-2xl mx-auto">
 							Bienvenue chez Pain Pâtisserie. Nous sélectionnons des ingrédients de première qualité pour créer des pains, viennoiseries et pâtisseries qui éveillent les sens chaque jour.
 						</p>
 					</motion.div>

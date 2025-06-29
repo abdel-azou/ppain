@@ -15,12 +15,12 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
                         <h3 className="text-lg font-bold mb-4">Navigation</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="/" className="hover:text-amber-900">Accueil</Link></li>
-                            <li><Link href="/about" className="hover:text-amber-900">À Propos</Link></li>
-                            <li><Link href="/gallery" className="hover:text-amber-900">Galerie</Link></li>
-                            <li><Link href="/contact" className="hover:text-amber-900">Contact</Link></li>
-                        </ul>
+                        <div className="flex flex-wrap gap-x-4 gap-y-2">
+                            <Link href="/" className="hover:text-amber-900">Accueil</Link>
+                            <Link href="/about" className="hover:text-amber-900">À Propos</Link>
+                            <Link href="/gallery" className="hover:text-amber-900">Galerie</Link>
+                            <Link href="/contact" className="hover:text-amber-900">Contact</Link>
+                        </div>
                     </div>
                     <div>
                         <h3 className="text-lg font-bold mb-4">Nous trouver</h3>

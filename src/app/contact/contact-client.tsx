@@ -2,8 +2,9 @@
 
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Send } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 import ReviewsWidget from '@/components/ReviewsWidget';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function ContactClientPage() {
   const [name, setName] = useState('');
@@ -25,7 +26,12 @@ export default function ContactClientPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-2xl font-bold mb-6">Envoyer un message</h2>
+        <div className="text-center mb-4">
+          <span className="text-4xl" role="img" aria-label="Gâteau d'anniversaire">🎂</span>
+          <span className="text-4xl mx-4" role="img" aria-label="Tada">🎉</span>
+          <span className="text-4xl" role="img" aria-label="Bulle de parole">💬</span>
+        </div>
+        <h2 className="text-xl font-bold mb-6 text-center">Une question, une envie ?</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-stone-700 mb-2">Nom</label>
@@ -51,9 +57,9 @@ export default function ContactClientPage() {
           </div>
           <button 
             type="submit"
-            className="w-full bg-amber-800 text-white py-3 rounded-lg font-semibold hover:bg-amber-900 transition-colors flex items-center justify-center"
+            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
           >
-            <Send className="mr-2" size={20} />
+            <WhatsAppIcon size={20} color="white" />
             Envoyer via WhatsApp
           </button>
         </form>

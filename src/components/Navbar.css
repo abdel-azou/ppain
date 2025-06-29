@@ -1,0 +1,45 @@
+/* ... existing CSS ... */
+
+/* Styles pour le menu mobile */
+.mobile-menu-container {
+  position: absolute;
+  top: 100%; /* Se positionne juste en dessous du header */
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-left-radius: 1.5rem; /* 24px */
+  border-bottom-right-radius: 1.5rem; /* 24px */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Pour que les coins arrondis s'appliquent aux enfants */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.mobile-menu-link {
+  padding: 1rem 1.5rem; /* 16px 24px */
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  color: #44403c; /* stone-700 */
+  text-align: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  text-decoration: none;
+  display: block;
+}
+
+.mobile-menu-link:hover {
+  background-color: #f5f5f4; /* stone-100 */
+  color: #a855f7; /* amber-800 - couleur plus vive pour le survol */
+}
+
+.mobile-menu-link.active {
+  color: #92400e; /* amber-800 */
+  font-weight: 600;
+  background-color: rgba(251, 239, 219, 0.5);
+}

@@ -3,7 +3,13 @@
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const reviews = [
+interface Review {
+  name: string;
+  text: string;
+  rating: number;
+}
+
+const reviews: Review[] = [
 	{
 		name: 'Marie D.',
 		text: 'Les meilleurs croissants de Bruxelles ! Le trompe-l’œil est à tomber. Je recommande vivement.',

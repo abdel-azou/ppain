@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { Lusitana } from 'next/font/google';
+import './About.css';
 
 const lusitana = Lusitana({
   weight: ['400', '700'],
@@ -23,22 +24,26 @@ export default function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="animate-fade-in-up">
-            <Image
-              src="/photos/artisan-baker.jpg" // Assurez-vous que cette image existe dans public/photos
-              alt="Artisan boulanger pétrissant la pâte"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-2xl"
-            />
+          <div className="order-2 md:order-1 animate-fade-in-up">
+            <div className="stamp-container">
+              <div className="stamp-image-wrapper">
+                <Image
+                  src="/photos/entre.jpeg" // J'ai remplacé l'image manquante
+                  alt="Intérieur de la Pâtisserie Plaisir"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-2xl w-full h-auto stamp-image"
+                />
+              </div>
+            </div>
           </div>
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <h2 className={`${lusitana.className} text-3xl font-semibold text-stone-800 mb-4`}>De la tradition à l&apos;innovation</h2>
+          <div className="order-1 md:order-2 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <h2 className={`${lusitana.className} text-3xl font-semibold text-stone-800 mb-4`}>Créateurs de Souvenirs Sucrés</h2>
             <p className="mb-4 text-stone-700 leading-relaxed">
-              Fondée au cœur de Bruxelles, notre pâtisserie-boulangerie est le fruit d’une passion familiale transmise à travers les générations. Nous croyons en l&apos;authenticité des ingrédients et au savoir-faire artisanal. Chaque jour, nous pétrissons, façonnons et cuisons avec amour pour vous offrir des produits d&apos;exception.
+              Notre atelier à Bruxelles est plus qu&apos;une simple cuisine. C&apos;est un lieu d&apos;échange où les conversations se transforment en créations. Nous aimons croire que chaque gâteau que nous préparons est le début d&apos;une histoire : la vôtre. C&apos;est en vous écoutant que nous trouvons l&apos;inspiration pour des pâtisseries pleines de caractère.
             </p>
             <p className="text-stone-700 leading-relaxed">
-              Notre spécialité, le trompe-l’œil, est l&apos;expression de notre créativité. Nous aimons surprendre et émerveiller vos papilles en transformant des pâtisseries classiques en véritables œuvres d&apos;art.
+              Le trompe-l’œil est notre façon de jouer avec les apparences pour mieux révéler l&apos;essence d&apos;une saveur ou d&apos;une idée. C&apos;est une invitation à la surprise, un clin d&apos;œil gourmand qui transforme un dessert en un moment de joie. La plus belle des récompenses est de voir une étincelle dans vos yeux avant même la première bouchée.
             </p>
           </div>
         </div>

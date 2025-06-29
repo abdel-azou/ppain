@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} font-sans bg-stone-50 text-stone-800`}>
+      <body className={`${inter.variable} font-sans bg-white text-stone-800`}>
         <Navbar />
         <main>{children}</main>
         <Footer /> {/* Ajout du Footer */}
