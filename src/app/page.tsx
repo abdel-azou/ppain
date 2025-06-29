@@ -3,13 +3,15 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, MapPin, Navigation, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Seo } from '../components/Seo';
 import './Home.css';
+import useEmblaCarousel from 'embla-carousel-react';
+import { useCarousel } from '@/hooks/useCarousel';
 
 const specialties = [
 	{
-		imgSrc: '/photos/trompe-loeil.jpg',
+		imgSrc: '/photos/trompeoeil4.jpeg',
 		alt: "Gâteau en trompe-l'œil en forme de fruit par Pain Pâtisserie.",
 		title: "Gâteaux Trompe-l'œil",
 		description: 'Des créations artistiques qui surprennent les yeux et ravissent les papilles.',
@@ -26,9 +28,18 @@ const specialties = [
 		title: 'Tartes de Saison',
 		description: 'La fraîcheur des fruits de saison sur une pâte sablée croustillante.',
 	},
+  {
+		imgSrc: '/photos/tartefraise.jpeg',
+		alt: 'Tarte aux fraises fraîches de saison de Pain Pâtisserie.',
+		title: 'Tartes de Saison',
+		description: 'La fraîcheur des fruits de saison sur une pâte sablée croustillante.',
+	},
 ];
 
 export default function Home() {
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+	const { selectedIndex, scrollPrev, scrollNext, scrollTo } = useCarousel(emblaApi);
+
 	return (
 		<main id="home">
 			<Seo
@@ -55,14 +66,14 @@ export default function Home() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
 					>
-						Boulangerie Pâtisserie Artisanale à Evere
+						À Evere, le bon goût ne trompe pas.
 					</motion.h1>
 					<motion.p
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
 					>
-						La nouvelle signature gourmande de votre quartier.
+						Découvrez l&apos;art de la pâtisserie artisanale : des créations trompe-l&apos;œil audacieuses et des gâteaux sur mesure qui signeront vos événements à Bruxelles.
 					</motion.p>
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -93,32 +104,56 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="content-section">
+			<section className="content-section incontournables-section">
 				<div className="content-container">
 					<h2 className="section-title">Nos Incontournables</h2>
-					<div className="specialties-grid">
-						{specialties.map((item, index) => (
-							<motion.div
-								className="specialty-card"
-								key={index}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, amount: 0.3 }}
-								transition={{ delay: index * 0.2, duration: 0.6, ease: 'easeOut' }}
-							>
-								<div className="specialty-image-container">
-									<Image
-										src={item.imgSrc}
-										alt={item.alt}
-										width={400}
-										height={250}
-										className="specialty-image"
-									/>
-								</div>
-								<h3>{item.title}</h3>
-								<p>{item.description}</p>
-							</motion.div>
-						))}
+					<div className="embla">
+						<div className="embla__viewport" ref={emblaRef}>
+							<div className="embla__container">
+								{specialties.map((item, index) => (
+									<div className="embla__slide" key={index}>
+										<motion.div
+											className="specialty-card"
+											initial={{ opacity: 0, y: 20 }}
+											whileInView={{ opacity: 1, y: 0 }}
+											viewport={{ once: true, amount: 0.3 }}
+											transition={{ delay: index * 0.2, duration: 0.6, ease: 'easeOut' }}
+										>
+											<div className="specialty-image-container">
+												<Image
+													src={item.imgSrc}
+													alt={item.alt}
+													width={400}
+													height={250}
+													className="specialty-image"
+												/>
+											</div>
+											<h3>{item.title}</h3>
+											<p>{item.description}</p>
+										</motion.div>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<div className="embla__buttons">
+							<button className="embla__button embla__button--prev" onClick={scrollPrev}>
+								<ChevronLeft size={32} />
+							</button>
+							<button className="embla__button embla__button--next" onClick={scrollNext}>
+								<ChevronRight size={32} />
+							</button>
+						</div>
+
+						<div className="embla__dots">
+							{specialties.map((_, index) => (
+								<button
+									key={index}
+									onClick={() => scrollTo(index)}
+									className={`embla__dot ${index === selectedIndex ? 'embla__dot--selected' : ''}`}
+								/>
+							))}
+						</div>
 					</div>
 				</div>
 			</section>
@@ -152,7 +187,7 @@ export default function Home() {
 							>
 								Une Signature Gourmande Pour Vos Événements
 							</motion.h2>
-							<motion.p
+							<motion.div
 								className="events-description"
 								initial={{ opacity: 0, y: 20 }}
 								whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +195,7 @@ export default function Home() {
 								transition={{ duration: 0.6, delay: 0.3 }}
 							>
 								Du spectaculaire gâteau trompe l&apos;œil à la pièce montée raffinée, nous accompagnons vos moments les plus précieux avec des créations sur mesure.
-							</motion.p>
+							</motion.div>
 
 							<ul className="events-feature-list">
 								<motion.li

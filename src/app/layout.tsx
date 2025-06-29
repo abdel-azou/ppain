@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer"; // Ajout de l'importation
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans bg-stone-50 text-stone-800`}>
         <Navbar />
         <main>{children}</main>
+        <Footer /> {/* Ajout du Footer */}
       </body>
     </html>
   );

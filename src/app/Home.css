@@ -1,7 +1,5 @@
 /* Styles spécifiques pour le composant Home */
 
-/* ... (tous les styles que vous avez fournis) ... */
-
 /* --- Styles de base (Mobile-First) --- */
 
 .hero-section {
@@ -100,13 +98,115 @@
     color: #2f1b14;
 }
 
-.cta-button:active {
-    transform: scale(0.98);
+.cta-button span {
+    margin-right: 0.5rem;
+}
+
+/* --- Section Incontournables avec dégradé animé --- */
+.incontournables-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(270deg, #fdfbfb, #e2d1c3, #fdfbfb);
+    background-size: 400% 400%;
+    animation: gradientAnimation 18s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.incontournables-section .section-title {
+    color: #3a2d27; /* Un brun profond pour le titre */
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+.incontournables-section .specialty-card p {
+    color: #5c4b42; /* Un ton plus doux pour la description */
+}
+
+/* --- Embla Carousel Styles --- */
+.embla {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .embla__slide {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .embla__slide {
+        flex: 0 0 33.3333%;
+    }
+}
+
+.embla__buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.embla__button {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #e2d1c3;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    color: #3a2d27;
+}
+
+.embla__button:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.embla__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.embla__dot {
+    background-color: #d1c4b8;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.embla__dot--selected {
+    background-color: #3a2d27;
+    transform: scale(1.25);
 }
 
 /* --- Sections de contenu génériques --- */
 .content-section {
-    padding: 4rem 1.5rem;
+    padding: 4rem 1rem;
+    text-align: center;
 }
 
 .bg-cream {
