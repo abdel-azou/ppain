@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
   description:
     "Pain Pâtisserie à Evere, Bruxelles. Découvrez nos pâtisseries trompe-l'œil, gâteaux sur commande, brunchs, et service traiteur. Boulangerie artisanale de luxe.",
+  icons: {
+    icon: "/Logo.svg", // Définit le logo comme favicon
+  },
   keywords:
     "pâtisserie Bruxelles, boulangerie Evere, trompe l'œil, gâteau sur mesure, traiteur, brunch, click and collect, pâtisserie haut de gamme, artisan boulanger",
   authors: [{ name: "Pain Pâtisserie" }],

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image'; // Importation du composant Image
 import './Navbar.css';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 
@@ -32,9 +33,17 @@ export default function Navbar() {
       transition={{ duration: 0.35, ease: 'easeInOut' }}
       className="bg-white/70 backdrop-blur-xl sticky top-0 z-50 shadow-lg header-wave rounded-b-3xl"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-0 sm:px-6 lg:px-8"> {/* Modification ici */}
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="text-2xl font-bold text-amber-800">Pain Pâtisserie</Link>
+          <Link href="/" className="flex items-center z-10 pl-4 sm:pl-0"> {/* Modification ici */}
+            <Image 
+              src="/Logo.svg" 
+              alt="Pain Pâtisserie Logo" 
+              width={140} // Ajusté pour une meilleure visibilité
+              height={50} 
+              priority // Pour charger le logo plus rapidement
+            />
+          </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
@@ -47,7 +56,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-amber-800">
+            <button onClick={toggleMenu} className="text-amber-800 pr-4 sm:pr-0"> {/* Modification ici */}
               <Menu size={28} />
             </button>
           </div>
