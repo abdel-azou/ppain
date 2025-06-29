@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { Lusitana } from 'next/font/google';
+import { MapPin, CakeSlice, Coffee, Bus, Smile } from 'lucide-react'; // Import des icônes
 import './About.css';
 
 const lusitana = Lusitana({
@@ -48,6 +49,70 @@ export default function AboutPage() {
           </div>
         </div>
 
+        <div className="mt-16 md:mt-24">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className={`${lusitana.className} text-3xl sm:text-4xl font-semibold text-stone-800`}>Notre Atelier & Nos Spécialités</h2>
+            <p className="mt-4 text-base sm:text-lg text-stone-600 max-w-3xl mx-auto">Là où la magie opère, au cœur de Bruxelles.</p>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-8 md:gap-6 items-start">
+            {/* Colonne de gauche (prend 3/5 de la largeur sur desktop) */}
+            <div className="md:col-span-3 space-y-8 text-lg">
+              <div className="flex items-start gap-4">
+                <MapPin className="w-8 h-8 text-amber-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Notre port d&apos;attache</h3>
+                  <p className="text-stone-700 leading-relaxed">
+                    Tout a commencé en 2022, dans le quartier Paduwa à Evere, à deux pas de la sortie d’autoroute Evere-Woluwe (A3), entre la place Meiser et la place de la Paix.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Smile className="w-8 h-8 text-amber-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Notre mission</h3>
+                  <p className="text-stone-700 leading-relaxed">
+                    Réveiller vos papilles, même le lundi matin, avec des créations artisanales qui font sourire et saliver.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <CakeSlice className="w-8 h-8 text-amber-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Nos créations</h3>
+                  <p className="text-stone-700 leading-relaxed">
+                    Que ce soit pour une envie passagère ou un grand événement, nos créations s&apos;adaptent à vos désirs. Laissez-vous tenter par un trompe-l&apos;œil, un cheesecake fondant ou une viennoiserie. Pour vos réceptions, notre service traiteur imagine des buffets sucrés et salés sur mesure qui marqueront les esprits.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Colonne de droite (prend 2/5 de la largeur sur desktop) */}
+            <div className="md:col-span-2 space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-lg flex items-start gap-4">
+                <Coffee className="w-7 h-7 text-amber-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Petit-déjeuner à emporter</h3>
+                  <p className="text-stone-700 leading-relaxed">
+                    Msemen fourrés, baghrir, croissants... Le client est roi, même au saut du lit.
+                  </p>
+                </div>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg flex items-start gap-4">
+                <Bus className="w-7 h-7 text-amber-600 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Accès facile</h3>
+                  <p className="text-stone-700 leading-relaxed">
+                    <strong>Voiture:</strong> Sortie Evere-Woluwe (A3).
+                    <br />
+                    <strong>Bus:</strong> 21, 66, 80, R90, 819, R81.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center my-16 md:my-24">
            <h2 className={`${lusitana.className} text-3xl sm:text-4xl font-semibold text-stone-800 mb-8`}>Nos Engagements</h2>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -65,6 +130,7 @@ export default function AboutPage() {
                 </div>
            </div>
         </div>
+
       </div>
     </div>
   );
