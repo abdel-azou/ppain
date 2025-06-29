@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Ajout de useEffect
 import { Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image'; // Importation du composant Image
@@ -18,20 +18,39 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // Nouvel état pour le scroll
   const pathname = usePathname();
   const scrollDirection = useScrollDirection();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // On considère que la page est scrollée après 10px
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Nettoyage de l'écouteur d'événement au démontage du composant
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const headerVariants = {
+    visible: { y: 0 },
+    hidden: { y: '-100%' },
+  };
+
+  // Définition des classes conditionnelles
+  const headerClasses = isScrolled
+    ? "bg-white/70 backdrop-blur-xl sticky top-0 z-50 shadow-lg header-wave rounded-b-3xl"
+    : "relative z-50 bg-white";
 
   return (
     <motion.header 
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: '-100%' },
-      }}
-      animate={scrollDirection === 'down' && !isOpen ? 'hidden' : 'visible'}
+      variants={headerVariants}
+      animate={scrollDirection === 'down' && !isOpen && isScrolled ? 'hidden' : 'visible'}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
-      className="bg-white/70 backdrop-blur-xl sticky top-0 z-50 shadow-lg header-wave rounded-b-3xl"
+      className={headerClasses} // Utilisation des classes conditionnelles
     >
       <div className="container mx-auto px-0 sm:px-6 lg:px-8"> {/* Modification ici */}
         <div className="flex items-center justify-between h-20">
