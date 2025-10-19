@@ -119,6 +119,12 @@
     margin-bottom: 1.5rem;
 }
 
+.empty-stack-state .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
 .reset-button {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;

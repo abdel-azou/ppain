@@ -102,6 +102,21 @@
     margin-right: 0.5rem;
 }
 
+.hero-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cta-button-secondary {
+    background: #d97706;
+}
+
+.cta-button-secondary:hover {
+    background: #b45309;
+}
+
 /* --- Section Incontournables avec dégradé animé --- */
 .incontournables-section {
     padding: 4rem 1rem;

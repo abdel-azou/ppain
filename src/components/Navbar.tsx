@@ -12,6 +12,7 @@ import { useScrollDirection } from '@/hooks/useScrollDirection';
 const navLinks = [
   { href: '/', label: 'Accueil' },
   { href: '/gallery', label: 'Galerie' },
+  { href: '/events', label: 'Événements' },
   { href: '/about', label: 'À Propos' },
   { href: '/contact', label: 'Contact' },
 ];

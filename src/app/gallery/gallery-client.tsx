@@ -54,8 +54,11 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
         <section id="gallery" className="gallery-section-stacked">
             <div className="gallery-container">
                 <div className="gallery-header">
-                    <h1 className="gallery-title">Nos Créations</h1>
-                    <p className="gallery-subtitle">Glissez pour découvrir un univers de saveurs et d&apos;artisanat.</p>
+                    <h1 className="gallery-title">L&apos;Art de Faire Rêver</h1>
+                    <p className="gallery-subtitle">
+                        Découvrez nos créations comme on feuillette un livre d&apos;images. 
+                        Chaque pâtisserie raconte une histoire, la vôtre commence ici.
+                    </p>
                 </div>
 
                 <div className="filter-bar">
@@ -104,7 +107,8 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                         objectFit="cover"
                                         priority={index < 2}
                                         draggable="false"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        quality={85}
+                                        sizes="(max-width: 480px) 375px, (max-width: 768px) 768px, 1200px"
                                     />
                                     <div className="card-info-overlay">
                                         <div className="card-info-content">
@@ -128,7 +132,10 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                         >
-                            <p>Vous avez exploré toutes nos créations !</p>
+                            <p>Vous avez savouré toute notre galerie !</p>
+                            <p className="subtitle">
+                                Comme un bon repas, ça se recommence toujours avec plaisir.
+                            </p>
                             <button onClick={resetStack} className="reset-button">
                                 Revoir la galerie
                             </button>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import { Seo } from '../components/Seo';
 import './Home.css';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -11,28 +11,40 @@ import { useCarousel } from '@/hooks/useCarousel';
 
 const specialties = [
 	{
-		imgSrc: '/photos/trompeoeil4.jpeg',
-		alt: "Gâteau en trompe-l'œil en forme de fruit par Pain Pâtisserie.",
+		imgSrc: '/photos/webp/trompeoeil-citron.webp',
+		alt: "Citron trompe-l'œil magique, quand l'illusion devient plus vraie que nature et transforme la surprise en plaisir gourmand.",
 		title: "Gâteaux Trompe-l'œil",
-		description: 'Des créations artistiques qui surprennent les yeux et ravissent les papilles.',
+		description: 'L\'art de faire croire à vos yeux ce que vos papilles vont adorer découvrir.',
 	},
 	{
-		imgSrc: '/photos/grandgat3.jpeg',
-		alt: 'Gâteau signature aux trois chocolats de Pain Pâtisserie.',
-		title: 'Gâteaux Signature',
-		description: 'Des recettes uniques, perfectionnées pour un goût inoubliable.',
+		imgSrc: '/photos/webp/pain-baguette.webp',
+		alt: 'Baguettes traditionnelles dorées au four, fierté du savoir-faire boulanger français transmis depuis des générations.',
+		title: 'Pain Artisanal',
+		description: 'Le goût authentique du pain français, pétri à la main chaque matin avec passion.',
 	},
 	{
-		imgSrc: '/photos/tartefraise.jpeg',
-		alt: 'Tarte aux fraises fraîches de saison de Pain Pâtisserie.',
-		title: 'Tartes de Saison',
-		description: 'La fraîcheur des fruits de saison sur une pâte sablée croustillante.',
+		imgSrc: '/photos/webp/mignardise-minipatisserie.webp',
+		alt: 'Mignardises délicates et mini-pâtisseries, petits bijoux sucrés parfaits pour vos événements et réceptions.',
+		title: 'Mignardises & Mini-Pâtisseries',
+		description: 'L\'élégance à la française en format miniature pour vos moments précieux.',
 	},
-  {
-		imgSrc: '/photos/tartefraise.jpeg',
-		alt: 'Tarte aux fraises fraîches de saison de Pain Pâtisserie.',
-		title: 'Tartes de Saison',
-		description: 'La fraîcheur des fruits de saison sur une pâte sablée croustillante.',
+	{
+		imgSrc: '/photos/webp/sale-burgerauthentique.webp',
+		alt: 'Sandwich authentique fait maison, alliance parfaite entre tradition boulangère et saveurs généreuses du terroir.',
+		title: 'Restauration Salée',
+		description: 'Sandwichs artisanaux, plats du terroir et en-cas gourmands pour tous les moments.',
+	},
+	{
+		imgSrc: '/photos/webp/vienoiserie-croissant.webp',
+		alt: 'Croissants dorés comme un lever de soleil, promesse croustillante d\'un matin français réussi.',
+		title: 'Viennoiseries Traditionnelles',
+		description: 'Le petit-déjeuner à la française, celui qui réveille vos sens avant votre café.',
+	},
+	{
+		imgSrc: '/photos/webp/tarte-tartefraise.webp',
+		alt: 'Tarte aux fraises de saison, hymne à la nature française où chaque fruit raconte l\'histoire d\'un été parfait.',
+		title: 'Pâtisseries de Saison',
+		description: 'Quand mère Nature inspire nos pâtissiers pour des créations éphémères.',
 	},
 ];
 
@@ -42,18 +54,16 @@ export default function Home() {
 
 	return (
 		<main id="home">
-			<Seo
-				title="Gâteaux Trompe l'œil & sur mesure | Pain Pâtisserie, Evere"
-				description="Spécialiste du gâteau trompe l'œil à Evere, Bruxelles. Pain Pâtisserie crée des pâtisseries uniques et des gâteaux sur mesure pour vos événements."
+				<Seo
+				title="Boulangerie Pâtisserie Artisanale | Pain Frais, Trompe-l'œil, Mignardises - Evere Bruxelles"
+				description="Boulangerie-pâtisserie artisanale à Evere : pain frais quotidien, gâteaux trompe-l'œil uniques, mignardises, viennoiseries et restauration salée. Savoir-faire traditionnel depuis des générations."
 				canonicalUrl="https://www.votredomaine.be"
-				imageUrl="https://www.votredomaine.be/photos/comptoir2.jpeg"
-			/>
-
-			<section className="hero-section">
+				imageUrl="https://www.votredomaine.be/photos/webp/comptoir-vueclient.webp"
+			/>			<section className="hero-section">
 				<div className="hero-background">
 					<Image
-						src="/photos/comptoir2.jpeg"
-						alt="Vitrine de la boulangerie-pâtisserie Pain Pâtisserie à Evere, remplie de créations fraîches."
+						src="/photos/webp/comptoir-vueclient.webp"
+						alt="Votre premier regard sur notre univers sucré : le comptoir-vitrine où naissent les sourires et se réveillent les envies gourmandes du jour"
 						layout="fill"
 						objectFit="cover"
 						priority
@@ -73,17 +83,23 @@ export default function Home() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
 					>
-						Découvrez l&apos;art de la pâtisserie artisanale : des créations trompe-l&apos;œil audacieuses et des gâteaux sur mesure qui signeront vos événements à Bruxelles.
+						Boulangerie-pâtisserie artisanale à Evere : pain frais quotidien, trompe-l&apos;œil créatifs, mignardises raffinées et restauration salée maison. L&apos;authenticité du savoir-faire traditionnel.
 					</motion.p>
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
 					>
-						<Link href="/gallery" className="cta-button">
-							<span>Voir nos créations</span>
-							<ArrowRight size={20} />
-						</Link>
+						<div className="hero-cta-buttons">
+							<Link href="/gallery" className="cta-button">
+								<span>Voir nos créations</span>
+								<ArrowRight size={20} />
+							</Link>
+							<Link href="/events" className="cta-button cta-button-secondary">
+								<span>Événements sur mesure</span>
+								<Calendar size={20} />
+							</Link>
+						</div>
 					</motion.div>
 				</div>
 			</section>
@@ -171,8 +187,8 @@ export default function Home() {
 							transition={{ duration: 0.8, ease: 'easeOut' }}
 						>
 							<Image
-								src="/photos/gateau personalise.jpeg"
-								alt="Gâteau de fête personnalisé créé par Pain Pâtisserie"
+								src="/photos/webp/event-numbercake_baguedemariage.webp"
+																alt="Number cake et bague de mariage, quand l'amour se conjugue au présent sucré pour célébrer votre histoire d'amour unique"
 								width={600}
 								height={750}
 								className="events-image"
