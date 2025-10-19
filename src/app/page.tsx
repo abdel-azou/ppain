@@ -144,6 +144,7 @@ export default function Home() {
 													width={400}
 													height={250}
 													className="specialty-image"
+													loading="lazy"
 												/>
 											</div>
 											<h3>{item.title}</h3>
@@ -192,6 +193,7 @@ export default function Home() {
 								width={600}
 								height={750}
 								className="events-image"
+								loading="lazy"
 							/>
 						</motion.div>
 

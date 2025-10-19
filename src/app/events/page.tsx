@@ -392,7 +392,10 @@ export const metadata: Metadata = {
         title: "Événements Sur Mesure | Boulangerie Pâtisserie Artisanale Evere",
         description: "Créations exceptionnelles pour tous vos événements : mariages, anniversaires, entreprise. Gâteaux sur mesure, service traiteur et mignardises raffinées.",
         images: [{ url: '/photos/webp/event-numbercake_baguedemariage.webp' }]
-    }
+    },
+    alternates: {
+        canonical: 'https://www.painpatisserie.be/events',
+    },
 };
 
 // --- Page Component ---

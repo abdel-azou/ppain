@@ -29,9 +29,6 @@ export const metadata: Metadata = {
     description: 'Tradition, passion et savoir-faire artisanal dans nos 3 boutiques à Bruxelles.',
     images: ['/photos/webp/comptoir-vueclient.webp'],
   },
-  alternates: {
-    canonical: 'https://www.painpatisserie.be/about',
-  },
 };
 
 export default function AboutPage() {
@@ -48,7 +45,7 @@ export default function AboutPage() {
             <div className="stamp-container">
               <div className="stamp-image-wrapper">
                 <Image
-                  src="/photos/entre.jpeg"
+                  src="/photos/webp/entre.webp"
                   alt="Intérieur de la Pâtisserie Pain Pâtisserie Bruxelles - ambiance chaleureuse et professionnelle"
                   width={600}
                   height={400}
@@ -63,7 +60,7 @@ export default function AboutPage() {
               Nos ateliers à Bruxelles (Evere, Koekelberg, Molenbeek) sont plus que de simples cuisines. Ce sont des lieux d&apos;échange où les conversations se transforment en créations. Nous aimons croire que chaque gâteau que nous préparons est le début d&apos;une histoire : la vôtre. C&apos;est en vous écoutant que nous trouvons l&apos;inspiration pour des pâtisseries pleines de caractère.
             </p>
             <p className="text-stone-700 leading-relaxed">
-              Le trompe-l&apos;œil est notre façon de jouer avec les apparences pour mieux révéler l&apos;essence d&apos;une saveur ou d&apos;une idée. C&apos;est une invitation à la surprise, un clin d&apos;œil gourmand qui transforme un dessert en un moment de joie. La plus belle des récompenses est de voir une étincelle dans vos yeux avant même la première bouchée.
+              Le trompe-l'œil est notre façon de jouer avec les apparences pour mieux révéler l&apos;essence d&apos;une saveur ou d&apos;une idée. C&apos;est une invitation à la surprise, un clin d&apos;œil gourmand qui transforme un dessert en un moment de joie. La plus belle des récompenses est de voir une étincelle dans vos yeux avant même la première bouchée.
             </p>
           </div>
         </div>
@@ -79,13 +76,13 @@ export default function AboutPage() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-amber-600" />
-                <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Evere</h3>
+                <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Evere - Notre Première</h3>
               </div>
               <p className="text-stone-700 mb-3">
                 <strong>Adresse :</strong> 116 Chau. de Louvain, 1140 Evere
               </p>
               <p className="text-stone-700 leading-relaxed">
-                Notre boutique dans le quartier Paduwa, idéalement située à deux pas de la sortie d&apos;autoroute Evere-Woluwe (A3), entre la place Meiser et la place de la Paix.
+                Notre boutique historique depuis 2022, dans le quartier Paduwa. À deux pas de la sortie d'autoroute Evere-Woluwe (A3), entre la place Meiser et la place de la Paix.
               </p>
             </div>
 

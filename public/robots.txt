@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.painpatisserie.be/sitemap.xml
+
+# Fichiers à exclure du crawl
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: *.json$
+
+# Crawl-delay pour éviter la surcharge serveur
+Crawl-delay: 1

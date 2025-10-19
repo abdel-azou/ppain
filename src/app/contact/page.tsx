@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     'Chaussée de Gand 402',
     'WhatsApp commande 0472 25 05 78'
   ],
+  alternates: {
+    canonical: 'https://www.painpatisserie.be/contact',
+  },
 };
 
 export default function ContactPage() {

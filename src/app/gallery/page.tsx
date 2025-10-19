@@ -324,7 +324,10 @@ export const metadata: Metadata = {
         title: "Galerie Gourmande | 3 Boutiques Boulangerie Pâtisserie Artisanale Bruxelles",
         description: "Explorez notre savoir-faire dans 3 boutiques : entremets d'exception, pain frais, pâtisseries créatives à Evere, Koekelberg et Molenbeek.",
         images: [ { url: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp' } ]
-    }
+    },
+    alternates: {
+        canonical: 'https://www.painpatisserie.be/gallery',
+    },
 };
 
 // --- Page Component (Server Component) ---

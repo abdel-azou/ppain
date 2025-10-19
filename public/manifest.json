@@ -1,0 +1,49 @@
+{
+  "name": "Pain Pâtisserie Bruxelles",
+  "short_name": "Pain Pâtisserie",
+  "description": "Boulangerie-pâtisserie artisanale avec 3 boutiques à Bruxelles (Evere, Koekelberg, Molenbeek). Spécialistes du trompe-l'œil et gâteaux personnalisés.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f4",
+  "theme_color": "#d97706",
+  "lang": "fr",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/Logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["food", "shopping", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Galerie",
+      "short_name": "Galerie",
+      "description": "Découvrez nos créations artisanales",
+      "url": "/gallery",
+      "icons": [{ "src": "/Logo.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Événements",
+      "short_name": "Événements",
+      "description": "Gâteaux sur mesure pour vos événements",
+      "url": "/events",
+      "icons": [{ "src": "/Logo.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Contactez nos 3 boutiques",
+      "url": "/contact",
+      "icons": [{ "src": "/Logo.svg", "sizes": "96x96" }]
+    }
+  ]
+}
