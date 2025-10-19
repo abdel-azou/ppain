@@ -536,6 +536,20 @@
 .carousel-container.slides-1.slide-4 { transform: translateX(-400%); }
 .carousel-container.slides-1.slide-5 { transform: translateX(-500%); }
 .carousel-container.slides-1.slide-6 { transform: translateX(-600%); }
+.carousel-container.slides-1.slide-7 { transform: translateX(-700%); }
+.carousel-container.slides-1.slide-8 { transform: translateX(-800%); }
+.carousel-container.slides-1.slide-9 { transform: translateX(-900%); }
+.carousel-container.slides-1.slide-10 { transform: translateX(-1000%); }
+.carousel-container.slides-1.slide-11 { transform: translateX(-1100%); }
+.carousel-container.slides-1.slide-12 { transform: translateX(-1200%); }
+.carousel-container.slides-1.slide-13 { transform: translateX(-1300%); }
+.carousel-container.slides-1.slide-14 { transform: translateX(-1400%); }
+.carousel-container.slides-1.slide-15 { transform: translateX(-1500%); }
+.carousel-container.slides-1.slide-16 { transform: translateX(-1600%); }
+.carousel-container.slides-1.slide-17 { transform: translateX(-1700%); }
+.carousel-container.slides-1.slide-18 { transform: translateX(-1800%); }
+.carousel-container.slides-1.slide-19 { transform: translateX(-1900%); }
+.carousel-container.slides-1.slide-20 { transform: translateX(-2000%); }
 
 /* Dynamic transform based on classes - slides per view: 2 */
 .carousel-container.slides-2.slide-0 { transform: translateX(0%); }
@@ -545,6 +559,20 @@
 .carousel-container.slides-2.slide-4 { transform: translateX(-200%); }
 .carousel-container.slides-2.slide-5 { transform: translateX(-250%); }
 .carousel-container.slides-2.slide-6 { transform: translateX(-300%); }
+.carousel-container.slides-2.slide-7 { transform: translateX(-350%); }
+.carousel-container.slides-2.slide-8 { transform: translateX(-400%); }
+.carousel-container.slides-2.slide-9 { transform: translateX(-450%); }
+.carousel-container.slides-2.slide-10 { transform: translateX(-500%); }
+.carousel-container.slides-2.slide-11 { transform: translateX(-550%); }
+.carousel-container.slides-2.slide-12 { transform: translateX(-600%); }
+.carousel-container.slides-2.slide-13 { transform: translateX(-650%); }
+.carousel-container.slides-2.slide-14 { transform: translateX(-700%); }
+.carousel-container.slides-2.slide-15 { transform: translateX(-750%); }
+.carousel-container.slides-2.slide-16 { transform: translateX(-800%); }
+.carousel-container.slides-2.slide-17 { transform: translateX(-850%); }
+.carousel-container.slides-2.slide-18 { transform: translateX(-900%); }
+.carousel-container.slides-2.slide-19 { transform: translateX(-950%); }
+.carousel-container.slides-2.slide-20 { transform: translateX(-1000%); }
 
 /* Dynamic transform based on classes - slides per view: 3 */
 .carousel-container.slides-3.slide-0 { transform: translateX(0%); }
@@ -554,6 +582,20 @@
 .carousel-container.slides-3.slide-4 { transform: translateX(-133.333%); }
 .carousel-container.slides-3.slide-5 { transform: translateX(-166.666%); }
 .carousel-container.slides-3.slide-6 { transform: translateX(-200%); }
+.carousel-container.slides-3.slide-7 { transform: translateX(-233.333%); }
+.carousel-container.slides-3.slide-8 { transform: translateX(-266.666%); }
+.carousel-container.slides-3.slide-9 { transform: translateX(-300%); }
+.carousel-container.slides-3.slide-10 { transform: translateX(-333.333%); }
+.carousel-container.slides-3.slide-11 { transform: translateX(-366.666%); }
+.carousel-container.slides-3.slide-12 { transform: translateX(-400%); }
+.carousel-container.slides-3.slide-13 { transform: translateX(-433.333%); }
+.carousel-container.slides-3.slide-14 { transform: translateX(-466.666%); }
+.carousel-container.slides-3.slide-15 { transform: translateX(-500%); }
+.carousel-container.slides-3.slide-16 { transform: translateX(-533.333%); }
+.carousel-container.slides-3.slide-17 { transform: translateX(-566.666%); }
+.carousel-container.slides-3.slide-18 { transform: translateX(-600%); }
+.carousel-container.slides-3.slide-19 { transform: translateX(-633.333%); }
+.carousel-container.slides-3.slide-20 { transform: translateX(-666.666%); }
 
 .carousel-slide {
     min-width: calc(100% - 2rem);

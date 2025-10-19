@@ -12,9 +12,6 @@ const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    const address = "Chaussée de Louvain 906, 1140 Evere";
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    const wazeUrl = `https://waze.com/ul?q=${encodeURIComponent(address)}`;
 
     return (
         <footer className="footer-wave pt-20 pb-8 text-stone-900"> {/* Ajustement de la couleur du texte */}
@@ -31,13 +28,26 @@ const Footer = () => {
                         </div>
                     </div>
                     <div>
-                        <h3 className="text-lg font-bold mb-4">Nous trouver</h3>
-                        <p>{address}</p>
-                        <div className="flex space-x-4 mt-2">
-                            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-amber-900">
+                        <h3 className="text-lg font-bold mb-4">Nos 3 Boutiques</h3>
+                        <div className="space-y-3 text-sm">
+                            <div>
+                                <p className="font-semibold">📍 Evere</p>
+                                <p>Chaussée de Louvain 906<br/>1140 Evere, Bruxelles</p>
+                            </div>
+                            <div>
+                                <p className="font-semibold">📍 Koekelberg</p>
+                                <p>Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
+                            </div>
+                            <div>
+                                <p className="font-semibold">📍 Molenbeek</p>
+                                <p>Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
+                            </div>
+                        </div>
+                        <div className="flex space-x-4 mt-4">
+                            <a href="https://www.google.com/maps/search/Pain+Pâtisserie+Bruxelles" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-amber-900">
                                 <MapPin size={16} className="mr-1" /> Google Maps
                             </a>
-                            <a href={wazeUrl} target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-amber-900">
+                            <a href="https://waze.com/ul?ll=50.859161991144866,4.413543191474993&navigate=yes" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-amber-900">
                                 <Navigation size={16} className="mr-1" /> Waze
                             </a>
                         </div>
@@ -45,9 +55,9 @@ const Footer = () => {
                     <div>
                         <h3 className="text-lg font-bold mb-4">Suivez-nous</h3>
                         <div className="flex space-x-4">
-                            <a href="https://www.facebook.com/share/16oudhygiy/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-amber-900"><Facebook /></a>
-                            <a href="https://www.instagram.com/painpatisserie?igsh=MTM4MXFwaDBtOWRjdg==" target="_blank" rel="noopener noreferrer" className="hover:text-amber-900"><Instagram /></a>
-                            <a href="https://www.tiktok.com/@painpatisserie?_t=ZG-8xc5MttfGAj&_r=1" target="_blank" rel="noopener noreferrer" className="hover:text-amber-900"><TiktokIcon /></a>
+                            <a href="https://www.facebook.com/share/16oudhygiy/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-amber-900" title="Suivez-nous sur Facebook"><Facebook /></a>
+                            <a href="https://www.instagram.com/painpatisserie?igsh=MTM4MXFwaDBtOWRjdg==" target="_blank" rel="noopener noreferrer" className="hover:text-amber-900" title="Suivez-nous sur Instagram"><Instagram /></a>
+                            <a href="https://www.tiktok.com/@painpatisserie?_t=ZG-8xc5MttfGAj&_r=1" target="_blank" rel="noopener noreferrer" className="hover:text-amber-900" title="Suivez-nous sur TikTok"><TiktokIcon /></a>
                         </div>
                     </div>
                 </div>

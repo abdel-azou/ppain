@@ -302,6 +302,86 @@
     text-align: center;
 }
 
+/* Style Tailwind compatible pour les adresses */
+.space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.border-l-4 {
+    border-left-width: 4px;
+}
+
+.border-amber-600 {
+    border-left-color: #d97706;
+}
+
+.pl-4 {
+    padding-left: 1rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-amber-800 {
+    color: #92400e;
+}
+
+.text-stone-700 {
+    color: #44403c;
+}
+
+.text-stone-500 {
+    color: #78716c;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.locations-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.location-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.location-item:hover {
+    transform: translateY(-2px);
+}
+
+.location-item h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #7a6652;
+    margin-bottom: 0.75rem;
+}
+
 .location-address,
 .location-hours {
     line-height: 1.7;
@@ -361,6 +441,10 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
+.location-iframe {
+    border: 0;
+}
+
 /* --- Styles pour tablettes et plus (min-width: 768px) --- */
 @media (min-width: 768px) {
     .content-section {
@@ -373,15 +457,32 @@
     .location-grid {
         grid-template-columns: 1fr 1.5fr;
         text-align: left;
+        gap: 3rem;
     }
-    .location-info {
-        text-align: left;
+
+    .locations-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
     }
+
+    .location-item {
+        padding: 1.25rem;
+    }
+
+    .space-y-3 {
+        gap: 0.75rem;
+    }
+
     .location-buttons {
         flex-direction: row;
         justify-content: flex-start;
         gap: 1rem;
     }
+
+    .location-info {
+        text-align: left;
+    }
+    
     .map-button {
         width: auto;
     }

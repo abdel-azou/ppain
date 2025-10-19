@@ -2,14 +2,14 @@
 
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin, Navigation } from 'lucide-react';
 import ReviewsWidget from '@/components/ReviewsWidget';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function ContactClientPage() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
-  const phoneNumber = '32412345678'; // Remplacez par votre numéro de téléphone WhatsApp
+  const phoneNumber = '32472250578'; // Numéro WhatsApp correct
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -72,9 +72,64 @@ export default function ContactClientPage() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-          <h3 className="text-xl font-bold mb-4 flex items-center"><MapPin className="mr-3 text-amber-800"/> Notre Adresse</h3>
-          <p className="text-stone-700">Chaussée de Louvain 906, <br/>1140 Evere, Bruxelles</p>
-          <p className="text-sm text-stone-500 mt-2">Click and collect disponible</p>
+          <h3 className="text-xl font-bold mb-4 flex items-center"><MapPin className="mr-3 text-amber-800"/> Nos 3 Boutiques</h3>
+          <div className="space-y-3">
+            <div className="border-l-4 border-amber-600 pl-4">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <p className="font-semibold text-amber-800">📍 Evere</p>
+                  <p className="text-stone-700">Chaussée de Louvain 906<br/>1140 Evere, Bruxelles</p>
+                  <p className="text-xs text-stone-500">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+                </div>
+                <a
+                  href="https://waze.com/ul?ll=50.859161991144866,4.413543191474993&navigate=yes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+                  title="Ouvrir dans Waze"
+                >
+                  <Navigation size={18} />
+                </a>
+              </div>
+            </div>
+            <div className="border-l-4 border-amber-600 pl-4">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <p className="font-semibold text-amber-800">📍 Koekelberg</p>
+                  <p className="text-stone-700">Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
+                  <p className="text-xs text-stone-500">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+                </div>
+                <a
+                  href="https://waze.com/ul?ll=50.86000270295589,4.334650008740216&navigate=yes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+                  title="Ouvrir dans Waze"
+                >
+                  <Navigation size={18} />
+                </a>
+              </div>
+            </div>
+            <div className="border-l-4 border-amber-600 pl-4">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <p className="font-semibold text-amber-800">📍 Molenbeek</p>
+                  <p className="text-stone-700">Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
+                  <p className="text-xs text-stone-500">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+                </div>
+                <a
+                  href="https://waze.com/ul?ll=50.858237997401716,4.319087859461207&navigate=yes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+                  title="Ouvrir dans Waze"
+                >
+                  <Navigation size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <p className="text-sm text-stone-500 mt-3">Click and collect disponible</p>
         </div>
         <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
           <h3 className="text-xl font-bold mb-4 flex items-center"><Phone className="mr-3 text-amber-800"/> Téléphone</h3>

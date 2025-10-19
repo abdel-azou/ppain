@@ -179,10 +179,22 @@ const eventItems = [
         longDescription: 'Nos entremets allient technique moderne et saveurs innovantes. Parfaits pour les événements qui demandent une touche de sophistication culinaire.',
         image: '/photos/webp/gateau-entremet.webp',
         category: 'entreprise',
-        featured: false,
+        featured: true,
         altText: 'Entremet moderne et sophistiqué pour événement professionnel',
         tags: ['entremet', 'moderne', 'sophistiqué', 'innovation'],
         services: ['Technique moderne', 'Saveurs innovantes', 'Présentation raffinée', 'Portions individuelles']
+    },
+    {
+        id: 17,
+        title: 'Entremets Signature pour Célébrations',
+        description: 'Nos créations phares : praline, monte-cristo et forêt noire revisités.',
+        longDescription: 'Pour vos célébrations les plus importantes, découvrez nos entremets signature. Chaque création allie tradition française et techniques contemporaines pour une expérience gustative inoubliable.',
+        image: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp',
+        category: 'celebration',
+        featured: true,
+        altText: 'Trio d\'entremets signature : praline, monte-cristo et forêt noire pour célébrations exceptionnelles',
+        tags: ['entremet signature', 'praline', 'monte-cristo', 'forêt noire', 'tradition'],
+        services: ['Entremets traditionnels', 'Techniques contemporaines', 'Saveurs signature', 'Présentation élégante']
     },
     {
         id: 16,

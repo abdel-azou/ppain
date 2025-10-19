@@ -208,7 +208,7 @@ const galleryItems = [
         description: 'Nos entremets, c\'est la preuve que la magie existe... et qu\'elle a bon goût.',
         longDescription: 'Entre praline, monte-cristo et forêt noire, nos entremets racontent l\'histoire de la pâtisserie française. Chacun d\'eux est un chapitre de cette belle aventure gustative que nous vous invitons à découvrir.',
         image: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp',
-        category: 'gateaux',
+        category: 'entremets',
         featured: true,
         altText: 'Trio d\'entremets légendaires : praline dorée, monte-cristo mystérieux et forêt noire romantique, chapitres délicieux de l\'histoire pâtissière française',
         tags: ['entremets', 'praline', 'monte-cristo', 'forêt noire']
@@ -278,6 +278,28 @@ const galleryItems = [
         featured: false,
         altText: 'Assortiment gourmand français : sablés bretons craquants et tartes aux fruits, voyage à travers la France des terroirs sur un plateau',
         tags: ['sablé breton', 'tarte aux fruits', 'France gourmande', 'terroir', 'classique français']
+    },
+    {
+        id: 26,
+        title: 'L\'entremet moderne : quand la technique épouse l\'émotion',
+        description: 'Nos entremets contemporains, c\'est la pâtisserie française qui se réinvente sans perdre son âme.',
+        longDescription: 'Chaque entremet est une symphonie de textures et de saveurs. Mousse aérienne, biscuit fondant, cœur coulant... nos pâtissiers composent des œuvres gourmandes où chaque couche raconte une histoire.',
+        image: '/photos/webp/entremet.webp',
+        category: 'entremets',
+        featured: true,
+        altText: 'Entremet moderne aux lignes épurées, symphonie de textures où chaque couche révèle une surprise gourmande sophistiquée',
+        tags: ['entremet', 'moderne', 'mousse', 'technique française', 'sophistication']
+    },
+    {
+        id: 27,
+        title: 'L\'art de l\'entremet : entre tradition et innovation',
+        description: 'Nos créations d\'entremets révèlent le savoir-faire de nos pâtissiers dans toute sa splendeur.',
+        longDescription: 'Inspirés par les grands maîtres pâtissiers, nos entremets allient techniques traditionnelles et créativité moderne. Chaque création est pensée pour émerveiller vos yeux avant de charmer vos papilles.',
+        image: '/photos/webp/entremet-.webp',
+        category: 'entremets',
+        featured: true,
+        altText: 'Création d\'entremet artisanale, alliance parfaite entre tradition pâtissière française et innovation contemporaine des saveurs',
+        tags: ['entremet', 'artisanal', 'innovation', 'tradition', 'maître pâtissier']
     }
 ];
 
@@ -287,6 +309,7 @@ const categories = [
     { id: 'pain-boulangerie', label: 'Pain & Boulangerie Artisanale' },
     { id: 'petit-dejeuner', label: 'Petit-Déjeuner & Traditions' },
     { id: 'restauration-salee', label: 'Restauration Salée Maison' },
+    { id: 'entremets', label: 'Entremets d\'Exception' },
     { id: 'petites-douceurs', label: 'Petits bonheurs du matin' },
     { id: 'specialites', label: 'L\'art de l\'illusion' },
     { id: 'gateaux', label: 'Grandes émotions' },
@@ -294,13 +317,13 @@ const categories = [
 
 // --- SEO Metadata (Server Component) ---
 export const metadata: Metadata = {
-    title: "Galerie Gourmande | Boulangerie Pâtisserie, Pain Frais, Trompe-l'œil, Mignardises - Evere Bruxelles",
-    description: "Découvrez notre savoir-faire artisanal à Evere : pain frais quotidien, pâtisseries trompe-l'œil uniques, mignardises raffinées, viennoiseries traditionnelles et restauration salée maison. L'authenticité du goût depuis des générations.",
-    keywords: ['boulangerie Evere', 'pâtisserie Bruxelles', 'pain frais quotidien', 'baguette tradition', 'trompe-l\'œil pâtisserie', 'mignardises événements', 'viennoiserie artisanale', 'sandwich maison', 'harcha baghrir msemen', 'mini-pizza apéritif', 'restauration salée', 'petit-déjeuner traditionnel', ...new Set(galleryItems.flatMap(item => item.tags || []))].join(', '),
+    title: "Galerie Gourmande | 3 Boutiques Bruxelles : Evere, Koekelberg, Molenbeek | Entremets d'Exception",
+    description: "Découvrez notre savoir-faire artisanal dans nos 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Entremets d'exception, pain frais quotidien, pâtisseries trompe-l'œil.",
+    keywords: ['boulangerie Evere', 'pâtisserie Koekelberg', 'boulangerie Molenbeek', 'entremets d\'exception Bruxelles', 'pain frais Bruxelles', '3 boutiques pâtisserie', 'Chaussée de Louvain 906', 'Rue Émile Sergijsels 34', 'Chaussée de Gand 402', 'praline monte-cristo forêt noire', 'trompe-l\'œil pâtisserie', 'mignardises événements', 'viennoiserie artisanale', ...new Set(galleryItems.flatMap(item => item.tags || []))].join(', '),
     openGraph: {
-        title: "Galerie Gourmande | Boulangerie Pâtisserie Artisanale Evere",
-        description: "Explorez notre savoir-faire : pain frais, pâtisseries créatives, mignardises et restauration salée maison.",
-        images: [ { url: '/photos/comptoir2.jpeg' } ]
+        title: "Galerie Gourmande | 3 Boutiques Boulangerie Pâtisserie Artisanale Bruxelles",
+        description: "Explorez notre savoir-faire dans 3 boutiques : entremets d'exception, pain frais, pâtisseries créatives à Evere, Koekelberg et Molenbeek.",
+        images: [ { url: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp' } ]
     }
 };
 
@@ -310,15 +333,33 @@ export default function GalleryPage() {
         '@context': 'https://schema.org',
         '@type': 'Bakery',
         name: 'Pain Pâtisserie',
-        address: {
-            '@type': 'PostalAddress',
-            streetAddress: 'Chaussée de Louvain 906',
-            addressLocality: 'Evere',
-            postalCode: '1140',
-            addressRegion: 'Bruxelles',
-            addressCountry: 'BE'
-        },
-        telephone: '+32 XX XXX XX XX', // Remplacez par votre numéro
+        address: [
+            {
+                '@type': 'PostalAddress',
+                streetAddress: 'Chaussée de Louvain 906',
+                addressLocality: 'Evere',
+                postalCode: '1140',
+                addressRegion: 'Bruxelles',
+                addressCountry: 'BE'
+            },
+            {
+                '@type': 'PostalAddress',
+                streetAddress: 'Rue Émile Sergijsels 34',
+                addressLocality: 'Koekelberg',
+                postalCode: '1081',
+                addressRegion: 'Bruxelles',
+                addressCountry: 'BE'
+            },
+            {
+                '@type': 'PostalAddress',
+                streetAddress: 'Chaussée de Gand 402',
+                addressLocality: 'Molenbeek-Saint-Jean',
+                postalCode: '1080',
+                addressRegion: 'Bruxelles',
+                addressCountry: 'BE'
+            }
+        ],
+        telephone: '+32 472 25 05 78',
         image: galleryItems.map(item => `https://www.votredomaine.be${item.image}`),
         servesCuisine: 'Pâtisserie, Boulangerie, Traiteur',
         priceRange: '€€',

@@ -8,16 +8,19 @@ const lusitana = Lusitana({
 });
 
 export const metadata: Metadata = {
-  title: 'Contact & Commande - Pain Pâtisserie Bruxelles',
-  description: 'Contactez Pain Pâtisserie pour toute commande de gâteau sur mesure, traiteur, ou brunch à Bruxelles (Evere). Utilisez notre formulaire pour nous joindre via WhatsApp.',
+  title: 'Contact & Commande - 3 Boutiques Pain Pâtisserie Bruxelles : Evere, Koekelberg, Molenbeek',
+  description: 'Contactez Pain Pâtisserie dans nos 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Commandes gâteaux sur mesure, traiteur, WhatsApp.',
   keywords: [
-    'contact pâtisserie Bruxelles', 
-    'commande gâteau Evere', 
+    'contact pâtisserie Evere', 
+    'boulangerie Koekelberg contact', 
+    'pâtisserie Molenbeek commande',
+    'commande gâteau 3 boutiques Bruxelles', 
     'traiteur entreprise Bruxelles', 
-    'brunch sur mesure', 
     'click and collect pâtisserie', 
-    'formulaire de contact', 
-    'WhatsApp commande'
+    'Chaussée de Louvain 906',
+    'Rue Émile Sergijsels 34',
+    'Chaussée de Gand 402',
+    'WhatsApp commande 0472 25 05 78'
   ],
 };
 

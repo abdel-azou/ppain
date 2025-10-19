@@ -17,6 +17,12 @@ const specialties = [
 		description: 'L\'art de faire croire à vos yeux ce que vos papilles vont adorer découvrir.',
 	},
 	{
+		imgSrc: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp',
+		alt: 'Trio d\'entremets d\'exception : praline dorée, monte-cristo mystérieux et forêt noire romantique, chapitres savoureux de l\'art pâtissier français.',
+		title: 'Entremets d\'Exception',
+		description: 'L\'art pâtissier français dans toute sa splendeur : praline, monte-cristo, forêt noire.',
+	},
+	{
 		imgSrc: '/photos/webp/pain-baguette.webp',
 		alt: 'Baguettes traditionnelles dorées au four, fierté du savoir-faire boulanger français transmis depuis des générations.',
 		title: 'Pain Artisanal',
@@ -27,12 +33,6 @@ const specialties = [
 		alt: 'Mignardises délicates et mini-pâtisseries, petits bijoux sucrés parfaits pour vos événements et réceptions.',
 		title: 'Mignardises & Mini-Pâtisseries',
 		description: 'L\'élégance à la française en format miniature pour vos moments précieux.',
-	},
-	{
-		imgSrc: '/photos/webp/sale-burgerauthentique.webp',
-		alt: 'Sandwich authentique fait maison, alliance parfaite entre tradition boulangère et saveurs généreuses du terroir.',
-		title: 'Restauration Salée',
-		description: 'Sandwichs artisanaux, plats du terroir et en-cas gourmands pour tous les moments.',
 	},
 	{
 		imgSrc: '/photos/webp/vienoiserie-croissant.webp',
@@ -55,17 +55,17 @@ export default function Home() {
 	return (
 		<main id="home">
 				<Seo
-				title="Boulangerie Pâtisserie Artisanale | Pain Frais, Trompe-l'œil, Mignardises - Evere Bruxelles"
-				description="Boulangerie-pâtisserie artisanale à Evere : pain frais quotidien, gâteaux trompe-l'œil uniques, mignardises, viennoiseries et restauration salée. Savoir-faire traditionnel depuis des générations."
+				title="Boulangerie Pâtisserie Artisanale | 3 Boutiques Bruxelles : Evere, Koekelberg, Molenbeek"
+				description="Boulangerie-pâtisserie artisanale avec 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Entremets d'exception, pain frais quotidien, trompe-l'œil créatifs."
 				canonicalUrl="https://www.votredomaine.be"
-				imageUrl="https://www.votredomaine.be/photos/webp/comptoir-vueclient.webp"
+				imageUrl="https://www.votredomaine.be/photos/webp/entremet-paraline_montecristo_foretnoire.webp"
 			/>			<section className="hero-section">
 				<div className="hero-background">
 					<Image
 						src="/photos/webp/comptoir-vueclient.webp"
 						alt="Votre premier regard sur notre univers sucré : le comptoir-vitrine où naissent les sourires et se réveillent les envies gourmandes du jour"
-						layout="fill"
-						objectFit="cover"
+						fill
+						style={{objectFit: 'cover'}}
 						priority
 					/>
 					<div className="hero-overlay" />
@@ -76,14 +76,14 @@ export default function Home() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
 					>
-						À Evere, le bon goût ne trompe pas.
+						Boulangerie Pâtisserie Bruxelles
 					</motion.h1>
 					<motion.p
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.4, duration: 0.6, ease: 'easeOut' }}
 					>
-						Boulangerie-pâtisserie artisanale à Evere : pain frais quotidien, trompe-l&apos;œil créatifs, mignardises raffinées et restauration salée maison. L&apos;authenticité du savoir-faire traditionnel.
+						3 boutiques à Bruxelles pour vous servir : Evere, Koekelberg et Molenbeek. Entremets d&apos;exception, pain frais quotidien, trompe-l&apos;œil créatifs et savoir-faire artisanal depuis des générations.
 					</motion.p>
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -263,21 +263,63 @@ export default function Home() {
 			<section className="content-section bg-cream">
 				<div className="content-container location-grid">
 					<div className="location-info">
-						<h2 className="section-title">Rendez-nous visite</h2>
-						<p className="location-address">
-							<strong>Pain Pâtisserie</strong>
-							<br />
-							Chaussée de Louvain 906
-							<br />
-							1140 Evere, Bruxelles
-						</p>
-						<p className="location-hours">
-							<strong>Horaires :</strong>
-							<br />
-							Lundi, Mer-Dim : 06h00 - 20h00
-							<br />
-							Mardi : Fermé
-						</p>
+						<h2 className="section-title">Nos 3 Boutiques à Bruxelles</h2>
+						<div className="space-y-3">
+							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
+								<div className="flex justify-between items-start">
+									<div className="flex-1">
+										<p className="font-semibold text-amber-800">📍 Evere</p>
+										<p className="text-stone-700">Chaussée de Louvain 906<br/>1140 Evere, Bruxelles</p>
+										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+									</div>
+									<a
+										href="https://waze.com/ul?ll=50.859161991144866,4.413543191474993&navigate=yes"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+										title="Ouvrir dans Waze"
+									>
+										<Navigation size={18} />
+									</a>
+								</div>
+							</div>
+							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
+								<div className="flex justify-between items-start">
+									<div className="flex-1">
+										<p className="font-semibold text-amber-800">📍 Koekelberg</p>
+										<p className="text-stone-700">Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
+										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+									</div>
+									<a
+										href="https://waze.com/ul?ll=50.86000270295589,4.334650008740216&navigate=yes"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+										title="Ouvrir dans Waze"
+									>
+										<Navigation size={18} />
+									</a>
+								</div>
+							</div>
+							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
+								<div className="flex justify-between items-start">
+									<div className="flex-1">
+										<p className="font-semibold text-amber-800">📍 Molenbeek</p>
+										<p className="text-stone-700">Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
+										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+									</div>
+									<a
+										href="https://waze.com/ul?ll=50.858237997401716,4.319087859461207&navigate=yes"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+										title="Ouvrir dans Waze"
+									>
+										<Navigation size={18} />
+									</a>
+								</div>
+							</div>
+						</div>
 						<div className="location-buttons">
 							<a
 								href="https://waze.com/ul?ll=50.8587009,4.4132547&navigate=yes"
@@ -286,16 +328,16 @@ export default function Home() {
 								className="map-button waze-button"
 							>
 								<Navigation className="button-icon" />
-								Itinéraire avec Waze
+								Evere avec Waze
 							</a>
 							<a
-								href="https://www.google.com/maps/dir/?api=1&destination=Chaussée+de+Louvain+906,+1140+Evere"
+								href="https://www.google.com/maps/search/Pain+Pâtisserie+Bruxelles"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="map-button gmaps-button"
 							>
 								<MapPin className="button-icon" />
-								Itinéraire avec Google Maps
+								Toutes nos boutiques
 							</a>
 						</div>
 					</div>
@@ -304,9 +346,8 @@ export default function Home() {
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.780013592531!2d4.406121376550135!3d50.86781697167618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c3e7a0a99999%3A0x3a3c3b3c3b3c3b3c!2sChauss%C3%A9e%20de%20Louvain%20906%2C%201140%20Evere%2C%20Belgium!5e0!3m2!1sen!2sus!4v1687470000000"
 							width="100%"
 							height="100%"
-							style={{ border: 0 }}
+							className="location-iframe"
 							allowFullScreen={false}
-							loading="lazy"
 							referrerPolicy="no-referrer-when-downgrade"
 							title="Carte de l'emplacement de Pain Pâtisserie à Evere"
 						></iframe>

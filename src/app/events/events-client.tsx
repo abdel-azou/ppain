@@ -71,9 +71,13 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
 
 
 
-    // Gestion du carrousel
+    // Gestion du carrousel - approche simplifiée et plus robuste
     const [slidesPerView, setSlidesPerView] = React.useState(3);
-    const maxSlide = Math.max(0, realizedEvents.length - slidesPerView);
+    
+    // Calculer le nombre maximum de slides
+    const maxSlide = React.useMemo(() => {
+        return Math.max(0, realizedEvents.length - slidesPerView);
+    }, [realizedEvents.length, slidesPerView]);
 
     React.useEffect(() => {
         const updateSlidesPerView = () => {
@@ -91,23 +95,45 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
         return () => window.removeEventListener('resize', updateSlidesPerView);
     }, []);
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev >= maxSlide ? 0 : prev + 1));
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev <= 0 ? maxSlide : prev - 1));
-    };
-
-    const goToSlide = (index: number) => {
-        setCurrentSlide(Math.min(index, maxSlide));
-    };
-
-    // Auto-défilement du carrousel
+    // Réinitialiser le slide si nécessaire
     React.useEffect(() => {
-        const interval = setInterval(nextSlide, 4000);
+        if (currentSlide > maxSlide) {
+            setCurrentSlide(0);
+        }
+    }, [maxSlide, currentSlide]);
+
+    const nextSlide = React.useCallback(() => {
+        setCurrentSlide((prev) => {
+            if (prev >= maxSlide) return 0;
+            return prev + 1;
+        });
+    }, [maxSlide]);
+
+    const prevSlide = React.useCallback(() => {
+        setCurrentSlide((prev) => {
+            if (prev <= 0) return maxSlide;
+            return prev - 1;
+        });
+    }, [maxSlide]);
+
+    const goToSlide = React.useCallback((index: number) => {
+        const clampedIndex = Math.max(0, Math.min(index, maxSlide));
+        setCurrentSlide(clampedIndex);
+    }, [maxSlide]);
+
+    // Auto-défilement simplifié
+    React.useEffect(() => {
+        if (realizedEvents.length <= slidesPerView) return;
+        
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => {
+                if (prev >= maxSlide) return 0;
+                return prev + 1;
+            });
+        }, 5000); // Augmenté à 5 secondes pour plus de stabilité
+        
         return () => clearInterval(interval);
-    }, [nextSlide, maxSlide]);
+    }, [maxSlide, realizedEvents.length, slidesPerView]);
 
     return (
         <div className="events-page">
@@ -194,8 +220,8 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                                         <Image
                                             src={event.image}
                                             alt={event.altText}
-                                            layout="fill"
-                                            objectFit="cover"
+                                            fill
+                                            style={{objectFit: 'cover'}}
                                             className="event-image"
                                             quality={85}
                                             sizes="(max-width: 480px) 375px, (max-width: 768px) 768px, 350px"
@@ -292,7 +318,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                         transition={{ duration: 0.8 }}
                     >
                         <div 
-                            className={`carousel-container slide-${currentSlide} slides-${slidesPerView}`}
+                            className={`carousel-container slide-${Math.min(currentSlide, 20)} slides-${slidesPerView}`}
                         >
                             {realizedEvents.map((event, index) => (
                                 <div
@@ -302,8 +328,8 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                                     <Image
                                         src={event.image}
                                         alt={event.title}
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill
+                                        style={{objectFit: 'cover'}}
                                         quality={85}
                                         sizes="(max-width: 480px) 375px, (max-width: 768px) 50vw, 33vw"
                                         priority={index < 6}
@@ -348,8 +374,8 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                     {/* Statistiques */}
                     <div className="carousel-stats">
                         <p>
-                            <strong>Plus de {realizedEvents.length} événements</strong> réalisés avec succès<br />
-                            Faites confiance à notre expertise pour votre projet
+                            <strong>Votre événement sera unique, comme chacune de nos créations</strong><br />
+                            Contactez-nous pour concrétiser votre projet
                         </p>
                     </div>
                 </div>
@@ -382,7 +408,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                         </div>
                         <div className="cta-location">
                             <MapPin size={16} />
-                            Chaussée de Louvain 906, 1140 Evere
+                            3 boutiques à Bruxelles : Evere, Koekelberg, Molenbeek
                         </div>
                     </motion.div>
                 </div>

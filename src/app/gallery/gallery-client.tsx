@@ -103,8 +103,8 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                     <Image 
                                         src={item.image} 
                                         alt={item.altText || item.title} 
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill
+                                        style={{objectFit: 'cover'}}
                                         priority={index < 2}
                                         draggable="false"
                                         quality={85}
