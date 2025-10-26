@@ -1,15 +1,14 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { useSwipe } from '@/hooks/useSwipe';
 import './ScrollAnimation.css';
 
 const ScrollAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const totalFrames = 8;
   
@@ -57,53 +56,58 @@ const ScrollAnimation = () => {
     }
   ];
   
-  // Hook de scroll pour desktop
-  const { currentFrame: scrollFrame, visibleFrames: scrollVisibleFrames } = useScrollAnimation({ 
+  // Hook de scroll pour desktop et mobile
+  const { currentFrame: scrollFrame, visibleFrames: scrollVisibleFrames, scrollProgress } = useScrollAnimation({ 
     containerRef, 
     totalFrames 
   });
 
-  // Hook de swipe pour mobile
-  const { currentFrame: swipeFrame, setCurrentFrame: setSwipeFrame, swipeHandlers } = useSwipe({
-    totalFrames,
-    onFrameChange: () => {} // Fonction vide car on n'utilise plus manualFrame
-  });
+  // Pas de swipe, on utilise seulement le scroll
+  const currentFrame = scrollFrame;
+  const visibleFrames = scrollVisibleFrames;
 
-  // Détection mobile
+  // Effet pour mettre à jour les positions des layers en temps réel
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+    // Utiliser requestAnimationFrame pour des performances optimales
+    const animationId = requestAnimationFrame(() => {
+      layerRefs.current.forEach((layer, index) => {
+        if (layer) {
+          const layerProgress = Math.max(0, Math.min(1, (scrollProgress * totalFrames) - index));
+          const translateY = (1 - layerProgress) * 100;
+          const opacity = layerProgress;
+          
+          // Utiliser transform3d pour activer l'accélération matérielle
+          layer.style.transform = `translate3d(0, ${translateY}%, 0)`;
+          layer.style.opacity = opacity.toString();
+        }
+      });
+    });
+    
+    return () => {
+      cancelAnimationFrame(animationId);
     };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Logique conditionnelle selon le device
-  const currentFrame = isMobile ? swipeFrame : scrollFrame;
-  const visibleFrames = isMobile 
-    ? Array.from({ length: swipeFrame + 1 }, (_, i) => i)
-    : scrollVisibleFrames;
+  }, [scrollProgress, totalFrames]);
 
   const currentText = frameTexts[currentFrame] || frameTexts[0];
 
   return (
-    <section className="scroll-cinematic-section" ref={containerRef}>
+    <section 
+      className="scroll-cinematic-section"
+      ref={containerRef}
+    >
       <div className="cinematic-container">
         <div className="cinematic-content">
           {/* Animation player - desktop côté gauche, mobile plein écran */}
           <div 
             className="animation-player" 
             ref={animationRef}
-            {...(isMobile ? swipeHandlers : {})}
           >
             <div className="frame-stack">
               {Array.from({ length: totalFrames }, (_, index) => (
                 <div
                   key={index}
-                  className={`cinematic-layer layer-${index} z-index-${index + 1} ${visibleFrames.includes(index) ? 'visible' : 'hidden'}`}
+                  ref={(el) => { layerRefs.current[index] = el; }}
+                  className={`cinematic-layer layer-${index} z-index-${index + 1}`}
                 >
                   <Image
                     src={`/animations/${index + 1}.jpg`}
@@ -126,20 +130,15 @@ const ScrollAnimation = () => {
                 </div>
               </div>
 
-              {/* Indicateur de swipe pour mobile */}
-              {isMobile && (
-                <div className="swipe-indicator">
-                  <div className="swipe-dots">
-                    {Array.from({ length: totalFrames }, (_, index) => (
-                      <div
-                        key={index}
-                        className={`swipe-dot ${index === currentFrame ? 'active' : ''}`}
-                        onClick={() => setSwipeFrame(index)}
-                      />
-                    ))}
-                  </div>
+              {/* Indicateur de progression simple */}
+              <div className="progress-indicator">
+                <div className="progress-bar">
+                  <div className={`progress-fill progress-${currentFrame + 1}`} />
                 </div>
-              )}
+                <p className="progress-text">
+                  {currentFrame + 1} / {totalFrames}
+                </p>
+              </div>
             </div>
             
             {/* Indicateur de progression pour desktop */}

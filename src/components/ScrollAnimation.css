@@ -1,8 +1,9 @@
 /* Mobile First - Animation plein écran avec texte superposé */
 .scroll-cinematic-section {
-  min-height: 100vh; /* Réduire pour éviter la zone noire */
+  min-height: 100vh; /* Retour à min-height pour permettre le scroll naturel */
   background: #000;
   position: relative;
+  /* Suppression du touch-action et position sticky */
 }
 
 .cinematic-container {
@@ -37,14 +38,28 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  transform: scale(1.02) translateX(30px); /* Animation depuis la droite */
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(100%); /* Position initiale : en bas */
+  /* Optimisations pour mobile */
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .cinematic-layer.visible {
   opacity: 1;
-  transform: scale(1) translateX(0);
+  transform: translateY(0); /* Position finale : au centre */
 }
+
+/* Délai progressif pour effet plus naturel */
+.layer-0 { transition-delay: 0ms; }
+.layer-1 { transition-delay: 100ms; }
+.layer-2 { transition-delay: 200ms; }
+.layer-3 { transition-delay: 300ms; }
+.layer-4 { transition-delay: 400ms; }
+.layer-5 { transition-delay: 500ms; }
+.layer-6 { transition-delay: 600ms; }
+.layer-7 { transition-delay: 700ms; }
 
 .cinematic-layer.hidden {
   opacity: 0;
@@ -257,12 +272,29 @@
   }
 
   .cinematic-layer {
-    transform: scale(1.02);
+    transform: translateY(100%) scale(1.02); /* Par défaut : vient d'en bas avec zoom */
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .cinematic-layer.visible {
-    transform: scale(1);
+    transform: translateY(0) scale(1); /* Position normale */
+  }
+
+  /* Desktop : direction de scroll */
+  .scroll-direction-down .cinematic-layer {
+    transform: translateY(100%) scale(1.02);
+  }
+
+  .scroll-direction-down .cinematic-layer.visible {
+    transform: translateY(0) scale(1);
+  }
+
+  .scroll-direction-up .cinematic-layer {
+    transform: translateY(-100%) scale(1.02);
+  }
+
+  .scroll-direction-up .cinematic-layer.visible {
+    transform: translateY(0) scale(1);
   }
 
   /* Masquer le texte mobile sur desktop */
@@ -430,3 +462,119 @@
     font-size: 1.6rem;
   }
 }
+
+/* Instructions de swipe mobile */
+.swipe-instruction {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+}
+
+.swipe-hint {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  animation: pulse-hint 2s infinite;
+}
+
+.swipe-hint p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.swipe-arrow {
+  font-size: 1.5rem;
+  animation: bounce-up 1.5s infinite;
+}
+
+.continue-hint {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  animation: fade-in 0.5s ease-in;
+}
+
+.continue-hint p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.continue-arrow {
+  font-size: 1.2rem;
+  animation: bounce-down 1.5s infinite;
+}
+
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes bounce-up {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Amélioration des dots */
+.swipe-dot.completed {
+  background-color: #D2691E;
+  transform: scale(0.8);
+}
+
+/* Nouvel indicateur de progression simple */
+.progress-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #D2691E;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.progress-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Classes de progression dynamiques */
+.progress-1 { width: 12.5%; }
+.progress-2 { width: 25%; }
+.progress-3 { width: 37.5%; }
+.progress-4 { width: 50%; }
+.progress-5 { width: 62.5%; }
+.progress-6 { width: 75%; }
+.progress-7 { width: 87.5%; }
+.progress-8 { width: 100%; }
