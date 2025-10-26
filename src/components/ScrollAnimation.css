@@ -1,0 +1,432 @@
+/* Mobile First - Animation plein écran avec texte superposé */
+.scroll-cinematic-section {
+  min-height: 100vh; /* Réduire pour éviter la zone noire */
+  background: #000;
+  position: relative;
+}
+
+.cinematic-container {
+  width: 100%;
+  padding: 0;
+}
+
+.cinematic-content {
+  display: block;
+  position: relative;
+}
+
+/* Animation player - Mobile plein écran */
+.animation-player {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Exactement la hauteur de l'écran */
+  overflow: hidden;
+  background: #000;
+}
+
+.frame-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cinematic-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.02) translateX(30px); /* Animation depuis la droite */
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cinematic-layer.visible {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+.cinematic-layer.hidden {
+  opacity: 0;
+  transform: scale(1.02) translateX(30px);
+}
+
+.layer-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Z-index pour superposition progressive - effet peinture */
+.z-index-1 { z-index: 1; }
+.z-index-2 { z-index: 2; }
+.z-index-3 { z-index: 3; }
+.z-index-4 { z-index: 4; }
+.z-index-5 { z-index: 5; }
+.z-index-6 { z-index: 6; }
+.z-index-7 { z-index: 7; }
+.z-index-8 { z-index: 8; }
+
+/* Texte en forme de 3/4 de lune - zone plus large à gauche */
+.mobile-overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px; /* Encore plus large vers la droite */
+  height: 400px; /* Plus haut aussi */
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; /* Alignement à gauche */
+  text-align: left;
+  color: #2c1810;
+  padding: 0;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(250, 248, 243, 0.95) 0%,
+    rgba(250, 248, 243, 0.92) 40%,
+    transparent 65%
+  );
+  border-radius: 0 0 100% 0;
+  clip-path: ellipse(75% 65% at 0% 0%); /* Zone encore plus étendue vers la droite */
+  box-shadow: 
+    0 0 0 2px rgba(210, 105, 30, 0.3),
+    0 8px 32px rgba(44, 24, 16, 0.15);
+}
+
+/* Container pour le texte - vraiment à gauche dans la zone élargie */
+.overlay-content {
+  max-width: 320px; /* Zone de texte élargie proportionnellement */
+  margin: 40px 0 0 20px; /* Plus simple : 40px du haut, 20px de gauche */
+  transform: rotate(-5deg); /* Rotation très légère */
+  overflow: visible; /* Permet au croissant de dépasser */
+}
+
+.overlay-header h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  line-height: 1.0;
+  color: #8B4513;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  filter: none;
+  word-wrap: break-word;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.overlay-header {
+  overflow: visible; /* Permet au croissant de dépasser */
+}
+
+/* Masquer sous-titre et description */
+.overlay-subtitle {
+  display: none;
+}
+
+.overlay-description {
+  display: none;
+}
+
+/* Animation dactylographie - effet typewriter simplifié */
+.typewriter-text {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typewriterReveal 2s steps(20) forwards, 
+             typewriterCursor 1s steps(2) infinite;
+  border-right: 2px solid #8B4513;
+  word-wrap: break-word;
+  font-size: 1.1rem;
+}
+
+@keyframes typewriterReveal {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes typewriterCursor {
+  0%, 50% {
+    border-color: #8B4513;
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+}
+
+/* Supprimer l'animation de sortie pour éviter les conflits */
+
+/* Indicateur de swipe mobile */
+.swipe-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+.swipe-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.swipe-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.swipe-dot.active {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Supprimer le texte d'instruction de swipe */
+
+/* Masquer le contenu desktop sur mobile */
+.desktop-content-text {
+  display: none;
+}
+
+.desktop-only {
+  display: none;
+}
+
+/* Debug indicator */
+.debug-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffd700;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 100;
+}
+
+/* Desktop - Layout côte-à-côte amélioré */
+@media (min-width: 769px) {
+  .scroll-cinematic-section {
+    min-height: 150vh; /* Restaurer pour le scroll desktop */
+    background: linear-gradient(135deg, #faf8f3 0%, #f5f1eb 100%);
+  }
+
+  .cinematic-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  .cinematic-content {
+    display: grid;
+    grid-template-columns: 550px 1fr;
+    gap: 80px;
+    align-items: center;
+    min-height: 80vh;
+    position: sticky;
+    top: 10vh;
+  }
+
+  /* Animation player desktop - format vertical élégant */
+  .animation-player {
+    aspect-ratio: 9/16;
+    height: auto;
+    max-height: 70vh;
+    border-radius: 25px;
+    box-shadow: 
+      0 25px 80px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.1);
+    background: #000;
+  }
+
+  .cinematic-layer {
+    transform: scale(1.02);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .cinematic-layer.visible {
+    transform: scale(1);
+  }
+
+  /* Masquer le texte mobile sur desktop */
+  .mobile-overlay-text {
+    display: none;
+  }
+
+  /* Cacher les indicateurs de swipe sur desktop */
+  .swipe-indicator {
+    display: none;
+  }
+
+  /* Afficher le contenu desktop */
+  .desktop-content-text {
+    display: block;
+    color: #2c1810;
+    padding: 20px 0;
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  .text-header h2 {
+    font-size: 3.2rem;
+    color: #8B4513;
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #8B4513, #D2691E, #8B4513);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+    color: #D2691E;
+    margin-bottom: 50px;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* Étapes du processus desktop */
+  .process-steps {
+    margin: 40px 0;
+  }
+
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    opacity: 0.3;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+  }
+
+  .process-step.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #D2691E, #8B4513);
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+  }
+
+  .process-step.visible .step-number {
+    animation: gentle-pulse 2s infinite;
+  }
+
+  @keyframes gentle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .step-info h3 {
+    font-size: 1.3rem;
+    color: #8B4513;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .step-info p {
+    color: #5D4037;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* Citation desktop */
+  .craft-quote {
+    margin-top: 50px;
+    padding: 30px;
+    background: rgba(210, 105, 30, 0.08);
+    border-radius: 15px;
+    border-left: 4px solid #D2691E;
+  }
+
+  .craft-quote blockquote {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #5D4037;
+    font-style: italic;
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+
+  .craft-quote cite {
+    color: #8B4513;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.95rem;
+  }
+
+  /* Indicateurs de progression desktop */
+  .progress-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+  }
+
+  .progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .progress-dot.active {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Tablette - Zone plus large avec texte bien à gauche */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-overlay-text {
+    width: 480px; /* Encore plus large pour tablette */
+    height: 480px;
+  }
+
+  .overlay-content {
+    max-width: 200px;
+    margin: 50px 0 0 30px; /* Positioning simple et clair */
+  }
+
+  .overlay-header h2 {
+    font-size: 1.6rem;
+  }
+}

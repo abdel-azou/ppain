@@ -15,7 +15,9 @@ export const metadata: Metadata = {
   description:
     "Pain Pâtisserie : 3 boutiques à Bruxelles (Evere, Koekelberg, Molenbeek). Boulangerie-pâtisserie artisanale spécialisée en gâteaux personnalisés, entremets d'exception, trompe-l'œil créatifs, pain frais quotidien. Commandes sur mesure pour mariages, anniversaires, événements. Click & collect disponible.",
   icons: {
-    icon: "/Logo.svg", // Définit le logo comme favicon
+    icon: "/Logo.svg",
+    shortcut: "/Logo.svg",
+    apple: "/Logo.svg"
   },
   keywords:
     "pâtisserie Bruxelles, boulangerie Evere Koekelberg Molenbeek, gâteau personnalisé Bruxelles, gâteau mariage Bruxelles, gâteau anniversaire, entremets Bruxelles, trompe-l'œil pâtisserie, number cake Bruxelles, layer cake, piece montée, pain frais quotidien, viennoiseries Bruxelles, croissants artisanaux, petit déjeuner Bruxelles, goûter enfant, click and collect Bruxelles, livraison gâteau, artisan boulanger, pâtisserie artisanale, événements sur mesure, traiteur Bruxelles, commande en ligne",
@@ -75,6 +77,10 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <LocalBusinessSchema />
+        <link rel="icon" href="/Logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="shortcut icon" href="/Logo.svg" />
+        <link rel="apple-touch-icon" href="/Logo.svg" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#d97706" />
         <meta name="mobile-web-app-capable" content="yes" />

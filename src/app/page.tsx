@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import { Seo } from '../components/Seo';
+import ScrollAnimation from '@/components/ScrollAnimation';
 import './Home.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCarousel } from '@/hooks/useCarousel';
@@ -104,23 +105,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="content-section bg-cream">
-				<div className="content-container">
-					<motion.div
-						initial={{ opacity: 0 }}
-						whileInView={{ opacity: 1 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.8, ease: 'easeOut' }}
-					>
-						<h2 className="text-3xl font-bold text-stone-800 mb-4 text-center">
-							L&apos;Artisanat au Cœur de Nos Pâtisseries
-						</h2>
-						<p className="lead text-center max-w-2xl mx-auto">
-							Bienvenue chez Pain Pâtisserie. Nous sélectionnons des ingrédients de première qualité pour créer des pains, viennoiseries et pâtisseries qui éveillent les sens chaque jour.
-						</p>
-					</motion.div>
-				</div>
-			</section>
+			<ScrollAnimation />
 
 			<section className="content-section incontournables-section">
 				<div className="content-container">
