@@ -271,9 +271,9 @@
     background: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.1) 40%,
-        rgba(0, 0, 0, 0.4) 80%,
-        rgba(0, 0, 0, 0.7) 100%
+        rgba(0, 0, 0, 0.05) 40%,
+        rgba(0, 0, 0, 0.3) 80%,
+        rgba(0, 0, 0, 0.6) 100%
     );
     z-index: 2;
 }
@@ -281,33 +281,33 @@
 /* Badges mobiles - Style glassmorphism */
 .carousel-category-badge {
     padding: 0.4rem 0.8rem;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     color: var(--white);
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 600;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     max-width: 70%;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .carousel-featured-badge {
     padding: 0.3rem 0.6rem;
-    background: rgba(212, 165, 116, 0.3);
+    background: rgba(212, 165, 116, 0.7);
     color: var(--white);
     border-radius: 15px;
     font-size: 0.65rem;
     font-weight: 700;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Compteur mobile - Plus discret et caché sur desktop */
@@ -316,16 +316,16 @@
     top: 1rem;
     right: 1rem;
     padding: 0.3rem 0.6rem;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     font-weight: 600;
     color: var(--white);
     font-size: 0.7rem;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
     z-index: 4;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     display: block;
 }
 
@@ -339,13 +339,13 @@
     background: linear-gradient(
         180deg, 
         transparent 0%, 
-        rgba(0, 0, 0, 0.3) 20%,
-        rgba(0, 0, 0, 0.8) 100%
+        rgba(0, 0, 0, 0.4) 20%,
+        rgba(0, 0, 0, 0.85) 100%
     );
     color: var(--white);
     border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
 
 .carousel-item-title-mobile {
@@ -386,15 +386,15 @@
 
 .carousel-tag-mobile {
     padding: 0.25rem 0.6rem;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.3);
     color: var(--white);
     border-radius: 15px;
     font-size: 0.65rem;
     font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Contrôle auto-play mobile - Style transparent */
@@ -403,18 +403,18 @@
     align-items: center;
     gap: 0.3rem;
     padding: 0.4rem 0.7rem;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     color: var(--white);
     cursor: pointer;
     transition: var(--transition);
     font-size: 0.7rem;
     font-weight: 600;
     align-self: flex-start;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .carousel-play-button-mobile:active {
@@ -422,8 +422,8 @@
 }
 
 .carousel-play-button-mobile.playing {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Indicateurs mobiles */
