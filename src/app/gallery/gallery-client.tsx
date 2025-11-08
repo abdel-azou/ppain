@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import Image from 'next/image';
 import './Gallery.css';
 
@@ -31,117 +31,388 @@ interface GalleryClientProps {
 // --- Composant Client pour la Galerie ---
 const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories }) => {
     const [activeCategory, setActiveCategory] = useState('all');
-    const [cardStack, setCardStack] = useState<GalleryItem[]>([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [direction, setDirection] = useState(0);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    const initialItems = useMemo(() => {
-        if (activeCategory === 'all') return galleryItems;
-        return galleryItems.filter(item => item.category === activeCategory);
+    const filteredItems = useMemo(() => {
+        const items = activeCategory === 'all' ? galleryItems : galleryItems.filter(item => item.category === activeCategory);
+        return items;
     }, [activeCategory, galleryItems]);
 
+    // Auto-play carousel
     useEffect(() => {
-        setCardStack(initialItems);
-    }, [initialItems]);
+        if (isAutoPlaying && filteredItems.length > 1) {
+            intervalRef.current = setInterval(() => {
+                setDirection(1);
+                setCurrentIndex((prevIndex) => 
+                    prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+                );
+            }, 4000);
+        }
+        
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
+    }, [isAutoPlaying, filteredItems.length]);
 
-    const handleSwipe = (itemToRemove: GalleryItem) => {
-        setCardStack(currentStack => currentStack.filter(item => item.id !== itemToRemove.id));
+    const handleNext = useCallback(() => {
+        if (filteredItems.length <= 1) return;
+        setDirection(1);
+        setCurrentIndex((prevIndex) => 
+            prevIndex === filteredItems.length - 1 ? 0 : prevIndex + 1
+        );
+    }, [filteredItems.length]);
+
+    const handlePrev = useCallback(() => {
+        if (filteredItems.length <= 1) return;
+        setDirection(-1);
+        setCurrentIndex((prevIndex) => 
+            prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1
+        );
+    }, [filteredItems.length]);
+
+    const handleDotClick = useCallback((index: number) => {
+        setDirection(index > currentIndex ? 1 : -1);
+        setCurrentIndex(index);
+    }, [currentIndex]);
+
+    // Reset index when category changes
+    useEffect(() => {
+        setCurrentIndex(0);
+        setDirection(0);
+    }, [activeCategory]);
+
+    // Animations du carousel
+    const slideVariants = {
+        enter: (direction: number) => ({
+            x: direction > 0 ? 1000 : -1000,
+            opacity: 0,
+            scale: 0.8,
+            rotateY: direction > 0 ? 45 : -45
+        }),
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+            scale: 1,
+            rotateY: 0
+        },
+        exit: (direction: number) => ({
+            zIndex: 0,
+            x: direction < 0 ? 1000 : -1000,
+            opacity: 0,
+            scale: 0.8,
+            rotateY: direction < 0 ? 45 : -45
+        })
     };
 
-    const resetStack = () => {
-        setCardStack(initialItems);
+    const swipeConfidenceThreshold = 10000;
+    const swipePower = (offset: number, velocity: number) => {
+        return Math.abs(offset) * velocity;
+    };
+
+    const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, { offset, velocity }: PanInfo) => {
+        const swipe = swipePower(offset.x, velocity.x);
+        
+        if (swipe < -swipeConfidenceThreshold) {
+            handleNext();
+        } else if (swipe > swipeConfidenceThreshold) {
+            handlePrev();
+        }
     };
 
     return (
-        <section id="gallery" className="gallery-section-stacked">
-            <div className="gallery-container">
-                <div className="gallery-header">
-                    <h1 className="gallery-title">L&apos;Art de Faire Rêver</h1>
-                    <p className="gallery-subtitle">
-                        Découvrez nos créations comme on feuillette un livre d&apos;images. 
-                        Chaque pâtisserie raconte une histoire, la vôtre commence ici.
+        <section 
+            id="gallery" 
+            className="gallery-section-carousel"
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+            <div className="gallery-container-carousel">
+                {/* En-tête */}
+                <motion.div 
+                    className="gallery-header-carousel"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    <h1 className="gallery-title-carousel">
+                        <span className="title-decoration">✨</span>
+                        Nos Créations d&apos;Exception
+                        <span className="title-decoration">✨</span>
+                    </h1>
+                    <p className="gallery-subtitle-carousel">
+                        Une symphonie de saveurs dans nos 3 boutiques bruxelloises
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="filter-bar">
-                    {categories.map(category => (
-                        <button
+                {/* Barre de filtres améliorée */}
+                <motion.div 
+                    className="carousel-filter-bar"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                >
+                    {categories.map((category, index) => (
+                        <motion.button
                             key={category.id}
                             onClick={() => setActiveCategory(category.id)}
-                            className={`filter-button ${activeCategory === category.id ? 'active' : ''}`}
+                            className={`carousel-filter-button ${activeCategory === category.id ? 'active' : ''}`}
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
+                            <span className="filter-emoji">
+                                {category.id === 'all' && '🎯'}
+                                {category.id === 'ambiance' && '🏪'}
+                                {category.id === 'pain-boulangerie' && '🥖'}
+                                {category.id === 'petit-dejeuner' && '☀️'}
+                                {category.id === 'restauration-salee' && '🥪'}
+                                {category.id === 'entremets' && '🍰'}
+                                {category.id === 'petites-douceurs' && '🧁'}
+                                {category.id === 'specialites' && '🎭'}
+                                {category.id === 'gateaux' && '🎂'}
+                            </span>
                             {category.label}
-                        </button>
+                        </motion.button>
                     ))}
-                </div>
+                </motion.div>
 
-                <div className="card-stack-container">
-                    <AnimatePresence>
-                        {cardStack.map((item, index) => {
-                            if (index > 2) return null;
-                            const isTopCard = index === 0;
-
-                            return (
+                {/* Carousel principal - Mobile First */}
+                <div className="carousel-main-container">
+                    {/* Conteneur des slides */}
+                    <div className="carousel-slides-container">
+                        <AnimatePresence initial={false} custom={direction} mode="wait">
+                            {filteredItems.length > 0 && (
                                 <motion.div
-                                    key={item.id}
-                                    className="swipe-card"
-                                    drag={isTopCard ? "x" : false}
-                                    dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                                    onDragEnd={(_e, { offset, velocity }) => {
-                                        if (isTopCard) {
-                                            const swipeThreshold = 80;
-                                            if (Math.abs(offset.x) > swipeThreshold || Math.abs(velocity.x) > 200) {
-                                                handleSwipe(item);
-                                            }
-                                        }
+                                    key={currentIndex}
+                                    custom={direction}
+                                    variants={slideVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{
+                                        x: { type: "spring", stiffness: 300, damping: 30 },
+                                        opacity: { duration: 0.4 },
+                                        scale: { duration: 0.4 },
+                                        rotateY: { duration: 0.6, ease: "easeOut" }
                                     }}
-                                    animate={{
-                                        scale: 1 - (index * 0.05),
-                                        y: index * 12,
-                                        zIndex: cardStack.length - index,
-                                    }}
-                                    transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={1}
+                                    onDragEnd={handleDragEnd}
+                                    className="carousel-slide"
                                 >
-                                    <Image 
-                                        src={item.image} 
-                                        alt={item.altText || item.title} 
-                                        fill
-                                        style={{objectFit: 'cover'}}
-                                        priority={index < 2}
-                                        draggable="false"
-                                        quality={85}
-                                        sizes="(max-width: 480px) 375px, (max-width: 768px) 768px, 1200px"
-                                    />
-                                    <div className="card-info-overlay">
-                                        <div className="card-info-content">
-                                            <h2 className="card-title">{item.title}</h2>
-                                            <p className="card-description">{item.description}</p>
+                                    {/* Image principale - Mobile First */}
+                                    <div className="carousel-image-container">
+                                        <Image
+                                            src={filteredItems[currentIndex].image}
+                                            alt={filteredItems[currentIndex].altText || filteredItems[currentIndex].title}
+                                            fill
+                                            style={{ objectFit: 'cover' }}
+                                            quality={95}
+                                            priority
+                                            sizes="100vw"
+                                        />
+                                        
+                                        {/* Overlay mobile optimisé */}
+                                        <div className="carousel-image-overlay"></div>
+                                        
+                                        {/* Badges repositionnés pour mobile */}
+                                        <div className="carousel-badges-container">
+                                            <div className="carousel-category-badge">
+                                                {categories.find(cat => cat.id === filteredItems[currentIndex].category)?.label}
+                                            </div>
+
+                                            {filteredItems[currentIndex].featured && (
+                                                <motion.div 
+                                                    className="carousel-featured-badge"
+                                                    animate={{ 
+                                                        scale: [1, 1.1, 1],
+                                                    }}
+                                                    transition={{ 
+                                                        duration: 2,
+                                                        repeat: Infinity,
+                                                        repeatDelay: 3
+                                                    }}
+                                                >
+                                                    ⭐
+                                                </motion.div>
+                                            )}
+                                        </div>
+
+                                        {/* Contrôles overlay pour mobile */}
+                                        <div className="carousel-mobile-controls">
+                                            {/* Boutons de navigation mobiles */}
+                                            <button 
+                                                className="carousel-nav-mobile carousel-nav-prev-mobile"
+                                                onClick={handlePrev}
+                                                disabled={filteredItems.length <= 1}
+                                                aria-label="Image précédente"
+                                            >
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                                                </svg>
+                                            </button>
+
+                                            <button 
+                                                className="carousel-nav-mobile carousel-nav-next-mobile"
+                                                onClick={handleNext}
+                                                disabled={filteredItems.length <= 1}
+                                                aria-label="Image suivante"
+                                            >
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        {/* Compteur mobile */}
+                                        <div className="carousel-counter-mobile">
+                                            <span className="counter-current">{currentIndex + 1}</span>
+                                            <span className="counter-separator">/</span>
+                                            <span className="counter-total">{filteredItems.length}</span>
                                         </div>
                                     </div>
-                                    {index === cardStack.length - 1 && (
-                                       <div className="absolute bottom-4 right-4 text-xs text-gray-400">
-                                         Faites glisser pour voir plus d&apos;images
-                                       </div>
-                                    )}
-                                </motion.div>
-                            );
-                        })}
-                    </AnimatePresence>
 
-                    {cardStack.length === 0 && (
-                        <motion.div 
-                            className="empty-stack-state"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                        >
-                            <p>Vous avez savouré toute notre galerie !</p>
-                            <p className="subtitle">
-                                Comme un bon repas, ça se recommence toujours avec plaisir.
-                            </p>
-                            <button onClick={resetStack} className="reset-button">
-                                Revoir la galerie
+                                    {/* Contenu textuel mobile-first */}
+                                    <motion.div 
+                                        className="carousel-content-mobile"
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.3, duration: 0.6 }}
+                                    >
+                                        <h2 className="carousel-item-title-mobile">
+                                            {filteredItems[currentIndex].title}
+                                        </h2>
+                                        <p className="carousel-item-description-mobile">
+                                            {filteredItems[currentIndex].longDescription || filteredItems[currentIndex].description}
+                                        </p>
+                                        
+                                        {/* Tags mobiles */}
+                                        {filteredItems[currentIndex].tags && (
+                                            <motion.div 
+                                                className="carousel-tags-mobile"
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 0.5 }}
+                                            >
+                                                {filteredItems[currentIndex].tags?.slice(0, 3).map((tag, tagIndex) => (
+                                                    <motion.span
+                                                        key={tag}
+                                                        className="carousel-tag-mobile"
+                                                        initial={{ scale: 0 }}
+                                                        animate={{ scale: 1 }}
+                                                        transition={{ 
+                                                            delay: 0.6 + (tagIndex * 0.1),
+                                                            type: "spring",
+                                                            stiffness: 200
+                                                        }}
+                                                    >
+                                                        #{tag}
+                                                    </motion.span>
+                                                ))}
+                                            </motion.div>
+                                        )}
+
+                                        {/* Contrôle auto-play mobile */}
+                                        <button 
+                                            className={`carousel-play-button-mobile ${isAutoPlaying ? 'playing' : 'paused'}`}
+                                            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                                            aria-label={isAutoPlaying ? 'Mettre en pause' : 'Reprendre le diaporama'}
+                                        >
+                                            {isAutoPlaying ? (
+                                                <>
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                                    </svg>
+                                                    <span>Pause</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8 5v14l11-7z"/>
+                                                    </svg>
+                                                    <span>Play</span>
+                                                </>
+                                            )}
+                                        </button>
+                                    </motion.div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Boutons de navigation desktop */}
+                    <button 
+                        className="carousel-nav-button carousel-nav-prev"
+                        onClick={handlePrev}
+                        disabled={filteredItems.length <= 1}
+                        aria-label="Image précédente"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+
+                    <button 
+                        className="carousel-nav-button carousel-nav-next"
+                        onClick={handleNext}
+                        disabled={filteredItems.length <= 1}
+                        aria-label="Image suivante"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+
+                    {/* Indicateurs (dots) - Mobile et Desktop */}
+                    <div className="carousel-indicators-mobile">
+                        {filteredItems.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`carousel-dot-mobile ${index === currentIndex ? 'active' : ''}`}
+                                onClick={() => handleDotClick(index)}
+                                aria-label={`Aller à l'image ${index + 1}`}
+                            >
                             </button>
-                        </motion.div>
-                    )}
+                        ))}
+                    </div>
                 </div>
+
+                {/* Section miniatures - Cachée sur mobile, visible sur desktop */}
+                <motion.div 
+                    className="carousel-thumbnails-desktop"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                    {filteredItems.map((item, index) => (
+                        <motion.div
+                            key={item.id}
+                            className={`carousel-thumbnail-desktop ${index === currentIndex ? 'active' : ''}`}
+                            onClick={() => handleDotClick(index)}
+                            whileHover={{ scale: 1.05, y: -3 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Image
+                                src={item.image}
+                                alt={item.title}
+                                fill
+                                style={{ objectFit: 'cover' }}
+                                quality={70}
+                                sizes="(max-width: 768px) 0px, 120px"
+                            />
+                            <div className="thumbnail-overlay-desktop">
+                                <span className="thumbnail-title-desktop">{item.title.substring(0, 25)}...</span>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     );

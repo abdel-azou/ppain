@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import { Seo } from '../components/Seo';
-import ScrollAnimation from '@/components/ScrollAnimation';
+import ArtGallery from '@/components/ArtGallery';
 import './Home.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCarousel } from '@/hooks/useCarousel';
@@ -44,8 +44,8 @@ const specialties = [
 	{
 		imgSrc: '/photos/webp/tarte-tartefraise.webp',
 		alt: 'Tarte aux fraises de saison, hymne à la nature française où chaque fruit raconte l\'histoire d\'un été parfait.',
-		title: 'Pâtisseries de Saison',
-		description: 'Quand mère Nature inspire nos pâtissiers pour des créations éphémères.',
+		title: 'Tartes aux Fruits Frais',
+		description: 'Nos tartes artisanales subliment les fruits de saison pour des saveurs authentiques.',
 	},
 ];
 
@@ -105,7 +105,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<ScrollAnimation />
+			<ArtGallery />
 
 			<section className="content-section incontournables-section">
 				<div className="content-container">
@@ -273,12 +273,12 @@ export default function Home() {
 							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
-										<p className="font-semibold text-amber-800">📍 Koekelberg</p>
-										<p className="text-stone-700">Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
+										<p className="font-semibold text-amber-800">📍 Molenbeek</p>
+										<p className="text-stone-700">Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
 										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
 									</div>
 									<a
-										href="https://waze.com/ul?ll=50.86000270295589,4.334650008740216&navigate=yes"
+										href="https://waze.com/ul?ll=50.858237997401716,4.319087859461207&navigate=yes"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
@@ -291,12 +291,12 @@ export default function Home() {
 							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
-										<p className="font-semibold text-amber-800">📍 Molenbeek</p>
-										<p className="text-stone-700">Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
+										<p className="font-semibold text-amber-800">📍 Koekelberg</p>
+										<p className="text-stone-700">Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
 										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
 									</div>
 									<a
-										href="https://waze.com/ul?ll=50.858237997401716,4.319087859461207&navigate=yes"
+										href="https://waze.com/ul?ll=50.86000270295589,4.334650008740216&navigate=yes"
 										target="_blank"
 										rel="noopener noreferrer"
 										className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"

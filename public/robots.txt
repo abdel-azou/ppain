@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.painpatisserie.be/sitemap.xml
+Sitemap: https://pain-patisserie.be/sitemap.xml
 
 # Fichiers à exclure du crawl
 Disallow: /api/
