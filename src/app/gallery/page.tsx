@@ -228,12 +228,12 @@ const galleryItems = [
         id: 21,
         title: 'Baguettes aux olives : quand la Méditerranée embrasse la France',
         description: 'Nos baguettes aux olives, c\'est le soleil du Sud qui réchauffe le cœur du Nord.',
-        longDescription: 'Sur la base de notre pâte traditionnelle, les olives vertes apportent cette petite note méditerranéenne qui transforme le quotidien en escapade ensoleillée. Un voyage gustatif sans quitter Evere.',
+        longDescription: 'Sur la base de notre pâte traditionnelle, les olives noires apportent cette petite note méditerranéenne qui transforme le quotidien en escapade ensoleillée. Un voyage gustatif sans quitter Evere.',
         image: '/photos/webp/pain-baguetteOlives.webp',
         category: 'pain-boulangerie',
         featured: false,
         altText: 'Baguettes aux olives méditerranéennes, soleil du Sud réchauffant le cœur du Nord, escapade ensoleillée dans chaque bouchée',
-        tags: ['baguette aux olives', 'méditerranéen', 'olives vertes', 'spécialité pain']
+        tags: ['baguette aux olives', 'méditerranéen', 'olives noires', 'spécialité pain']
     },
     {
         id: 22,

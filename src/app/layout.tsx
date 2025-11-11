@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   description:
     "Pain Pâtisserie : 3 boutiques à Bruxelles (Evere, Koekelberg, Molenbeek). Boulangerie-pâtisserie artisanale spécialisée en gâteaux personnalisés, entremets d'exception, trompe-l'œil créatifs, pain frais quotidien. Commandes sur mesure pour mariages, anniversaires, événements. Click & collect disponible.",
   icons: {
-    icon: "/Logo.svg",
-    shortcut: "/Logo.svg",
-    apple: "/Logo.svg"
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg"
   },
   keywords:
     "pâtisserie Bruxelles, boulangerie Evere Koekelberg Molenbeek, gâteau personnalisé Bruxelles, gâteau mariage Bruxelles, gâteau anniversaire, entremets Bruxelles, trompe-l'œil pâtisserie, number cake Bruxelles, layer cake, piece montée, pain frais quotidien, viennoiseries Bruxelles, croissants artisanaux, petit déjeuner Bruxelles, goûter enfant, click and collect Bruxelles, livraison gâteau, artisan boulanger, pâtisserie artisanale, événements sur mesure, traiteur Bruxelles, commande en ligne",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Pain Pâtisserie",
     images: [
       {
-        url: "/Logo.svg", // Logo officiel fourni
+        url: "/favicon.svg", // Logo officiel fourni
         width: 800,
         height: 400,
         alt: "Pain Pâtisserie - Logo officiel",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pain Pâtisserie - Boulangerie Artisanale Bruxelles",
     description: "3 boutiques à Bruxelles. Gâteaux personnalisés, entremets d'exception, trompe-l'œil créatifs. Evere | Koekelberg | Molenbeek",
-    images: ["/Logo.svg"], // Logo officiel
+    images: ["/favicon.svg"], // Logo officiel
   },
   robots: {
     index: true,
@@ -86,10 +86,10 @@ export default function RootLayout({
       <head>
         <LocalBusinessSchema />
         <LogoSchema />
-        <link rel="icon" href="/Logo.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="shortcut icon" href="/Logo.svg" />
-        <link rel="apple-touch-icon" href="/Logo.svg" />
+        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#d97706" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -101,9 +101,9 @@ export default function RootLayout({
         <meta name="geo.position" content="50.8587;4.4085" />
         <meta name="ICBM" content="50.8587, 4.4085" />
         {/* Métadonnées spécifiques au logo pour Google */}
-        <meta property="og:logo" content="https://pain-patisserie.be/Logo.svg" />
-        <meta name="logo" content="https://pain-patisserie.be/Logo.svg" />
-        <link rel="preload" href="/Logo.svg" as="image" type="image/svg+xml" />
+        <meta property="og:logo" content="https://pain-patisserie.be/favicon.svg" />
+        <meta name="logo" content="https://pain-patisserie.be/favicon.svg" />
+        <link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -118,7 +118,7 @@ export default function RootLayout({
                 "url": "https://pain-patisserie.be",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://pain-patisserie.be/Logo.svg",
+                  "url": "https://pain-patisserie.be/favicon.svg",
                   "width": 2127,
                   "height": 1191
                 }

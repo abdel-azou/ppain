@@ -11,7 +11,7 @@
   "scope": "/",
   "icons": [
     {
-      "src": "/Logo.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
@@ -29,21 +29,21 @@
       "short_name": "Galerie",
       "description": "Découvrez nos créations artisanales",
       "url": "/gallery",
-      "icons": [{ "src": "/Logo.svg", "sizes": "96x96" }]
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
     },
     {
       "name": "Événements",
       "short_name": "Événements",
       "description": "Gâteaux sur mesure pour vos événements",
       "url": "/events",
-      "icons": [{ "src": "/Logo.svg", "sizes": "96x96" }]
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
     },
     {
       "name": "Contact",
       "short_name": "Contact",
       "description": "Contactez nos 3 boutiques",
       "url": "/contact",
-      "icons": [{ "src": "/Logo.svg", "sizes": "96x96" }]
+      "icons": [{ "src": "/favicon.svg", "sizes": "96x96" }]
     }
   ]
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import EventsClient from './events-client';
+import EventsFAQ from '../../components/EventsFAQ';
 import './Events.css';
 
 // --- Data des événements ---
@@ -90,15 +91,15 @@ const eventItems = [
     },
     {
         id: 8,
-        title: 'Buffets Sucrés',
-        description: 'Des tables gourmandes complètes pour vos grandes réceptions.',
-        longDescription: 'Créez l\'émerveillement avec nos buffets sucrés complets : gâteaux, mignardises, chocolats et confiseries artisanales. Une expérience gustative complète pour vos invités.',
+        title: 'Spécialités Salées',
+        description: 'Des créations salées savoureuses pour vos événements et réceptions.',
+        longDescription: 'Régalez vos invités avec nos délicieuses spécialités salées : mini pizzas croustillantes, mini burgers gourmands, pains surprises variés, pastilla traditionnelle et couscous parfumé. Des créations artisanales qui apportent une touche conviviale à vos événements.',
         image: '/photos/webp/event-minipizza.webp',
         category: 'buffet',
         featured: true,
-        altText: 'Variété de mini-créations salées et sucrées pour buffet d\'événement',
-        tags: ['buffet', 'variété', 'mignardises', 'expérience'],
-        services: ['Buffets complets', 'Mignardises variées', 'Présentation théâtralisée', 'Service continu']
+        altText: 'Mini pizzas et spécialités salées artisanales pour événements',
+        tags: ['salé', 'mini pizza', 'burger', 'pain surprise', 'pastilla'],
+        services: ['Mini pizzas', 'Mini burgers', 'Pains surprises', 'Pastilla et couscous']
     },
     {
         id: 9,
@@ -185,18 +186,6 @@ const eventItems = [
         services: ['Technique moderne', 'Saveurs innovantes', 'Présentation raffinée', 'Portions individuelles']
     },
     {
-        id: 17,
-        title: 'Entremets Signature pour Célébrations',
-        description: 'Nos créations phares : praline, monte-cristo et forêt noire revisités.',
-        longDescription: 'Pour vos célébrations les plus importantes, découvrez nos entremets signature. Chaque création allie tradition française et techniques contemporaines pour une expérience gustative inoubliable.',
-        image: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp',
-        category: 'celebration',
-        featured: true,
-        altText: 'Trio d\'entremets signature : praline, monte-cristo et forêt noire pour célébrations exceptionnelles',
-        tags: ['entremet signature', 'praline', 'monte-cristo', 'forêt noire', 'tradition'],
-        services: ['Entremets traditionnels', 'Techniques contemporaines', 'Saveurs signature', 'Présentation élégante']
-    },
-    {
         id: 16,
         title: 'Gâteau Trois Chocolats',
         description: 'L\'indulgence ultime pour les amateurs de chocolat.',
@@ -207,6 +196,18 @@ const eventItems = [
         altText: 'Gâteau aux trois chocolats pour anniversaire gourmand',
         tags: ['trois chocolats', 'gourmand', 'indulgent', 'chocolaté'],
         services: ['Trois variétés chocolat', 'Harmonie parfaite', 'Texture riche', 'Dégustation intense']
+    },
+    {
+        id: 17,
+        title: 'Entremets Signature pour Célébrations',
+        description: 'Nos créations phares : praline, monte-cristo et forêt noire revisités.',
+        longDescription: 'Pour vos célébrations les plus importantes, découvrez nos entremets signature. Chaque création allie tradition française et techniques contemporaines pour une expérience gustative inoubliable.',
+        image: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp',
+        category: 'celebration',
+        featured: true,
+        altText: 'Trio d\'entremets signature : praline, monte-cristo et forêt noire pour célébrations exceptionnelles',
+        tags: ['entremet signature', 'praline', 'monte-cristo', 'forêt noire', 'tradition'],
+        services: ['Entremets traditionnels', 'Techniques contemporaines', 'Saveurs signature', 'Présentation élégante']
     }
 ];
 
@@ -379,47 +380,200 @@ const services = [
 
 // --- SEO Metadata ---
 export const metadata: Metadata = {
-    title: "Événements Sur Mesure | Mariage, Anniversaire, Entreprise - Boulangerie Pâtisserie Evere Bruxelles",
-    description: "Créations événementielles exceptionnelles à Evere : gâteaux de mariage sur mesure, pièces montées, anniversaires personnalisés, buffets d'entreprise. Service traiteur complet avec mignardises, mini-pâtisseries et restauration salée artisanale.",
+    title: "Gâteau Mariage & Événements | Pâtissier Traiteur Evere Bruxelles | Pièce Montée Sur Mesure",
+    description: "🎂 Pâtissier événementiel à Evere-Bruxelles : gâteaux de mariage, pièces montées, anniversaires, baptêmes, communions. Plateaux de mignardises, créations sur mesure. Pâtisserie française traditionnelle, retrait en boutique, délais courts. Devis gratuit !",
     keywords: [
-        'gâteau mariage sur mesure Evere', 'pièce montée tradition Bruxelles', 'gâteau anniversaire personnalisé Evere', 
-        'traiteur événement Bruxelles', 'buffet sucré salé Evere', 'gâteau entreprise artisanal',
-        'fête enfant pâtisserie Evere', 'service traiteur mariage Bruxelles', 'mignardises événement',
-        'consultation pâtissier Evere', 'créations événementielles Bruxelles', 'mini-pâtisseries réception',
-        'buffet entreprise Evere', 'number cake personnalisé', 'layer cake moderne', 'trompe-oeil événement'
+        // Mots-clés principaux mariage
+        'gâteau mariage Evere', 'pièce montée mariage Bruxelles', 'wedding cake Evere', 'gâteau de mariage sur mesure',
+        'layer cake mariage', 'number cake mariage', 'gâteau mariage traditionnel', 'pâtissier mariage Bruxelles',
+        
+        // Événements spéciaux
+        'gâteau anniversaire Evere', 'gâteau baptême Bruxelles', 'gâteau communion Evere', 'gâteau bar mitzvah',
+        'gâteau baby shower', 'gâteau retraite', 'gâteau fiançailles', 'gâteau graduation',
+        
+        // Spécialités salées événements
+        'pastilla événement Evere', 'couscous fête Bruxelles', 'mini pizza événement', 'burger événement',
+        'mini burger fête', 'pain surprise Evere', 'spécialités salées événement', 'traiteur salé Bruxelles',
+        
+        // Types de pâtisseries
+        'pâtisserie événementielle Evere', 'entremet sur mesure', 'tarte événement', 'éclair personnalisé',
+        'macaron événement', 'cupcake mariage', 'muffin entreprise', 'cookie personnalisé',
+        
+        // Enfants et fêtes
+        'gâteau anniversaire enfant Evere', 'gâteau thématique enfant', 'fête enfant pâtisserie Bruxelles',
+        'gâteau super-héros', 'gâteau princesse', 'gâteau football', 'goûter anniversaire',
+        
+        // Services spécialisés
+        'pâtisserie française traditionnelle', 'retrait boutique Evere', 'emballage gâteau transport',
+        'comptoir pâtisserie Evere', 'délai court commande', 'consultation téléphone pâtissier',
+        
+        // Localisation géographique
+        'pâtissier Evere 1140', 'boulangerie Bruxelles-Nord', 'traiteur Schaerbeek', 'pâtisserie Heysel',
+        'gâteau Laeken', 'événement Woluwe', 'mariage Uccle', 'anniversaire Ixelles',
+        
+        // Recherches longue traîne
+        'où commander gâteau mariage Bruxelles', 'meilleur pâtissier événement Evere',
+        'prix pièce montée mariage', 'gâteau mariage pas cher Bruxelles', 'délai commande gâteau',
+        'pâtissier mariage recommandé Bruxelles', 'spécialiste gâteau événement'
     ].join(', '),
     openGraph: {
-        title: "Événements Sur Mesure | Boulangerie Pâtisserie Artisanale Evere",
-        description: "Créations exceptionnelles pour tous vos événements : mariages, anniversaires, entreprise. Gâteaux sur mesure, service traiteur et mignardises raffinées.",
-        images: [{ url: '/photos/webp/event-numbercake_baguedemariage.webp' }]
+        title: "🎂 Gâteau Mariage & Événements | Pâtissier Evere-Bruxelles",
+        description: "Pâtissier spécialisé événements : mariages, anniversaires, entreprise. Créations sur mesure, service traiteur, livraison Bruxelles. Devis gratuit !",
+        images: [
+            { url: '/photos/webp/event-numbercake_baguedemariage.webp', alt: 'Gâteau de mariage avec number cake' },
+            { url: '/photos/event-1piecemonte3etages.jpeg', alt: 'Pièce montée traditionnelle 3 étages' },
+            { url: '/photos/webp/event-preparation.webp', alt: 'Préparation pâtisseries événement' }
+        ],
+        type: 'website',
+        locale: 'fr_BE',
+        siteName: 'Pain Pâtisserie Evere'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Gâteau Mariage & Événements Evere-Bruxelles',
+        description: 'Pâtissier événementiel : mariages, anniversaires, entreprise. Créations artisanales sur mesure.',
+        images: ['/photos/webp/event-numbercake_baguedemariage.webp']
     },
     alternates: {
         canonical: 'https://www.painpatisserie.be/events',
     },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    other: {
+        'geo.region': 'BE-BRU',
+        'geo.placename': 'Evere',
+        'geo.position': '50.8664;4.4001',
+        'ICBM': '50.8664, 4.4001'
+    }
 };
 
 // --- Page Component ---
 export default function EventsPage() {
     const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Événements et Célébrations - Pain Pâtisserie',
-        provider: {
-            '@type': 'Bakery',
-            name: 'Pain Pâtisserie',
-            address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'Chaussée de Louvain 906',
-                addressLocality: 'Evere',
-                postalCode: '1140',
-                addressRegion: 'Bruxelles',
-                addressCountry: 'BE'
+        '@graph': [
+            {
+                '@type': 'Bakery',
+                '@id': 'https://www.painpatisserie.be/#bakery',
+                name: 'Pain Pâtisserie Evere',
+                alternateName: ['Boulangerie Pâtisserie Evere', 'Pâtisserie Événementielle Evere'],
+                url: 'https://www.painpatisserie.be',
+                logo: 'https://www.painpatisserie.be/favicon.svg',
+                image: [
+                    'https://www.painpatisserie.be/photos/webp/event-numbercake_baguedemariage.webp',
+                    'https://www.painpatisserie.be/photos/event-1piecemonte3etages.jpeg'
+                ],
+                description: 'Pâtisserie artisanale spécialisée dans les événements : mariages, anniversaires, baptêmes, entreprise. Créations sur mesure et service traiteur à Evere-Bruxelles.',
+                address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'Chaussée de Louvain 906',
+                    addressLocality: 'Evere',
+                    postalCode: '1140',
+                    addressRegion: 'Bruxelles-Capitale',
+                    addressCountry: 'BE'
+                },
+                geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: 50.8664,
+                    longitude: 4.4001
+                },
+                telephone: '+32 472 25 05 78',
+                priceRange: '€€',
+                servesCuisine: ['Belgian', 'French Pastry', 'Wedding Cakes', 'Custom Desserts'],
+                paymentAccepted: ['Cash', 'Credit Card', 'Bancontact'],
+                currenciesAccepted: 'EUR',
+                openingHours: [
+                    'Mo-Fr 07:00-19:00',
+                    'Sa 07:00-18:00',
+                    'Su 08:00-17:00'
+                ]
+            },
+            {
+                '@type': 'Service',
+                '@id': 'https://www.painpatisserie.be/events/#service',
+                name: 'Service Événementiel Pâtisserie',
+                provider: { '@id': 'https://www.painpatisserie.be/#bakery' },
+                serviceType: [
+                    'Gâteaux de mariage sur mesure',
+                    'Pièces montées traditionnelles', 
+                    'Wedding cakes modernes',
+                    'Gâteaux d\'anniversaire personnalisés',
+                    'Pâtisseries de baptême',
+                    'Desserts de communion',
+                    'Pastilla grande et petite',
+                    'Couscous événementiel',
+                    'Mini pizzas fête',
+                    'Burgers et mini burgers',
+                    'Pains surprises',
+                    'Number cakes personnalisés',
+                    'Layer cakes artistiques',
+                    'Entremets sur mesure',
+                    'Cupcakes thématiques'
+                ],
+                description: 'Service complet de pâtisserie événementielle : conception, réalisation et livraison de créations sur mesure pour mariages, anniversaires, baptêmes, communions et événements d\'entreprise.',
+                areaServed: [
+                    'Evere', 'Bruxelles', 'Schaerbeek', 'Laeken', 'Heysel', 'Woluwe-Saint-Lambert', 
+                    'Woluwe-Saint-Pierre', 'Uccle', 'Ixelles', 'Saint-Gilles', 'Forest', 'Anderlecht'
+                ],
+                availableChannel: {
+                    '@type': 'ServiceChannel',
+                    serviceUrl: 'https://www.painpatisserie.be/events',
+                    availableLanguage: ['French', 'Dutch', 'English']
+                },
+                offers: [
+                    {
+                        '@type': 'Offer',
+                        name: 'Gâteau de Mariage Sur Mesure',
+                        description: 'Création personnalisée pour votre jour J',
+                        category: 'Wedding Cake',
+                        priceRange: '150-800 EUR',
+                        availability: 'https://schema.org/InStock'
+                    },
+                    {
+                        '@type': 'Offer', 
+                        name: 'Pièce Montée Traditionnelle',
+                        description: 'Pièce montée classique française multi-étages',
+                        category: 'Traditional Wedding Cake',
+                        priceRange: '200-600 EUR',
+                        availability: 'https://schema.org/InStock'
+                    },
+                    {
+                        '@type': 'Offer',
+                        name: 'Spécialités Salées Événement',
+                        description: 'Pastilla, couscous, mini pizzas, burgers, pains surprises',
+                        category: 'Specialty Food',
+                        priceRange: 'Sur devis',
+                        availability: 'https://schema.org/InStock'
+                    }
+                ]
+            },
+            {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Accueil',
+                        item: 'https://www.painpatisserie.be'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 2,
+                        name: 'Événements',
+                        item: 'https://www.painpatisserie.be/events'
+                    }
+                ]
             }
-        },
-        description: metadata.description,
-        serviceType: ['Gâteaux de mariage', 'Pâtisseries événementielles', 'Service traiteur', 'Création sur mesure'],
-        areaServed: 'Bruxelles',
-        url: 'https://www.votredomaine.be/events'
+        ]
     };
 
     return (
@@ -434,6 +588,88 @@ export default function EventsPage() {
                 services={services}
                 realizedEvents={realizedEvents}
             />
+            <EventsFAQ />
+            
+            {/* Contenu SEO enrichi */}
+            <section className="seo-content-section">
+                <div className="events-container">
+                    <div className="seo-content-grid">
+                        <div className="seo-content-block">
+                            <h2>Pâtissier Spécialisé Événements à Evere-Bruxelles</h2>
+                            <p>
+                                Notre <strong>pâtisserie événementielle</strong> à Evere accompagne tous vos moments précieux avec des créations artisanales d&apos;exception. 
+                                Que vous recherchiez un <strong>gâteau de mariage sur mesure</strong>, une <strong>pièce montée traditionnelle</strong>, 
+                                ou des <strong>desserts personnalisés pour anniversaire</strong>, notre équipe de pâtissiers expérimentés réalise 
+                                vos rêves gourmands avec passion et savoir-faire.
+                            </p>
+                            <p>
+                                Spécialisés dans la <strong>pâtisserie française traditionnelle</strong>, nous créons des <strong>wedding cakes</strong> sur mesure, 
+                                des <strong>spécialités salées</strong> (pastilla, couscous, mini pizzas, burgers, pains surprises) pour vos événements, ainsi que des créations thématiques pour 
+                                <strong>fêtes d&apos;enfants</strong> et <strong>célébrations familiales</strong>. Toutes nos créations sont à <strong>retrait en boutique</strong> 
+                                avec nos conseils de transport inclus.
+                            </p>
+                        </div>
+                        
+                        <div className="seo-content-block">
+                            <h3>Nos Services Événementiels</h3>
+                            <ul>
+                                <li><strong>Mariages :</strong> Pièces montées, wedding cakes modernes, number cakes personnalisés</li>
+                                <li><strong>Anniversaires :</strong> Gâteaux thématiques, décorations personnalisées, écriture sur mesure</li>
+                                <li><strong>Spécialités Salées :</strong> Pastilla (grande/petite), couscous, mini pizzas, burgers, pains surprises</li>
+                                <li><strong>Baptêmes & Communions :</strong> Créations délicates respectant vos traditions</li>
+                                <li><strong>Fêtes d&apos;enfants :</strong> Gâteaux super-héros, princesses, thèmes personnalisés</li>
+                            </ul>
+                        </div>
+                        
+                        <div className="seo-content-block">
+                            <h3>Pourquoi Choisir Notre Pâtisserie à Evere ?</h3>
+                            <ul>
+                                <li>✓ <strong>Créations 100% sur mesure</strong> selon vos envies et thèmes</li>
+                                <li>✓ <strong>Consultation par téléphone</strong> ou visite en boutique</li>
+                                <li>✓ <strong>Délais courts</strong> : 2-3 jours pour la plupart des créations</li>
+                                <li>✓ <strong>Pâtisserie traditionnelle française</strong> avec ingrédients de qualité</li>
+                                <li>✓ <strong>Retrait en boutique</strong> avec conseils transport inclus</li>
+                                <li>✓ <strong>Voir nos créations</strong> directement au comptoir</li>
+                            </ul>
+                        </div>
+                        
+                        <div className="seo-content-block">
+                            <h3>Retrait en Boutique à Evere</h3>
+                            <p>
+                                Toutes nos <strong>créations pâtissières événementielles</strong> sont à retirer directement dans notre boutique située à 
+                                <strong>Evere, facilement accessible depuis Schaerbeek, Laeken, Saint-Josse, Woluwe-Saint-Lambert, Woluwe-Saint-Pierre, 
+                                Uccle, Ixelles, Saint-Gilles, Forest, Anderlecht, Molenbeek, Koekelberg, Jette, Ganshoren, 
+                                Berchem-Sainte-Agathe</strong> et toute la région bruxelloise. <strong>Emballages sécurisés et conseils de transport inclus</strong>.
+                            </p>
+                        </div>
+                        
+                        <div className="seo-content-block cta-block">
+                            <h3>🎂 Prêt à Créer Votre Gâteau de Rêve ?</h3>
+                            <p>
+                                Chaque événement mérite une création unique. <strong>Contactez-nous dès maintenant</strong> pour discuter de votre projet 
+                                et recevoir votre <strong>devis personnalisé gratuit</strong>. Notre équipe de pâtissiers passionnés vous accompagne 
+                                de la conception à la dégustation !
+                            </p>
+                            <div className="cta-buttons-seo">
+                                <a 
+                                    href="https://wa.me/32472250578?text=Bonjour, je souhaiterais un devis pour mon événement" 
+                                    className="cta-btn-primary"
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                >
+                                    💬 WhatsApp - Réponse Rapide
+                                </a>
+                                <a 
+                                    href="tel:+32472250578" 
+                                    className="cta-btn-secondary"
+                                >
+                                    📞 0472 25 05 78
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     );
 }

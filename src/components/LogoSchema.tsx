@@ -9,13 +9,13 @@ const LogoSchema = () => {
     "alternateName": "Les Ateliers du Goût",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://pain-patisserie.be/Logo.svg",
+      "url": "https://pain-patisserie.be/favicon.svg",
       "width": "2127",
       "height": "1191",
       "caption": "Pain Pâtisserie - Logo officiel"
     },
     "image": [
-      "https://pain-patisserie.be/Logo.svg"
+      "https://pain-patisserie.be/favicon.svg"
     ],
     "sameAs": [
       "https://pain-patisserie.be"

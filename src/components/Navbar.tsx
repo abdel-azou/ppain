@@ -57,7 +57,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center z-10 pl-4 sm:pl-0"> {/* Modification ici */}
             <Image 
-              src="/Logo.svg" 
+              src="/favicon.svg" 
               alt="Pain Pâtisserie Logo" 
               width={140} // Ajusté pour une meilleure visibilité
               height={50} 

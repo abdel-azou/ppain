@@ -63,11 +63,81 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
     const [activeCategory, setActiveCategory] = useState('all');
     const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [selectedImage, setSelectedImage] = useState<RealizedEvent | null>(null);
 
     const filteredEvents = useMemo(() => {
         if (activeCategory === 'all') return eventItems;
         return eventItems.filter(item => item.category === activeCategory);
     }, [activeCategory, eventItems]);
+
+    // Effet stacking avec IntersectionObserver pour la performance
+    const cardRefs = React.useRef<(HTMLDivElement | null)[]>([]);
+    
+    React.useEffect(() => {
+        // Mise à jour du nombre de cartes dans CSS
+        document.documentElement.style.setProperty('--dynamic-numcards', filteredEvents.length.toString());
+        
+        const handleScroll = () => {
+            filteredEvents.forEach((_, index) => {
+                const card = cardRefs.current[index];
+                if (!card) return;
+                
+                const cardContent = card.querySelector('.event-card-content') as HTMLElement;
+                if (!cardContent) return;
+                
+                const rect = card.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Position relative de la carte
+                const cardTop = rect.top;
+                const cardBottom = rect.bottom;
+                
+                let scale = 1;
+                let translateY = 0;
+                
+                // La carte est complètement visible
+                if (cardTop >= 0 && cardBottom <= windowHeight) {
+                    scale = 1;
+                    translateY = 0;
+                }
+                // La carte sort par le haut
+                else if (cardTop < 0) {
+                    const progress = Math.abs(cardTop) / windowHeight;
+                    scale = Math.max(0.8, 1 - progress * 0.2);
+                    translateY = -progress * 100;
+                }
+                // La carte entre par le bas
+                else if (cardTop > windowHeight) {
+                    const progress = (cardTop - windowHeight) / windowHeight;
+                    scale = Math.max(0.9, 1 - progress * 0.1);
+                    translateY = progress * 50;
+                }
+                
+                // Application des transformations
+                cardContent.style.setProperty('--scale', scale.toString());
+                cardContent.style.setProperty('--translateY', `${translateY}px`);
+            });
+        };
+        
+        // Optimisation avec RAF
+        let ticking = false;
+        const scrollListener = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        
+        window.addEventListener('scroll', scrollListener, { passive: true });
+        handleScroll(); // Initial call
+        
+        return () => {
+            window.removeEventListener('scroll', scrollListener);
+        };
+    }, [filteredEvents]);
 
 
 
@@ -203,50 +273,77 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                         ))}
                     </motion.div>
 
-                    {/* Grille des événements */}
-                    <div className="events-grid">
-                        <AnimatePresence mode="wait">
-                            {filteredEvents.map((event, index) => (
-                                <motion.div
-                                    key={event.id}
-                                    className="event-card"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    onClick={() => setSelectedEvent(event)}
-                                >
-                                    <div className="event-image-container">
-                                        <Image
-                                            src={event.image}
-                                            alt={event.altText}
-                                            fill
-                                            style={{objectFit: 'cover'}}
-                                            className="event-image"
-                                            quality={85}
-                                            sizes="(max-width: 480px) 375px, (max-width: 768px) 768px, 350px"
-                                        />
-                                        <div className="event-overlay">
-                                            <div className="event-overlay-content">
-                                                <h4>Services inclus</h4>
-                                                <p>{event.services.slice(0, 2).join(' • ')}</p>
+                    {/* Indication de scroll */}
+                    <motion.div
+                        className="scroll-hint"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1.5, duration: 0.8 }}
+                    >
+                        <p>⬇️ Faites défiler pour découvrir nos créations</p>
+                    </motion.div>
+
+                    {/* Conteneur Stacking Cards */}
+                    <div className="events-cards-container">
+                        <div className="events-grid">
+                            <AnimatePresence mode="wait">
+                                {filteredEvents.map((event, index) => (
+                                    <motion.div
+                                        key={event.id}
+                                        ref={(el) => { cardRefs.current[index] = el; }}
+                                        className="event-card"
+                                        initial={{ opacity: 0, y: 50 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 50 }}
+                                        transition={{ 
+                                            duration: 0.6, 
+                                            delay: index * 0.1,
+                                            ease: [0.25, 0.46, 0.45, 0.94]
+                                        }}
+                                        onClick={() => setSelectedEvent(event)}
+                                    >
+                                        <div className="event-card-content">
+                                            <div className="event-content">
+                                                <div>
+                                                    <h3>{event.title}</h3>
+                                                    <p>{event.description}</p>
+                                                    <div className="event-tags">
+                                                        {event.tags.slice(0, 3).map(tag => (
+                                                            <span key={tag} className="event-tag">
+                                                                {tag}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="event-image-container">
+                                                <Image
+                                                    src={event.image}
+                                                    alt={event.altText}
+                                                    fill
+                                                    style={{
+                                                        objectFit: 'cover',
+                                                        display: 'block'
+                                                    }}
+                                                    className="event-image"
+                                                    quality={85}
+                                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                                    priority={index < 3}
+                                                    placeholder="blur"
+                                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+al+aArY3/"
+                                                />
+                                                <div className="event-overlay">
+                                                    <div className="event-overlay-content">
+                                                        <h4>Services inclus</h4>
+                                                        <p>{event.services.slice(0, 2).join(' • ')}</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="event-content">
-                                        <h3>{event.title}</h3>
-                                        <p>{event.description}</p>
-                                        <div className="event-tags">
-                                            {event.tags.map(tag => (
-                                                <span key={tag} className="event-tag">
-                                                    {tag}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -323,17 +420,23 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                             {realizedEvents.map((event, index) => (
                                 <div
                                     key={event.id}
-                                    className="carousel-slide"
+                                    className="carousel-slide clickable"
+                                    onClick={() => setSelectedImage(event)}
                                 >
-                                    <Image
-                                        src={event.image}
-                                        alt={event.title}
-                                        fill
-                                        style={{objectFit: 'cover'}}
-                                        quality={85}
-                                        sizes="(max-width: 480px) 375px, (max-width: 768px) 50vw, 33vw"
-                                        priority={index < 6}
-                                    />
+                                    <div className="carousel-image-container">
+                                        <Image
+                                            src={event.image}
+                                            alt={event.title}
+                                            fill
+                                            style={{objectFit: 'cover'}}
+                                            quality={85}
+                                            sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                                            priority={index < 6}
+                                        />
+                                        <div className="image-overlay">
+                                            <span className="zoom-icon">🔍</span>
+                                        </div>
+                                    </div>
                                     <div className="carousel-content">
                                         <h3>{event.title}</h3>
                                         <p>{event.description}</p>
@@ -464,6 +567,49 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                                     <ArrowRight size={16} />
                                     Demander un devis
                                 </Link>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Modal d'agrandissement d'image */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        className="image-modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <motion.div
+                            className="image-modal-content"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="modal-close"
+                                onClick={() => setSelectedImage(null)}
+                                aria-label="Fermer l'image"
+                            >
+                                ✕
+                            </button>
+                            <div className="modal-image-container">
+                                <Image
+                                    src={selectedImage.image}
+                                    alt={selectedImage.title}
+                                    fill
+                                    style={{objectFit: 'contain'}}
+                                    quality={95}
+                                    sizes="90vw"
+                                />
+                            </div>
+                            <div className="modal-image-info">
+                                <h3>{selectedImage.title}</h3>
+                                <p>{selectedImage.description}</p>
                             </div>
                         </motion.div>
                     </motion.div>

@@ -34,6 +34,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [direction, setDirection] = useState(0);
+    const [isTextExpanded, setIsTextExpanded] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const filteredItems = useMemo(() => {
@@ -83,6 +84,33 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
         setCurrentIndex(0);
         setDirection(0);
     }, [activeCategory]);
+
+    // Reset text expansion when item changes
+    useEffect(() => {
+        setIsTextExpanded(false);
+    }, [currentIndex]);
+
+    // Function to toggle text expansion
+    const toggleTextExpansion = useCallback(() => {
+        setIsTextExpanded(prev => !prev);
+    }, []);
+
+    // Function to check if text needs truncation
+    const getDisplayText = useCallback((item: GalleryItem) => {
+        const fullText = item.longDescription || item.description;
+        const maxLength = 150; // Longueur maximale avant troncature
+        
+        if (fullText.length <= maxLength || isTextExpanded) {
+            return fullText;
+        }
+        
+        return fullText.substring(0, maxLength).trim() + '...';
+    }, [isTextExpanded]);
+
+    const shouldShowReadMore = useCallback((item: GalleryItem) => {
+        const fullText = item.longDescription || item.description;
+        return fullText.length > 150;
+    }, []);
 
     // Animations du carousel
     const slideVariants = {
@@ -150,36 +178,41 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
 
                 {/* Barre de filtres améliorée */}
                 <motion.div 
-                    className="carousel-filter-bar"
+                    className="carousel-filter-container"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 >
-                    {categories.map((category, index) => (
-                        <motion.button
-                            key={category.id}
-                            onClick={() => setActiveCategory(category.id)}
-                            className={`carousel-filter-button ${activeCategory === category.id ? 'active' : ''}`}
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <span className="filter-emoji">
-                                {category.id === 'all' && '🎯'}
-                                {category.id === 'ambiance' && '🏪'}
-                                {category.id === 'pain-boulangerie' && '🥖'}
-                                {category.id === 'petit-dejeuner' && '☀️'}
-                                {category.id === 'restauration-salee' && '🥪'}
-                                {category.id === 'entremets' && '🍰'}
-                                {category.id === 'petites-douceurs' && '🧁'}
-                                {category.id === 'specialites' && '🎭'}
-                                {category.id === 'gateaux' && '🎂'}
-                            </span>
-                            {category.label}
-                        </motion.button>
-                    ))}
+                    <div className="carousel-filter-bar">
+                        {categories.map((category, index) => (
+                            <motion.button
+                                key={category.id}
+                                onClick={() => setActiveCategory(category.id)}
+                                className={`carousel-filter-button ${activeCategory === category.id ? 'active' : ''}`}
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                            >
+                                <span className="filter-emoji">
+                                    {category.id === 'all' && '🎯'}
+                                    {category.id === 'ambiance' && '🏪'}
+                                    {category.id === 'pain-boulangerie' && '🥖'}
+                                    {category.id === 'petit-dejeuner' && '☀️'}
+                                    {category.id === 'restauration-salee' && '🥪'}
+                                    {category.id === 'entremets' && '🍰'}
+                                    {category.id === 'petites-douceurs' && '🧁'}
+                                    {category.id === 'specialites' && '🎭'}
+                                    {category.id === 'gateaux' && '🎂'}
+                                </span>
+                                {category.label}
+                            </motion.button>
+                        ))}
+                    </div>
+                    <p className="filter-scroll-hint">
+                        👈 Glissez pour voir toutes les catégories 👉
+                    </p>
                 </motion.div>
 
                 {/* Carousel principal - Mobile First */}
@@ -289,9 +322,35 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                         <h2 className="carousel-item-title-mobile">
                                             {filteredItems[currentIndex].title}
                                         </h2>
-                                        <p className="carousel-item-description-mobile">
-                                            {filteredItems[currentIndex].longDescription || filteredItems[currentIndex].description}
-                                        </p>
+                                        <div className="carousel-item-description-container">
+                                            <p className={`carousel-item-description-mobile ${isTextExpanded ? 'expanded' : ''}`}>
+                                                {getDisplayText(filteredItems[currentIndex])}
+                                            </p>
+                                            {shouldShowReadMore(filteredItems[currentIndex]) && (
+                                                <motion.button 
+                                                    className="read-more-button"
+                                                    onClick={toggleTextExpansion}
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    {isTextExpanded ? (
+                                                        <>
+                                                            <span>Lire moins</span>
+                                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                                                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                                                            </svg>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <span>Lire plus</span>
+                                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                                                <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+                                                            </svg>
+                                                        </>
+                                                    )}
+                                                </motion.button>
+                                            )}
+                                        </div>
                                         
                                         {/* Tags mobiles */}
                                         {filteredItems[currentIndex].tags && (
