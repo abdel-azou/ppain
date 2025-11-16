@@ -535,7 +535,7 @@ export default function EventsPage() {
                         name: 'Gâteau de Mariage Sur Mesure',
                         description: 'Création personnalisée pour votre jour J',
                         category: 'Wedding Cake',
-                        priceRange: '150-800 EUR',
+                        priceRange: 'Sur devis',
                         availability: 'https://schema.org/InStock'
                     },
                     {
@@ -543,7 +543,7 @@ export default function EventsPage() {
                         name: 'Pièce Montée Traditionnelle',
                         description: 'Pièce montée classique française multi-étages',
                         category: 'Traditional Wedding Cake',
-                        priceRange: '200-600 EUR',
+                        priceRange: 'Sur devis',
                         availability: 'https://schema.org/InStock'
                     },
                     {

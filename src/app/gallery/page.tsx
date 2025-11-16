@@ -61,10 +61,10 @@ const galleryItems = [
     },
     {
         id: 2,
-        title: 'Entremets Signature Bruxelles : Gâteaux d\'Exception sur Commande',
+        title: 'Entremets Bruxelles : Gâteaux d\'Exception sur Commande',
         description: 'Entremets artisanaux Bruxelles pour vos événements spéciaux. Techniques française, design contemporain, saveurs équilibrées. 4-8 personnes.',
         longDescription: 'Nos entremets, c\'est l\'alliance parfaite entre tradition pâtissière française et créativité bruxelloise. Chaque création demande un travail minutieux : biscuits aériens, mousses soyeuses, crémeux intenses... Le résultat ? Un gâteau qui fait sensation sur Instagram ET dans vos papilles. Commande 48h à l\'avance recommandée (oui, la perfection prend du temps !).',
-        image: '/photos/webp/gateau-comptoir2.webp',
+        image: '/photos/webp/gateau-comptoire.webp',
         category: 'gateaux',
         featured: true,
         altText: 'Entremet signature Bruxelles - Gâteau artisanal sur commande technique française design moderne événement spécial',
@@ -94,9 +94,9 @@ const galleryItems = [
     },
     {
         id: 5,
-        title: 'Trompe-l\'Œil Fruits Exotiques Bruxelles : 5 Saveurs Signature',
+        title: 'Trompe-l\'Œil Fruits Exotiques Bruxelles : Mangue, Pistache, Framboise, Amande, Myrtille',
         description: 'Pâtisserie trompe-l\'œil 5 saveurs Bruxelles : mangue, pistache, framboise, amande, myrtille. Création unique sur commande, livraison possible.',
-        longDescription: 'Notre chef d\'œuvre en 5 actes gustatifs ! Cette création ultra-réaliste cache 5 mini-gâteaux aux saveurs du monde : mangue des Antilles, pistache de Sicile, framboise des Ardennes, amande de Provence, myrtille sauvage. Chaque "fruit" est façonné individuellement, avec des goûts si authentiques que vos invités vont chercher les pépins ! Un dessert qui voyage sans quitter Bruxelles.',
+        longDescription: 'Envie d\'un voyage gustatif sans quitter Bruxelles ? Notre trompe-l\'œil aux fruits exotiques est votre billet pour l\'ailleurs ! Chaque bouchée révèle une explosion de saveurs : la douceur de la mangue, le croquant de la pistache, l\'acidulé de la framboise, la richesse de l\'amande, et la fraîcheur de la myrtille. Un équilibre parfait qui séduit les palais les plus exigeants. Commandez-le pour votre prochain événement et laissez vos invités deviner les secrets cachés sous cette apparence trompeuse.',
         image: '/photos/webp/trompeOeil-mangue_pistache_framboise_amande_myrtille.webp',
         category: 'specialites',
         featured: true,
@@ -317,7 +317,7 @@ const categories = [
 
 // --- SEO Metadata (Server Component) ---
 export const metadata: Metadata = {
-    title: "Galerie Gourmande | 3 Boutiques Bruxelles : Evere, Koekelberg, Molenbeek | Entremets d'Exception",
+    title: "Boulangerie Pâtisserie Bruxelles | Evere Koekelberg Molenbeek",
     description: "Découvrez notre savoir-faire artisanal dans nos 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Entremets d'exception, pain frais quotidien, pâtisseries trompe-l'œil.",
     keywords: ['boulangerie Evere', 'pâtisserie Koekelberg', 'boulangerie Molenbeek', 'entremets d\'exception Bruxelles', 'pain frais Bruxelles', '3 boutiques pâtisserie', 'Chaussée de Louvain 906', 'Rue Émile Sergijsels 34', 'Chaussée de Gand 402', 'praline monte-cristo forêt noire', 'trompe-l\'œil pâtisserie', 'mignardises événements', 'viennoiserie artisanale', ...new Set(galleryItems.flatMap(item => item.tags || []))].join(', '),
     openGraph: {
