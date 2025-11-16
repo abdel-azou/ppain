@@ -96,7 +96,7 @@ const galleryItems = [
         id: 5,
         title: 'Trompe-l\'Œil Fruits Exotiques Bruxelles : 5 Saveurs Signature',
         description: 'Pâtisserie trompe-l\'œil 5 saveurs Bruxelles : mangue, pistache, framboise, amande, myrtille. Création unique sur commande, livraison possible.',
-        longDescription: 'Notre chef d\'œuvre en 5 actes gustatifs ! Cette création ultra-réaliste cache 5 mini-gâteaux aux saveurs du monde : mangue des Antilles, pistache de Sicile, framboise des Ardennes, amande de Provence, myrtille sauvage. Chaque "fruit" est façonné individuellement (6h de travail !), avec des goûts si authentiques que vos invités vont chercher les pépins ! Un dessert qui voyage sans quitter Bruxelles.',
+        longDescription: 'Notre chef d\'œuvre en 5 actes gustatifs ! Cette création ultra-réaliste cache 5 mini-gâteaux aux saveurs du monde : mangue des Antilles, pistache de Sicile, framboise des Ardennes, amande de Provence, myrtille sauvage. Chaque "fruit" est façonné individuellement, avec des goûts si authentiques que vos invités vont chercher les pépins ! Un dessert qui voyage sans quitter Bruxelles.',
         image: '/photos/webp/trompeOeil-mangue_pistache_framboise_amande_myrtille.webp',
         category: 'specialites',
         featured: true,
