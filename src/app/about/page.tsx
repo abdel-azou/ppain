@@ -82,7 +82,7 @@ export default function AboutPage() {
                 <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Evere</h3>
               </div>
               <p className="text-stone-700 mb-3">
-                <strong>Adresse :</strong> 116 Chau. de Louvain, 1140 Evere
+                <strong>Adresse :</strong> 906 Chau. de Louvain, 1140 Evere
               </p>
               <p className="text-stone-700 leading-relaxed">
                 Notre boutique dans le quartier Paduwa, idéalement située à deux pas de la sortie d&apos;autoroute Evere-Woluwe (A3), entre la place Meiser et la place de la Paix.
@@ -96,7 +96,7 @@ export default function AboutPage() {
                 <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Koekelberg</h3>
               </div>
               <p className="text-stone-700 mb-3">
-                <strong>Adresse :</strong> 194 Av. de Jette, 1090 Koekelberg
+                <strong>Adresse :</strong> 34 Rue Émile Sergijsels, 1081 Bruxelles
               </p>
               <p className="text-stone-700 leading-relaxed">
                 Notre seconde boutique, idéalement située pour servir les quartiers de Koekelberg et Jette avec la même qualité artisanale.
@@ -110,7 +110,7 @@ export default function AboutPage() {
                 <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Molenbeek</h3>
               </div>
               <p className="text-stone-700 mb-3">
-                <strong>Adresse :</strong> 95 Bd Léopold II, 1080 Molenbeek-Saint-Jean
+                <strong>Adresse :</strong> 402 Chaussée de Gand, 1080 Molenbeek-Saint-Jean
               </p>
               <p className="text-stone-700 leading-relaxed">
                 Notre troisième boutique, extension naturelle de notre savoir-faire vers Molenbeek-Saint-Jean et les communes avoisinantes.
