@@ -35,12 +35,12 @@ const Footer = () => {
                                 <p>Chaussée de Louvain 906<br/>1140 Evere, Bruxelles</p>
                             </div>
                             <div>
-                                <p className="font-semibold">📍 Koekelberg</p>
-                                <p>Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
-                            </div>
-                            <div>
                                 <p className="font-semibold">📍 Molenbeek</p>
                                 <p>Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
+                            </div>
+                            <div>
+                                <p className="font-semibold">📍 Koekelberg</p>
+                                <p>Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
                             </div>
                         </div>
                         <div className="flex space-x-4 mt-4">
@@ -62,7 +62,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="text-center mt-8 pt-8 border-t border-stone-500 border-opacity-30">
-                    <p>&copy; {currentYear} Pâtisserie Plaisir. Tous droits réservés.</p>
+                    <p>&copy; {currentYear} Pain Pâtisserie. Tous droits réservés.</p>
                 </div>
             </div>
         </footer>
