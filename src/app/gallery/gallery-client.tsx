@@ -32,7 +32,7 @@ interface GalleryClientProps {
 const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories }) => {
     const [activeCategory, setActiveCategory] = useState('all');
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isAutoPlaying] = useState(false);
     const [direction, setDirection] = useState(0);
     const [isTextExpanded, setIsTextExpanded] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -371,35 +371,13 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                                             type: "spring",
                                                             stiffness: 200
                                                         }}
+                                                        data-tag={`#${tag}`}
                                                     >
-                                                        #{tag}
+                                                        {tag}
                                                     </motion.span>
                                                 ))}
                                             </motion.div>
                                         )}
-
-                                        {/* Contrôle auto-play mobile */}
-                                        <button 
-                                            className={`carousel-play-button-mobile ${isAutoPlaying ? 'playing' : 'paused'}`}
-                                            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                                            aria-label={isAutoPlaying ? 'Mettre en pause' : 'Reprendre le diaporama'}
-                                        >
-                                            {isAutoPlaying ? (
-                                                <>
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                                                    </svg>
-                                                    <span>Pause</span>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M8 5v14l11-7z"/>
-                                                    </svg>
-                                                    <span>Play</span>
-                                                </>
-                                            )}
-                                        </button>
                                     </motion.div>
                                 </motion.div>
                             )}

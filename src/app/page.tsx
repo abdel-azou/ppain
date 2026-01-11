@@ -255,7 +255,7 @@ export default function Home() {
 							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
-										<p className="font-semibold text-amber-800">📍 Evere</p>
+										<p className="font-semibold text-amber-800">📍 Evere - Paduwa</p>
 										<p className="text-stone-700">Chaussée de Louvain 906<br/>1140 Evere, Bruxelles</p>
 										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
 									</div>
@@ -273,7 +273,7 @@ export default function Home() {
 							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
-										<p className="font-semibold text-amber-800">📍 Molenbeek</p>
+										<p className="font-semibold text-amber-800">📍 Molenbeek - Karreveld</p>
 										<p className="text-stone-700">Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
 										<p className="text-xs text-stone-500 mt-2">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
 									</div>

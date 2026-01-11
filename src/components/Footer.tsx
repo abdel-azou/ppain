@@ -31,11 +31,11 @@ const Footer = () => {
                         <h3 className="text-lg font-bold mb-4">Nos 3 Boutiques</h3>
                         <div className="space-y-3 text-sm">
                             <div>
-                                <p className="font-semibold">📍 Evere</p>
+                                <p className="font-semibold">📍 Evere - Paduwa</p>
                                 <p>Chaussée de Louvain 906<br/>1140 Evere, Bruxelles</p>
                             </div>
                             <div>
-                                <p className="font-semibold">📍 Molenbeek</p>
+                                <p className="font-semibold">📍 Molenbeek - Karreveld</p>
                                 <p>Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
                             </div>
                             <div>
