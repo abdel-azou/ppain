@@ -155,8 +155,6 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
         <section 
             id="gallery" 
             className="gallery-section-carousel"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
         >
             <div className="gallery-container-carousel">
                 {/* En-tête */}
