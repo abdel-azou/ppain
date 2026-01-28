@@ -95,24 +95,6 @@ export default function ContactClientPage() {
             <div className="border-l-4 border-amber-600 pl-4">
               <div className="flex justify-between items-start">
                 <div className="flex-1">
-                  <p className="font-semibold text-amber-800">📍 Koekelberg</p>
-                  <p className="text-stone-700">Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
-                  <p className="text-xs text-stone-500">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
-                </div>
-                <a
-                  href="https://waze.com/ul?ll=50.86000270295589,4.334650008740216&navigate=yes"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
-                  title="Ouvrir dans Waze"
-                >
-                  <Navigation size={18} />
-                </a>
-              </div>
-            </div>
-            <div className="border-l-4 border-amber-600 pl-4">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
                   <p className="font-semibold text-amber-800">📍 Molenbeek</p>
                   <p className="text-stone-700">Chaussée de Gand 402<br/>1080 Molenbeek-Saint-Jean, Bruxelles</p>
                   <p className="text-xs text-stone-500">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
@@ -129,6 +111,24 @@ export default function ContactClientPage() {
               </div>
             </div>
           </div>
+          <div className="border-l-4 border-amber-600 pl-4">
+              <div className="flex justify-between items-start">
+                <div className="flex-1">
+                  <p className="font-semibold text-amber-800">📍 Koekelberg</p>
+                  <p className="text-stone-700">Rue Émile Sergijsels 34<br/>1081 Koekelberg, Bruxelles</p>
+                  <p className="text-xs text-stone-500">Lun, Mer-Dim : 06h-20h | Mar : Fermé</p>
+                </div>
+                <a
+                  href="https://waze.com/ul?ll=50.86000270295589,4.334650008740216&navigate=yes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-3 p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 flex items-center justify-center"
+                  title="Ouvrir dans Waze"
+                >
+                  <Navigation size={18} />
+                </a>
+              </div>
+            </div>
           <p className="text-sm text-stone-500 mt-3">Click and collect disponible</p>
         </div>
         <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
