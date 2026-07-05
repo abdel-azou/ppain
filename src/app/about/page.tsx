@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     images: ['/photos/webp/comptoir-vueclient.webp'],
   },
   alternates: {
-    canonical: 'https://www.painpatisserie.be/about',
+    canonical: 'https://pain-patisserie.be/about',
   },
 };
 

@@ -4,11 +4,11 @@ const LocalBusinessSchema = () => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://www.painpatisserie.be",
+    "@id": "https://pain-patisserie.be",
     "name": "Pain Pâtisserie",
     "alternateName": ["Boulangerie Pâtisserie Bruxelles", "Pain & Pâtisserie"],
     "description": "Boulangerie-pâtisserie artisanale à Bruxelles spécialisée en gâteaux personnalisés, entremets d'exception et pain frais quotidien",
-    "url": "https://www.painpatisserie.be",
+    "url": "https://pain-patisserie.be",
     "telephone": "+32472250578",
     "priceRange": "€€",
     "paymentAccepted": ["Cash", "Credit Card", "Bancontact"],

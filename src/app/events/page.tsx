@@ -435,7 +435,7 @@ export const metadata: Metadata = {
         images: ['/photos/webp/event-numbercake_baguedemariage.webp']
     },
     alternates: {
-        canonical: 'https://www.painpatisserie.be/events',
+        canonical: 'https://pain-patisserie.be/events',
     },
     robots: {
         index: true,
@@ -463,14 +463,14 @@ export default function EventsPage() {
         '@graph': [
             {
                 '@type': 'Bakery',
-                '@id': 'https://www.painpatisserie.be/#bakery',
+                '@id': 'https://pain-patisserie.be/#bakery',
                 name: 'Pain Pâtisserie Evere',
                 alternateName: ['Boulangerie Pâtisserie Evere', 'Pâtisserie Événementielle Evere'],
-                url: 'https://www.painpatisserie.be',
-                logo: 'https://www.painpatisserie.be/favicon.svg',
+                url: 'https://pain-patisserie.be',
+                logo: 'https://pain-patisserie.be/favicon.svg',
                 image: [
-                    'https://www.painpatisserie.be/photos/webp/event-numbercake_baguedemariage.webp',
-                    'https://www.painpatisserie.be/photos/event-1piecemonte3etages.jpeg'
+                    'https://pain-patisserie.be/photos/webp/event-numbercake_baguedemariage.webp',
+                    'https://pain-patisserie.be/photos/event-1piecemonte3etages.jpeg'
                 ],
                 description: 'Pâtisserie artisanale spécialisée dans les événements : mariages, anniversaires, baptêmes, entreprise. Créations sur mesure et service traiteur à Evere-Bruxelles.',
                 address: {
@@ -499,9 +499,9 @@ export default function EventsPage() {
             },
             {
                 '@type': 'Service',
-                '@id': 'https://www.painpatisserie.be/events/#service',
+                '@id': 'https://pain-patisserie.be/events/#service',
                 name: 'Service Événementiel Pâtisserie',
-                provider: { '@id': 'https://www.painpatisserie.be/#bakery' },
+                provider: { '@id': 'https://pain-patisserie.be/#bakery' },
                 serviceType: [
                     'Gâteaux de mariage sur mesure',
                     'Pièces montées traditionnelles', 
@@ -526,7 +526,7 @@ export default function EventsPage() {
                 ],
                 availableChannel: {
                     '@type': 'ServiceChannel',
-                    serviceUrl: 'https://www.painpatisserie.be/events',
+                    serviceUrl: 'https://pain-patisserie.be/events',
                     availableLanguage: ['French', 'Dutch', 'English']
                 },
                 offers: [
@@ -563,13 +563,13 @@ export default function EventsPage() {
                         '@type': 'ListItem',
                         position: 1,
                         name: 'Accueil',
-                        item: 'https://www.painpatisserie.be'
+                        item: 'https://pain-patisserie.be'
                     },
                     {
                         '@type': 'ListItem',
                         position: 2,
                         name: 'Événements',
-                        item: 'https://www.painpatisserie.be/events'
+                        item: 'https://pain-patisserie.be/events'
                     }
                 ]
             }

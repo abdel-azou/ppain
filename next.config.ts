@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.painpatisserie.be',
+        hostname: 'pain-patisserie.be',
         port: '',
         pathname: '/photos/**',
       },

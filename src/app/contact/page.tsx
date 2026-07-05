@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'WhatsApp commande 0472 25 05 78'
   ],
   alternates: {
-    canonical: 'https://www.painpatisserie.be/contact',
+    canonical: 'https://pain-patisserie.be/contact',
   },
 };
 

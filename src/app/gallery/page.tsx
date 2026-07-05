@@ -326,7 +326,7 @@ export const metadata: Metadata = {
         images: [ { url: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp' } ]
     },
     alternates: {
-        canonical: 'https://www.painpatisserie.be/gallery',
+        canonical: 'https://pain-patisserie.be/gallery',
     },
 };
 
