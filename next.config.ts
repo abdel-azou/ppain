@@ -60,8 +60,10 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Output pour le déploiement
-  output: 'standalone',
+  // Note: pas de "output: 'standalone'" ici — ce mode est prévu pour un hébergement
+  // Node/Docker auto-géré (il faut alors copier manuellement .next/static et public/
+  // dans le dossier standalone après chaque build, ce qui casse le CSS/JS si oublié).
+  // Netlify gère le build/SSR via @netlify/plugin-nextjs et n'en a pas besoin.
 };
 
 export default nextConfig;
