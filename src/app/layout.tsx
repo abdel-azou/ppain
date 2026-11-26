@@ -82,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr-BE">
       <head>
         <LocalBusinessSchema />
         <LogoSchema />

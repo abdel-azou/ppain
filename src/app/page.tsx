@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
-import { Seo } from '../components/Seo';
+
 import ArtGallery from '@/components/ArtGallery';
 import './Home.css';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -55,12 +55,7 @@ export default function Home() {
 
 	return (
 		<main id="home">
-				<Seo
-				title="Boulangerie Pâtisserie Artisanale | 3 Boutiques Bruxelles : Evere, Koekelberg, Molenbeek"
-				description="Boulangerie-pâtisserie artisanale avec 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Entremets d'exception, pain frais quotidien, trompe-l'œil créatifs."
-				canonicalUrl="https://www.votredomaine.be"
-				imageUrl="https://www.votredomaine.be/photos/webp/entremet-paraline_montecristo_foretnoire.webp"
-			/>			<section className="hero-section">
+				<section className="hero-section">
 				<div className="hero-background">
 					<Image
 						src="/photos/webp/comptoir-vueclient.webp"

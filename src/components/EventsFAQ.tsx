@@ -183,10 +183,6 @@ const EventsFAQ: React.FC = () => {
                     </div>
                 </motion.div>
 
-                {/* Mots-clés cachés pour le SEO */}
-                <div className="seo-keywords" aria-hidden="true">
-                    {faqData.flatMap(faq => faq.keywords).join(', ')}
-                </div>
             </div>
         </section>
     );

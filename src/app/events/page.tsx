@@ -381,7 +381,7 @@ const services = [
 
 // --- SEO Metadata ---
 export const metadata: Metadata = {
-    title: "Gâteau Mariage & Événements | Pâtissier Traiteur Evere Bruxelles | Pièce Montée Sur Mesure",
+    title: "Gâteau Mariage | Pâtissier Traiteur Evere Bruxelles",
     description: "Pâtissier événementiel à Evere-Bruxelles : gâteaux de mariage, pièces montées, anniversaires, baptêmes, communions. Plateaux de mignardises, créations sur mesure. Pâtisserie française traditionnelle, retrait en boutique, délais courts. Devis gratuit !",
     keywords: [
         // Mots-clés principaux mariage

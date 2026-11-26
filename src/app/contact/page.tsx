@@ -8,7 +8,7 @@ const lusitana = Lusitana({
 });
 
 export const metadata: Metadata = {
-  title: 'Contact & Commande - 3 Boutiques Pain Pâtisserie Bruxelles : Evere, Koekelberg, Molenbeek',
+  title: 'Contact & Commande | Pâtisserie Bruxelles - Evere, Koekelberg, Molenbeek',
   description: 'Contactez Pain Pâtisserie dans nos 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Commandes gâteaux sur mesure, traiteur, WhatsApp.',
   keywords: [
     'contact pâtisserie Evere', 

@@ -10,7 +10,7 @@ const lusitana = Lusitana({
 });
 
 export const metadata: Metadata = {
-  title: 'À Propos - Histoire & Savoir-faire | Pain Pâtisserie Bruxelles (3 Boutiques)',
+  title: 'Histoire & Savoir-faire | Pâtisserie Artisanale Bruxelles',
   description: "Découvrez l'histoire de Pain Pâtisserie, notre passion pour la boulangerie et pâtisserie artisanale, et l'art du trompe-l'œil. 3 boutiques à Bruxelles : Evere, Koekelberg, Molenbeek. Tradition familiale et innovation pâtissière depuis des générations.",
   keywords: [
     'histoire boulangerie Bruxelles', 

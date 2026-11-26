@@ -178,9 +178,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h1 className="gallery-title-carousel">
-                        <span className="title-decoration">✨</span>
                         Nos Créations d&apos;Exception
-                        <span className="title-decoration">✨</span>
                     </h1>
                     <p className="gallery-subtitle-carousel">
                         Une symphonie de saveurs dans nos 3 boutiques bruxelloises

@@ -51,7 +51,6 @@ const LogoSchema = () => {
       }
     ],
     "sameAs": [
-      "https://pain-patisserie.be",
       "https://www.facebook.com/share/16oudhygiy/",
       "https://www.instagram.com/painpatisserie",
       "https://www.tiktok.com/@painpatisserie"
