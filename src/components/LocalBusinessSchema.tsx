@@ -85,7 +85,8 @@ const LocalBusinessSchema = () => {
     "sameAs": [
       "https://www.facebook.com/share/16oudhygiy/",
       "https://www.instagram.com/painpatisserie",
-      "https://www.tiktok.com/@painpatisserie"
+      "https://www.tiktok.com/@painpatisserie",
+      "https://maps.app.goo.gl/ojPWAFZgCKmT4U2m9"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
