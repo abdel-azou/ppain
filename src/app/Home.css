@@ -120,9 +120,7 @@
 /* --- Section Incontournables avec dégradé animé --- */
 .incontournables-section {
     padding: 4rem 1rem;
-    background: linear-gradient(270deg, #fdfbfb, #e2d1c3, #fdfbfb);
-    background-size: 400% 400%;
-    animation: gradientAnimation 18s ease infinite;
+    background: #f7f1e8;
     position: relative;
     overflow: hidden;
 }
@@ -264,7 +262,6 @@
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 1.5rem;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 .specialty-image {
@@ -367,7 +364,6 @@
     background: white;
     padding: 1.5rem;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     transition: transform 0.2s ease;
 }
 
@@ -407,7 +403,7 @@
     font-weight: 600;
     border-radius: 50px;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     width: 100%;
     max-width: 300px;
     border: none;
@@ -438,7 +434,6 @@
     height: 350px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .location-iframe {
@@ -504,7 +499,6 @@
 .events-image-container {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     min-height: 300px;
 }
 
@@ -559,14 +553,13 @@
     background-color: #e84e1a9c; /* Couleur ambre/caramel chaleureuse */
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     display: inline-block;
     text-decoration: none;
 }
 
 .events-cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(180, 83, 9, 0.35); /* Ombre assortie */
 }
 
 @media (min-width: 992px) {

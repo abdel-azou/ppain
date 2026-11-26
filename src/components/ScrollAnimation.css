@@ -96,17 +96,9 @@
   text-align: left;
   color: #2c1810;
   padding: 0;
-  background: radial-gradient(
-    circle at 100% 100%,
-    rgba(250, 248, 243, 0.95) 0%,
-    rgba(250, 248, 243, 0.92) 40%,
-    transparent 65%
-  );
+  background: rgba(250, 248, 243, 0.95);
   border-radius: 0 0 100% 0;
   clip-path: ellipse(75% 65% at 0% 0%); /* Zone encore plus étendue vers la droite */
-  box-shadow: 
-    0 0 0 2px rgba(210, 105, 30, 0.3),
-    0 8px 32px rgba(44, 24, 16, 0.15);
 }
 
 /* Container pour le texte - vraiment à gauche dans la zone élargie */
@@ -125,11 +117,10 @@
   color: #8B4513;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: -0.01em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   filter: none;
   word-wrap: break-word;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .overlay-header {
@@ -201,14 +192,13 @@
   height: 10px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 
 .swipe-dot.active {
   background: rgba(255, 255, 255, 0.9);
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* Supprimer le texte d'instruction de swipe */
@@ -240,7 +230,7 @@
 @media (min-width: 769px) {
   .scroll-cinematic-section {
     min-height: 150vh; /* Restaurer pour le scroll desktop */
-    background: linear-gradient(135deg, #faf8f3 0%, #f5f1eb 100%);
+    background: #faf8f3;
   }
 
   .cinematic-container {
@@ -265,15 +255,12 @@
     height: auto;
     max-height: 70vh;
     border-radius: 25px;
-    box-shadow: 
-      0 25px 80px rgba(0, 0, 0, 0.15),
-      0 0 0 1px rgba(0, 0, 0, 0.1);
     background: #000;
   }
 
   .cinematic-layer {
     transform: translateY(100%) scale(1.02); /* Par défaut : vient d'en bas avec zoom */
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .cinematic-layer.visible {
@@ -324,10 +311,7 @@
     margin-bottom: 20px;
     font-weight: 800;
     line-height: 1.2;
-    background: linear-gradient(135deg, #8B4513, #D2691E, #8B4513);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #8B4513;
   }
 
   .subtitle {
@@ -349,7 +333,7 @@
     margin-bottom: 25px;
     opacity: 0.3;
     transform: translateX(-20px);
-    transition: all 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
   .process-step.visible {
@@ -363,14 +347,13 @@
     justify-content: center;
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, #D2691E, #8B4513);
+    background: #D2691E;
     color: white;
     border-radius: 50%;
     font-weight: 700;
     font-size: 1.1rem;
     margin-right: 20px;
     flex-shrink: 0;
-    box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
   }
 
   .process-step.visible .step-number {
@@ -436,13 +419,12 @@
     height: 8px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
 
   .progress-dot.active {
     background: rgba(255, 255, 255, 0.9);
     transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
 }
 

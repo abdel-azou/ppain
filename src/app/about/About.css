@@ -17,7 +17,6 @@
   border-radius: 0.5rem; /* rounded-lg */
   background-color: #f3f4f6; /* Un gris très clair */
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
   width: 100%;
   height: 100%;
   top: 0;
@@ -49,7 +48,6 @@
 .stamp-image {
   border: 10px solid white;
   background: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   position: relative; /* Important pour le stacking */
   z-index: 1; /* S'assurer qu'elle est devant */
   display: block;

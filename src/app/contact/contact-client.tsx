@@ -21,16 +21,11 @@ export default function ContactClientPage() {
   return (
     <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-start">
       <motion.div 
-        className="bg-white p-6 sm:p-8 rounded-lg shadow-lg"
+        className="bg-white p-6 sm:p-8 rounded-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-center mb-4">
-          <span className="text-4xl" role="img" aria-label="Gâteau d'anniversaire">🎂</span>
-          <span className="text-4xl mx-4" role="img" aria-label="Tada">🎉</span>
-          <span className="text-4xl" role="img" aria-label="Bulle de parole">💬</span>
-        </div>
         <h2 className="text-xl font-bold mb-6 text-center">Une question, une envie ?</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -71,7 +66,7 @@ export default function ContactClientPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+        <div className="bg-white p-6 sm:p-8 rounded-lg">
           <h3 className="text-xl font-bold mb-4 flex items-center"><MapPin className="mr-3 text-amber-800"/> Nos 3 Boutiques</h3>
           <div className="space-y-3">
             <div className="border-l-4 border-amber-600 pl-4">
@@ -131,7 +126,7 @@ export default function ContactClientPage() {
             </div>
           <p className="text-sm text-stone-500 mt-3">Click and collect disponible</p>
         </div>
-        <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+        <div className="bg-white p-6 sm:p-8 rounded-lg">
           <h3 className="text-xl font-bold mb-4 flex items-center"><Phone className="mr-3 text-amber-800"/> Téléphone</h3>
           <p className="text-stone-700">0472 25 05 78</p>
           <p className="text-sm text-stone-500 mt-2">Pour les commandes urgentes</p>

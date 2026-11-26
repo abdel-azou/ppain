@@ -61,7 +61,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-center mt-8 pt-8 border-t border-stone-500 border-opacity-30">
+                <div className="text-center mt-8 pt-8">
                     <p>&copy; {currentYear} Pain Pâtisserie. Tous droits réservés.</p>
                 </div>
             </div>

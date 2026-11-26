@@ -11,9 +11,7 @@
   -webkit-backdrop-filter: blur(10px);
   border-bottom-left-radius: 1.5rem; /* 24px */
   border-bottom-right-radius: 1.5rem; /* 24px */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* Pour que les coins arrondis s'appliquent aux enfants */
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .mobile-menu-nav {
@@ -35,7 +33,7 @@
 
 .mobile-menu-link:hover {
   background-color: #f5f5f4; /* stone-100 */
-  color: #a855f7; /* amber-800 - couleur plus vive pour le survol */
+  color: #f04b22;
 }
 
 .mobile-menu-link.active {

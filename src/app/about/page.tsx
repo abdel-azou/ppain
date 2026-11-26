@@ -52,7 +52,7 @@ export default function AboutPage() {
                   alt="Intérieur de la Pâtisserie Pain Pâtisserie Bruxelles - ambiance chaleureuse et professionnelle"
                   width={600}
                   height={400}
-                  className="rounded-lg shadow-2xl w-full h-auto stamp-image"
+                  className="rounded-lg w-full h-auto stamp-image"
                 />
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function AboutPage() {
 
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {/* Boutique Evere */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-amber-600" />
                 <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Evere</h3>
@@ -90,7 +90,7 @@ export default function AboutPage() {
             </div>
 
             {/* Boutique Koekelberg */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-amber-600" />
                 <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Koekelberg</h3>
@@ -104,7 +104,7 @@ export default function AboutPage() {
             </div>
 
             {/* Boutique Molenbeek */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-lg">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-amber-600" />
                 <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800`}>Molenbeek</h3>
@@ -143,7 +143,7 @@ export default function AboutPage() {
 
             {/* Colonne de droite */}
             <div className="md:col-span-2 space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-lg flex items-start gap-4">
+              <div className="bg-white p-6 rounded-lg flex items-start gap-4">
                 <Coffee className="w-7 h-7 text-amber-600 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Petit-déjeuner à emporter</h3>
@@ -152,7 +152,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg flex items-start gap-4">
+              <div className="bg-white p-6 rounded-lg flex items-start gap-4">
                 <Bus className="w-7 h-7 text-amber-600 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className={`${lusitana.className} text-xl font-semibold text-stone-800 mb-2`}>Accès facile</h3>
@@ -168,15 +168,15 @@ export default function AboutPage() {
         <div className="text-center my-16 md:my-24">
            <h2 className={`${lusitana.className} text-3xl sm:text-4xl font-semibold text-stone-800 mb-8`}>Nos Engagements</h2>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <div className="p-6 bg-white rounded-lg shadow-lg animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <div className="p-6 bg-white rounded-lg animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                     <h3 className="text-xl font-bold mb-2">Qualité Artisanale</h3>
                     <p className="text-stone-600">Sélection rigoureuse des matières premières, sans conservateurs ni additifs, dans nos 3 boutiques bruxelloises.</p>
                 </div>
-                <div className="p-6 bg-white rounded-lg shadow-lg animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <div className="p-6 bg-white rounded-lg animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                     <h3 className="text-xl font-bold mb-2">Créativité & Innovation</h3>
                     <p className="text-stone-600">Des créations uniques et des gâteaux sur mesure pour toutes vos occasions, avec notre expertise du trompe-l&apos;œil.</p>
                 </div>
-                <div className="p-6 bg-white rounded-lg shadow-lg animate-fade-in-up sm:col-span-2 lg:col-span-1" style={{ animationDelay: '0.8s' }}>
+                <div className="p-6 bg-white rounded-lg animate-fade-in-up sm:col-span-2 lg:col-span-1" style={{ animationDelay: '0.8s' }}>
                     <h3 className="text-xl font-bold mb-2">Proximité & Service</h3>
                     <p className="text-stone-600">Un service traiteur et brunch pour les entreprises et particuliers depuis nos 3 boutiques : Evere, Koekelberg, Molenbeek.</p>
                 </div>

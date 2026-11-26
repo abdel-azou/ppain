@@ -252,7 +252,7 @@ export default function Home() {
 					<div className="location-info">
 						<h2 className="section-title">Nos 3 Boutiques à Bruxelles</h2>
 						<div className="space-y-3">
-							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
+							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
 										<p className="font-semibold text-amber-800">📍 Evere - Paduwa</p>
@@ -270,7 +270,7 @@ export default function Home() {
 									</a>
 								</div>
 							</div>
-							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
+							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
 										<p className="font-semibold text-amber-800">📍 Molenbeek - Karreveld</p>
@@ -288,7 +288,7 @@ export default function Home() {
 									</a>
 								</div>
 							</div>
-							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg shadow-sm">
+							<div className="border-l-4 border-amber-600 pl-4 bg-white p-4 rounded-lg">
 								<div className="flex justify-between items-start">
 									<div className="flex-1">
 										<p className="font-semibold text-amber-800">📍 Koekelberg</p>
