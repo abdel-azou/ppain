@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Redirection 301 : painpatisserie.be → pain-patisserie.be (domaine canonique)
+# Les deux domaines doivent être ajoutés dans Netlify Dashboard > Domain Management
+[[redirects]]
+  from   = "https://painpatisserie.be/*"
+  to     = "https://pain-patisserie.be/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "https://www.painpatisserie.be/*"
+  to     = "https://pain-patisserie.be/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
+  from   = "https://www.pain-patisserie.be/*"
+  to     = "https://pain-patisserie.be/:splat"
+  status = 301
+  force  = true
