@@ -6,7 +6,7 @@ const LogoSchema = () => {
     "@type": "Organization",
     "url": "https://pain-patisserie.be",
     "name": "Pain Pâtisserie",
-    "alternateName": "Les Ateliers du Goût",
+    "alternateName": ["Pain et Pâtisserie Bruxelles", "Pâtisserie Pain Bruxelles"],
     "logo": {
       "@type": "ImageObject",
       "url": "https://pain-patisserie.be/favicon.svg",

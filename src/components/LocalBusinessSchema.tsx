@@ -13,7 +13,7 @@ const LocalBusinessSchema = () => {
     "priceRange": "€€",
     "paymentAccepted": ["Cash", "Credit Card", "Bancontact"],
     "currenciesAccepted": "EUR",
-    "openingHours": ["Mo 06:00-20:00", "We-Su 06:00-20:00"],
+    "openingHours": ["Mo-Fr 07:00-19:00", "Sa 07:00-18:00", "Su 08:00-17:00"],
     "servesCuisine": ["Belgian", "French", "European"],
     "serviceArea": {
       "@type": "GeoCircle",
@@ -85,9 +85,9 @@ const LocalBusinessSchema = () => {
       "worstRating": "1"
     },
     "image": [
-      "/photos/webp/comptoir-vueclient.webp",
-      "/photos/webp/entremet-paraline_montecristo_foretnoire.webp",
-      "/photos/webp/event-numbercake_baguedemariage.webp"
+      "https://pain-patisserie.be/photos/webp/comptoir-vueclient.webp",
+      "https://pain-patisserie.be/photos/webp/entremet-paraline_montecristo_foretnoire.webp",
+      "https://pain-patisserie.be/photos/webp/event-numbercake_baguedemariage.webp"
     ],
     "sameAs": [
       "https://www.facebook.com/share/16oudhygiy/",

@@ -452,8 +452,8 @@ export const metadata: Metadata = {
     other: {
         'geo.region': 'BE-BRU',
         'geo.placename': 'Evere',
-        'geo.position': '50.8664;4.4001',
-        'ICBM': '50.8664, 4.4001'
+        'geo.position': '50.8592;4.4135',
+        'ICBM': '50.8592, 4.4135'
     }
 };
 
@@ -484,8 +484,8 @@ export default function EventsPage() {
                 },
                 geo: {
                     '@type': 'GeoCoordinates',
-                    latitude: 50.8664,
-                    longitude: 4.4001
+                    latitude: 50.8592,
+                    longitude: 4.4135
                 },
                 telephone: '+32 472 25 05 78',
                 priceRange: '€€',
