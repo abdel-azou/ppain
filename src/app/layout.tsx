@@ -30,16 +30,16 @@ export const metadata: Metadata = {
     siteName: "Pain Pâtisserie",
     images: [
       {
-        url: "/favicon.svg", // Logo officiel fourni
-        width: 800,
-        height: 400,
-        alt: "Pain Pâtisserie - Logo officiel",
-      },
-      {
-        url: "/photos/webp/comptoir-vueclient.webp", // Image de fallback
+        url: "/photos/webp/comptoir-vueclient.webp",
         width: 1200,
         height: 630,
         alt: "Comptoir Pain Pâtisserie Bruxelles",
+      },
+      {
+        url: "/favicon.svg",
+        width: 800,
+        height: 400,
+        alt: "Pain Pâtisserie - Logo officiel",
       },
     ],
     locale: "fr_BE",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pain Pâtisserie - Boulangerie Artisanale Bruxelles",
     description: "3 boutiques à Bruxelles. Gâteaux personnalisés, entremets d'exception, trompe-l'œil créatifs. Evere | Koekelberg | Molenbeek",
-    images: ["/favicon.svg"], // Logo officiel
+    images: ["/photos/webp/comptoir-vueclient.webp"],
   },
   robots: {
     index: true,
