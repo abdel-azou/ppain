@@ -13,7 +13,7 @@ const LocalBusinessSchema = () => {
     "priceRange": "€€",
     "paymentAccepted": ["Cash", "Credit Card", "Bancontact"],
     "currenciesAccepted": "EUR",
-    "openingHours": ["Mo-Fr 07:00-19:00", "Sa 07:00-18:00", "Su 08:00-17:00"],
+    "openingHours": ["Mo 06:00-20:00", "We-Su 06:00-20:00"],
     "servesCuisine": ["Belgian", "French", "European"],
     "serviceArea": {
       "@type": "GeoCircle",
