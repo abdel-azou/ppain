@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, MessageCircle, Phone } from 'lucide-react';
 import './EventsFAQ.css';
 
 interface FAQItem {
@@ -163,14 +163,14 @@ const EventsFAQ: React.FC = () => {
                             target="_blank" 
                             rel="noopener noreferrer"
                         >
-                            <span className="btn-icon">💬</span>
+                            <MessageCircle size={18} aria-hidden />
                             WhatsApp
                         </a>
                         <a 
                             href="tel:+32472250578" 
                             className="contact-btn phone-btn"
                         >
-                            <span className="btn-icon">📞</span>
+                            <Phone size={18} aria-hidden />
                             0472 25 05 78
                         </a>
                         <a 

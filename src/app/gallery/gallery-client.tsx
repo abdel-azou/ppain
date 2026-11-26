@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import Image from 'next/image';
+import { LayoutGrid, Store, ChefHat, Sun, UtensilsCrossed, CakeSlice, Sparkles, Award, Star, ChevronLeft, ChevronRight, type LucideIcon } from 'lucide-react';
 import './Gallery.css';
 
 // --- Interfaces ---
@@ -27,6 +28,18 @@ interface GalleryClientProps {
     galleryItems: GalleryItem[];
     categories: Category[];
 }
+
+const CATEGORY_ICON_MAP: Record<string, LucideIcon> = {
+    'all': LayoutGrid,
+    'ambiance': Store,
+    'pain-boulangerie': ChefHat,
+    'petit-dejeuner': Sun,
+    'restauration-salee': UtensilsCrossed,
+    'entremets': CakeSlice,
+    'petites-douceurs': Sparkles,
+    'specialites': Award,
+    'gateaux': CakeSlice,
+};
 
 // --- Composant Client pour la Galerie ---
 const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories }) => {
@@ -193,23 +206,13 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                                <span className="filter-emoji">
-                                    {category.id === 'all' && '🎯'}
-                                    {category.id === 'ambiance' && '🏪'}
-                                    {category.id === 'pain-boulangerie' && '🥖'}
-                                    {category.id === 'petit-dejeuner' && '☀️'}
-                                    {category.id === 'restauration-salee' && '🥪'}
-                                    {category.id === 'entremets' && '🍰'}
-                                    {category.id === 'petites-douceurs' && '🧁'}
-                                    {category.id === 'specialites' && '🎭'}
-                                    {category.id === 'gateaux' && '🎂'}
-                                </span>
+                                {(() => { const Icon = CATEGORY_ICON_MAP[category.id]; return Icon ? <Icon size={15} className="filter-icon" aria-hidden /> : null; })()}
                                 {category.label}
                             </motion.button>
                         ))}
                     </div>
                     <p className="filter-scroll-hint">
-                        👈 Glissez pour voir toutes les catégories 👉
+                        <ChevronLeft size={13} aria-hidden /> Glissez pour voir toutes les catégories <ChevronRight size={13} aria-hidden />
                     </p>
                 </motion.div>
 
@@ -271,7 +274,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ galleryItems, categories 
                                                         repeatDelay: 3
                                                     }}
                                                 >
-                                                    ⭐
+                                                    <Star size={16} fill="currentColor" aria-hidden />
                                                 </motion.div>
                                             )}
                                         </div>

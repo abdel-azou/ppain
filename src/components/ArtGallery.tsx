@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Palette, Trophy, Heart } from 'lucide-react';
 import Image from 'next/image';
 import './ArtGallery.css';
 
@@ -139,17 +140,17 @@ const ArtGallery = () => {
         >
           <div className="values-grid">
             <div className="value-item">
-              <div className="value-icon">🎨</div>
+              <div className="value-icon"><Palette size={28} aria-hidden /></div>
               <h3>Créativité</h3>
               <p>Chaque création est une œuvre d&apos;art unique, pensée et réalisée avec passion</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">🏆</div>
+              <div className="value-icon"><Trophy size={28} aria-hidden /></div>
               <h3>Excellence</h3>
               <p>Nous sélectionnons les meilleurs ingrédients pour des résultats exceptionnels</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">❤️</div>
+              <div className="value-icon"><Heart size={28} aria-hidden /></div>
               <h3>Émotion</h3>
               <p>Au-delà du goût, nous créons des moments de bonheur et de partage</p>
             </div>
