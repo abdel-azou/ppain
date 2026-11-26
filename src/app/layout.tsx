@@ -70,8 +70,8 @@ export const metadata: Metadata = {
   other: {
     'geo.region': 'BE-BRU',
     'geo.placename': 'Bruxelles',
-    'geo.position': '50.8798;4.7005', // Coordonnées centrales Bruxelles
-    'ICBM': '50.8798, 4.7005',
+    'geo.position': '50.8587;4.4085',
+    'ICBM': '50.8587, 4.4085',
     'DC.title': 'Pain Pâtisserie - Boulangerie Artisanale Bruxelles',
   },
 };

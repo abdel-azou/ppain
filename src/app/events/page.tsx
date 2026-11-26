@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import EventsClient from './events-client';
 import EventsFAQ from '../../components/EventsFAQ';
+import { CakeSlice, MessageCircle, Phone } from 'lucide-react';
 import './Events.css';
 
 // --- Data des événements ---
@@ -336,15 +337,15 @@ const realizedEvents = [
 ];
 
 const eventCategories = [
-    { id: 'all', label: 'Tous les événements', icon: '✨' },
-    { id: 'mariage', label: 'Mariages', icon: '💍' },
-    { id: 'anniversaire', label: 'Anniversaires', icon: '🎂' },
-    { id: 'entreprise', label: 'Entreprise', icon: '🏢' },
-    { id: 'enfant', label: 'Fêtes d\'enfants', icon: '🎈' },
-    { id: 'celebration', label: 'Célébrations', icon: '🎊' },
-    { id: 'reception', label: 'Réceptions', icon: '🥂' },
-    { id: 'saison', label: 'Saisonniers', icon: '🎪' },
-    { id: 'buffet', label: 'Buffets', icon: '🍽️' }
+    { id: 'all', label: 'Tous les événements', icon: 'Sparkles' },
+    { id: 'mariage', label: 'Mariages', icon: 'Heart' },
+    { id: 'anniversaire', label: 'Anniversaires', icon: 'CakeSlice' },
+    { id: 'entreprise', label: 'Entreprise', icon: 'Building2' },
+    { id: 'enfant', label: 'Fêtes d\'enfants', icon: 'Star' },
+    { id: 'celebration', label: 'Célébrations', icon: 'Award' },
+    { id: 'reception', label: 'Réceptions', icon: 'Wine' },
+    { id: 'saison', label: 'Saisonniers', icon: 'Leaf' },
+    { id: 'buffet', label: 'Buffets', icon: 'UtensilsCrossed' }
 ];
 
 const services = [
@@ -352,28 +353,28 @@ const services = [
         id: 1,
         title: 'Consultation Personnalisée',
         description: 'Nos collaborateurs vendeurs vous accompagnent pour définir ensemble votre projet. En magasin, par téléphone ou via WhatsApp.',
-        icon: '💭',
+        icon: 'MessageSquare',
         features: ['Consultation en magasin', 'Conseils par téléphone', 'Échanges via WhatsApp', 'Devis personnalisé']
     },
     {
         id: 2,
         title: 'Création Sur Mesure',
         description: 'Chaque création est unique. Nos pâtissiers donnent vie à vos idées avec notre savoir-faire artisanal et notre créativité.',
-        icon: '🎨',
+        icon: 'Palette',
         features: ['Design personnalisé', 'Saveurs au choix', 'Décoration unique', 'Respect de vos goûts']
     },
     {
         id: 3,
         title: 'Service Traiteur',
         description: 'Au-delà du gâteau principal, nous proposons un service complet : mignardises, buffets sucrés et salés pour une expérience gustative complète.',
-        icon: '🍽️',
+        icon: 'UtensilsCrossed',
         features: ['Buffets complets', 'Mignardises assorties', 'Plateaux variés', 'Présentation soignée']
     },
     {
         id: 4,
         title: 'Retrait en Magasin',
         description: 'Venez récupérer vos créations directement en boutique. Nos équipes s\'occupent de l\'emballage soigné et vous donnent tous les conseils.',
-        icon: '🏪',
+        icon: 'Store',
         features: ['Retrait en boutique', 'Emballage soigné', 'Conseils de transport', 'Flexibilité horaires']
     }
 ];
@@ -381,7 +382,7 @@ const services = [
 // --- SEO Metadata ---
 export const metadata: Metadata = {
     title: "Gâteau Mariage & Événements | Pâtissier Traiteur Evere Bruxelles | Pièce Montée Sur Mesure",
-    description: "🎂 Pâtissier événementiel à Evere-Bruxelles : gâteaux de mariage, pièces montées, anniversaires, baptêmes, communions. Plateaux de mignardises, créations sur mesure. Pâtisserie française traditionnelle, retrait en boutique, délais courts. Devis gratuit !",
+    description: "Pâtissier événementiel à Evere-Bruxelles : gâteaux de mariage, pièces montées, anniversaires, baptêmes, communions. Plateaux de mignardises, créations sur mesure. Pâtisserie française traditionnelle, retrait en boutique, délais courts. Devis gratuit !",
     keywords: [
         // Mots-clés principaux mariage
         'gâteau mariage Evere', 'pièce montée mariage Bruxelles', 'wedding cake Evere', 'gâteau de mariage sur mesure',
@@ -417,7 +418,7 @@ export const metadata: Metadata = {
         'pâtissier mariage recommandé Bruxelles', 'spécialiste gâteau événement'
     ].join(', '),
     openGraph: {
-        title: "🎂 Gâteau Mariage & Événements | Pâtissier Evere-Bruxelles",
+        title: "Gâteau Mariage & Événements | Pâtissier Evere-Bruxelles",
         description: "Pâtissier spécialisé événements : mariages, anniversaires, entreprise. Créations sur mesure, service traiteur, livraison Bruxelles. Devis gratuit !",
         images: [
             { url: '/photos/webp/event-numbercake_baguedemariage.webp', alt: 'Gâteau de mariage avec number cake' },
@@ -644,7 +645,7 @@ export default function EventsPage() {
                         </div>
                         
                         <div className="seo-content-block cta-block">
-                            <h3>🎂 Prêt à Créer Votre Gâteau de Rêve ?</h3>
+                            <h3><CakeSlice size={20} style={{display:'inline',verticalAlign:'middle',marginRight:'0.4em'}} />Prêt à Créer Votre Gâteau de Rêve ?</h3>
                             <p>
                                 Chaque événement mérite une création unique. <strong>Contactez-nous dès maintenant</strong> pour discuter de votre projet 
                                 et recevoir votre <strong>devis personnalisé gratuit</strong>. Notre équipe de pâtissiers passionnés vous accompagne 
@@ -657,13 +658,13 @@ export default function EventsPage() {
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                 >
-                                    💬 WhatsApp - Réponse Rapide
+                                    <MessageCircle size={18} style={{display:'inline',verticalAlign:'middle',marginRight:'0.4em'}} />WhatsApp - Réponse Rapide
                                 </a>
                                 <a 
                                     href="tel:+32472250578" 
                                     className="cta-btn-secondary"
                                 >
-                                    📞 0472 25 05 78
+                                    <Phone size={18} style={{display:'inline',verticalAlign:'middle',marginRight:'0.4em'}} />0472 25 05 78
                                 </a>
                             </div>
                         </div>

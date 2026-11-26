@@ -363,11 +363,11 @@ export default function GalleryPage() {
             }
         ],
         telephone: '+32 472 25 05 78',
-        image: galleryItems.map(item => `https://www.votredomaine.be${item.image}`),
+        image: galleryItems.map(item => `https://pain-patisserie.be${item.image}`),
         servesCuisine: 'Pâtisserie, Boulangerie, Traiteur',
         priceRange: '€€',
         description: metadata.description as string,
-        url: 'https://www.votredomaine.be/gallery'
+        url: 'https://pain-patisserie.be/gallery'
     };
 
     return (

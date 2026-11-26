@@ -17,12 +17,9 @@ const LogoSchema = () => {
     "image": [
       "https://pain-patisserie.be/favicon.svg"
     ],
-    "sameAs": [
-      "https://pain-patisserie.be"
-    ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+32-2-XXX-XXXX",
+      "telephone": "+32472250578",
       "contactType": "customer service",
       "areaServed": "BE",
       "availableLanguage": ["French", "Dutch"]
@@ -30,15 +27,15 @@ const LogoSchema = () => {
     "address": [
       {
         "@type": "PostalAddress",
-        "streetAddress": "Avenue des Tilleuls",
+        "streetAddress": "Chaussée de Louvain 906",
         "addressLocality": "Evere",
         "addressRegion": "Bruxelles-Capitale",
         "postalCode": "1140",
         "addressCountry": "BE"
       },
       {
-        "@type": "PostalAddress", 
-        "streetAddress": "Rue de la Paroisse",
+        "@type": "PostalAddress",
+        "streetAddress": "Rue Émile Sergijsels 34",
         "addressLocality": "Koekelberg",
         "addressRegion": "Bruxelles-Capitale",
         "postalCode": "1081",
@@ -46,12 +43,18 @@ const LogoSchema = () => {
       },
       {
         "@type": "PostalAddress",
-        "streetAddress": "Chaussée de Gand",
+        "streetAddress": "Chaussée de Gand 402",
         "addressLocality": "Molenbeek-Saint-Jean",
-        "addressRegion": "Bruxelles-Capitale", 
+        "addressRegion": "Bruxelles-Capitale",
         "postalCode": "1080",
         "addressCountry": "BE"
       }
+    ],
+    "sameAs": [
+      "https://pain-patisserie.be",
+      "https://www.facebook.com/share/16oudhygiy/",
+      "https://www.instagram.com/painpatisserie",
+      "https://www.tiktok.com/@painpatisserie"
     ]
   };
 

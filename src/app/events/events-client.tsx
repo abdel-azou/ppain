@@ -4,16 +4,34 @@ import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-    Calendar, 
-    Phone, 
+import {
+    Calendar,
+    Phone,
     ArrowRight,
     CheckCircle,
     Star,
     MapPin,
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    Search,
+    Sparkles,
+    Heart,
+    CakeSlice,
+    Building2,
+    Award,
+    Wine,
+    Leaf,
+    UtensilsCrossed,
+    MessageSquare,
+    Palette,
+    Store,
+    type LucideIcon
 } from 'lucide-react';
+
+const ICON_MAP: Record<string, LucideIcon> = {
+    Sparkles, Heart, CakeSlice, Building2, Star, Award, Wine, Leaf, UtensilsCrossed,
+    MessageSquare, Palette, Store, Calendar, Phone, Search,
+};
 import './Events.css';
 
 // --- Interfaces ---
@@ -267,7 +285,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                                 onClick={() => setActiveCategory(category.id)}
                                 className={`filter-button ${activeCategory === category.id ? 'active' : ''}`}
                             >
-                                <span className="category-icon">{category.icon}</span>
+                                {(() => { const Icon = ICON_MAP[category.icon]; return Icon ? <Icon size={16} className="category-icon" /> : null; })()}
                                 {category.label}
                             </button>
                         ))}
@@ -374,7 +392,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                             >
                                 <div className="service-icon">
-                                    <span className="service-icon-large">{service.icon}</span>
+                                    {(() => { const Icon = ICON_MAP[service.icon]; return Icon ? <Icon size={32} className="service-icon-large" /> : null; })()}
                                 </div>
                                 <h3>{service.title}</h3>
                                 <p>{service.description}</p>
@@ -434,7 +452,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                                             priority={index < 6}
                                         />
                                         <div className="image-overlay">
-                                            <span className="zoom-icon">🔍</span>
+                                            <Search size={20} className="zoom-icon" />
                                         </div>
                                     </div>
                                     <div className="carousel-content">
