@@ -11,7 +11,7 @@ const lusitana = Lusitana({
 
 export const metadata: Metadata = {
   title: 'Histoire & Savoir-faire | Pâtisserie Artisanale Bruxelles',
-  description: "Découvrez l'histoire de Pain Pâtisserie, notre passion pour la boulangerie et pâtisserie artisanale, et l'art du trompe-l'œil. 3 boutiques à Bruxelles : Evere, Koekelberg, Molenbeek. Tradition familiale et innovation pâtissière depuis des générations.",
+  description: "Histoire de Pain Pâtisserie : passion artisanale dans 3 boutiques à Bruxelles (Evere, Koekelberg, Molenbeek). Trompe-l'œil, entremets sur mesure, tradition familiale.",
   keywords: [
     'histoire boulangerie Bruxelles', 
     'artisan pâtissier Evere Koekelberg Molenbeek', 
@@ -27,7 +27,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Notre Histoire - Pain Pâtisserie Artisanale Bruxelles',
     description: 'Tradition, passion et savoir-faire artisanal dans nos 3 boutiques à Bruxelles.',
-    images: ['/photos/webp/comptoir-vueclient.webp'],
+    images: [{
+      url: '/photos/webp/comptoir-vueclient.webp',
+      width: 1200,
+      height: 630,
+      alt: 'Comptoir Pain Pâtisserie Bruxelles - boutique artisanale',
+    }],
   },
   alternates: {
     canonical: 'https://pain-patisserie.be/about',
