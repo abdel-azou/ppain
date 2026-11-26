@@ -317,13 +317,18 @@ const categories = [
 
 // --- SEO Metadata (Server Component) ---
 export const metadata: Metadata = {
-    title: "Boulangerie Pâtisserie Bruxelles | Evere Koekelberg Molenbeek",
-    description: "Découvrez notre savoir-faire artisanal dans nos 3 boutiques à Bruxelles : Evere (Chaussée de Louvain 906), Koekelberg (Rue Émile Sergijsels 34), Molenbeek (Chaussée de Gand 402). Entremets d'exception, pain frais quotidien, pâtisseries trompe-l'œil.",
+    title: "Nos Créations Artisanales | Pâtisserie Bruxelles",
+    description: "Galerie de nos créations artisanales : entremets, pain frais, trompe-l'œil et viennoiseries. 3 boutiques à Bruxelles — Evere, Koekelberg, Molenbeek.",
     keywords: ['boulangerie Evere', 'pâtisserie Koekelberg', 'boulangerie Molenbeek', 'entremets d\'exception Bruxelles', 'pain frais Bruxelles', '3 boutiques pâtisserie', 'Chaussée de Louvain 906', 'Rue Émile Sergijsels 34', 'Chaussée de Gand 402', 'praline monte-cristo forêt noire', 'trompe-l\'œil pâtisserie', 'mignardises événements', 'viennoiserie artisanale', ...new Set(galleryItems.flatMap(item => item.tags || []))].join(', '),
     openGraph: {
         title: "Galerie Gourmande | 3 Boutiques Boulangerie Pâtisserie Artisanale Bruxelles",
         description: "Explorez notre savoir-faire dans 3 boutiques : entremets d'exception, pain frais, pâtisseries créatives à Evere, Koekelberg et Molenbeek.",
-        images: [ { url: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp' } ]
+        images: [{
+            url: '/photos/webp/entremet-paraline_montecristo_foretnoire.webp',
+            width: 1200,
+            height: 630,
+            alt: 'Entremets artisanaux Pain Pâtisserie Bruxelles - praline, monte-cristo, forêt noire',
+        }]
     },
     alternates: {
         canonical: 'https://pain-patisserie.be/gallery',
