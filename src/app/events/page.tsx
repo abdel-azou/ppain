@@ -414,7 +414,7 @@ export const metadata: Metadata = {
         
         // Recherches longue traîne
         'où commander gâteau mariage Bruxelles', 'meilleur pâtissier événement Evere',
-        'prix pièce montée mariage', 'gâteau mariage pas cher Bruxelles', 'délai commande gâteau',
+        'délai commande gâteau', 'commande gâteau mariage Bruxelles',
         'pâtissier mariage recommandé Bruxelles', 'spécialiste gâteau événement'
     ].join(', '),
     openGraph: {
