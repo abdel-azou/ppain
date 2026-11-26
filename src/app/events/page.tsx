@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import EventsClient from './events-client';
 import EventsFAQ from '../../components/EventsFAQ';
+import { faqData } from '../../data/faq-data';
 import { CakeSlice, MessageCircle, Phone } from 'lucide-react';
 import './Events.css';
 
@@ -459,6 +460,19 @@ export const metadata: Metadata = {
 
 // --- Page Component ---
 export default function EventsPage() {
+    const faqJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqData.map(faq => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer
+            }
+        }))
+    };
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -578,6 +592,10 @@ export default function EventsPage() {
 
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -77,13 +77,6 @@ const LocalBusinessSchema = () => {
         }
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "150",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "image": [
       "https://pain-patisserie.be/photos/webp/comptoir-vueclient.webp",
       "https://pain-patisserie.be/photos/webp/entremet-paraline_montecristo_foretnoire.webp",
