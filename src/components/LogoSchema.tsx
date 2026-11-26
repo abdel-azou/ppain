@@ -54,7 +54,9 @@ const LogoSchema = () => {
       "https://www.facebook.com/share/16oudhygiy/",
       "https://www.instagram.com/painpatisserie",
       "https://www.tiktok.com/@painpatisserie",
-      "https://maps.app.goo.gl/ojPWAFZgCKmT4U2m9"
+      "https://maps.app.goo.gl/ojPWAFZgCKmT4U2m9",
+      "https://maps.app.goo.gl/rvxiNZbKrBnYpDYYA",
+      "https://maps.app.goo.gl/5wvG5Acgs9ZAa41W9"
     ]
   };
 
