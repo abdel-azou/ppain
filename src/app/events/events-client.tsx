@@ -25,6 +25,7 @@ import {
     MessageSquare,
     Palette,
     Store,
+    ArrowDown,
     type LucideIcon
 } from 'lucide-react';
 
@@ -298,7 +299,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ eventItems, categories, ser
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.5, duration: 0.8 }}
                     >
-                        <p>⬇️ Faites défiler pour découvrir nos créations</p>
+                        <p><ArrowDown size={16} aria-hidden /> Faites défiler pour découvrir nos créations</p>
                     </motion.div>
 
                     {/* Conteneur Stacking Cards */}
