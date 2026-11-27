@@ -90,6 +90,13 @@ const LocalBusinessSchema = () => {
       "https://maps.app.goo.gl/rvxiNZbKrBnYpDYYA",
       "https://maps.app.goo.gl/5wvG5Acgs9ZAa41W9"
     ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "956",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Produits Pain Pâtisserie",

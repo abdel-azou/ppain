@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/photos/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
     ],
     // Configuration pour les performances
     minimumCacheTTL: 31536000, // 1 an

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowRight, MapPin, Navigation, CheckCircle2, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 
 import ArtGallery from '@/components/ArtGallery';
+import Testimonials from '@/components/Testimonials';
 import './Home.css';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCarousel } from '@/hooks/useCarousel';
@@ -241,6 +242,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<Testimonials />
 
 			<section className="content-section bg-cream">
 				<div className="content-container location-grid">
